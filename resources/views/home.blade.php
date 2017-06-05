@@ -63,8 +63,10 @@ Schema::create('users', function (Blueprint $table) {
         <h3>Github</h3>
         <p>Guthub Commands</p>
         <p>git clone git@github.com:lopeaa/prototypes.git OR git@github.com:lopeaa/Certificate-Authority.git</p>
+        <p>git status</p>
         <p>git add . OR git add -A</p>
-        <p>git commit </p>
+        <p>git commit -m "comment"</p>
+        <p>git push</p>
       </div>
       
       <!-- #################################################################### -->
