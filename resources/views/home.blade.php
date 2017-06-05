@@ -12,7 +12,7 @@
     			<li><a data-toggle="pill" href="#bcapi">BlueCoat API Client </a></li>
     			<li><a data-toggle="pill" href="#2falatch">2FA + Latch</a></li>
     			<li><a data-toggle="pill" href="#py">Python Scripts</a></li>
-          <li><a data-toggle="pill" href="#py">Github</a></li>
+          <li><a data-toggle="pill" href="#git">Github</a></li>
     			<li><a data-toggle="pill" href="#le">Let's Encrypt Web App</a></li>
   		</ul>
     	<div class="tab-content">
@@ -26,9 +26,10 @@
 
 			<p><strong>Log in with 'Username' instead of 'email' in Laravel Framework.</strong></p>
 				<p>In order to log in with 'username' instead of 'email' field, you have to include the field
-				 'username' in the database fist like this:
-				 Edit database/migrations/*_create_users_table.php and include these fields:
-				 <code>$table->string('username', 60);</code>
+				 'username' in the database fist like this:</br>
+				 Edit database/migrations/*_create_users_table.php and include these fields:</br>
+				 <code>$table->string('username', 60);</code></br>
+         <pre>
 Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
@@ -59,14 +60,17 @@ Schema::create('users', function (Blueprint $table) {
     	</div>
     	
     	<!-- #################################################################### -->
-       <div id="py" class="tab-pane fade">
-        <h3>Github</h3>
-        <p>Guthub Commands</p>
-        <p>git clone git@github.com:lopeaa/prototypes.git OR git@github.com:lopeaa/Certificate-Authority.git</p>
-        <p>git status</p>
-        <p>git add . OR git add -A</p>
-        <p>git commit -m "comment"</p>
-        <p>git push</p>
+       <div id="git" class="tab-pane fade">
+        <H3>Github Commands</H3>
+        <H4 class="text-info">Clone and Update repos:</H4>
+        <code>git clone git@github.com:lopeaa/prototypes.git OR git@github.com:lopeaa/Certificate-Authority.git</code></br>
+        <code>git status</code></br>
+        <code>git add . OR git add -A</code></br>
+        <code>git commit -m "comment"</code></br>
+        <code>git push</code></br>
+        <H3>Credencials Caching:</H3>
+        <code>git config --global credential.helper cache</code></br>
+        <code>git config --global credential.helper 'cache --timeout=3600'</code></br>
       </div>
       
       <!-- #################################################################### -->
