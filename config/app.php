@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => '&#128128; Prototypes',
+    'name' => 'Prototypes',
 
     /*
     |--------------------------------------------------------------------------
