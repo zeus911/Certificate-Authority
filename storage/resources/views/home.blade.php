@@ -22,7 +22,7 @@
       	<h3>Certificate Authority</h3>
       	<p>Management WebApp for Certificate Authority.</p>
       		<p>URL: <a href="https://ca.liquabit.com"><span class=""></span>ca.liquabit.com</a></p>
-          <p>Github: <a href="https://github.com/lopeaa/prototypes.git"><span class=""></span>Prototypes Source</a></p>
+          <p>Latest archive: <a href=""><span class=""></span>Prototypes-2017531-19:47:50.tgz</a></p>
 
 			<p><strong>Log in with 'Username' instead of 'email' in Laravel Framework.</strong></p>
 				<p>In order to log in with 'username' instead of 'email' field, you have to include the field
