@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Prototypes') }}</title>
 
     <!-- .ico -->
-    <link rel="icon" href="{{URL::asset('.ico') }}"/>
+    <link rel="icon" href="{{URL::asset('favicon.ico') }}"/>
 
 
     <!-- Styles -->
