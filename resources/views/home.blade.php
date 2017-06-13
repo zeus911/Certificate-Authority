@@ -25,7 +25,7 @@
 
 			<p><strong>Log in with 'Username' instead of 'email' in Laravel Framework.</strong></p>
 				<p>In order to log in with 'username' instead of 'email' field, you have to include the field
-				 'username' in the database fist like this:</br>
+				 'username' in the database first like this:</br>
 				 Edit database/migrations/*_create_users_table.php and include these fields:</br>
 				 <code>$table->string('username', 60);</code></br>
          <pre>
