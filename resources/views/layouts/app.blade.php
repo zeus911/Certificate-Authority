@@ -41,7 +41,7 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
                     <!-- <div class="container"><img src="{{URL::asset('/img/logo_tragsa.gif')}}" alt="TRAGSA CA - Home"> -->
-                        <!-- {{ config('app.name', '') }} --> 
+                        <!-- {{ config('app.name', 'Certificate Authority') }} --> 
                     </a>
                 </div>
 
