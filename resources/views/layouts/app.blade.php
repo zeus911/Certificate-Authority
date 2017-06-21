@@ -41,7 +41,7 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
                     <!-- <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT - Home"> -->
-                        {{ config('app.name', '&#128128') }}
+                        {{ config('app.name', 'Certificate Authority') }}
                     </a>
                 </div>
 
