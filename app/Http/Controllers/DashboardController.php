@@ -76,7 +76,16 @@ class DashboardController extends Controller
       //dd($extensions);
       //$nsCertType = $extensions['nsCertType'];
       $keyUsage = $extensions['keyUsage'];
-      $extendedKeyUsage = $extensions['extendedKeyUsage'];
+
+      // Do not show if certificate dows not have extendedKeyUsage.
+      if (empty($extensions['extendedKeyUsage']))
+      {
+      	$extendedKeyUsage = "Not Available";
+
+      } else {
+
+      	$extendedKeyUsage = $extensions['extendedKeyUsage'];
+      }
 
       // When just CSR/private is created to be signed by an external CA, there is no certificate so I can´t get the data from it.
       if($certprint == 'Do not apply'){

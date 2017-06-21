@@ -15,21 +15,21 @@
     {{ Form::open(['url' => 'certs/created', 'method' => 'post']) }}
     
     {{ Form::label('certificate CN: ', 'Certificate CN(s): ', ['class' => '']) }}
-    <input type="text" class="form-control input-lg" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="  Example: cn.domain.com, cn2.domain.com">
+    <input type="text" class="form-control input-lg" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="  Example: cn1.domain.com, cn2.domain.com">
     @if($errors->has('cn'))
         {{ $errors->first('cn') }} 
     @endif
     <br />
     </br>
     {{ Form::label('certificate type: ', 'Certificate Type: ', ['class' => '']) }}
-    {{ Form::select('certificate_type', ['WebserverTLS' => 'SSL/TLS Server', 'ClienID' => 'Client ID', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
+    {{ Form::select('certificate_type', ['WebserverTLS' => 'SSL/TLS Server', 'ClientID' => 'Client ID', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
         @if($errors->has('certificate_type'))
         {{ $errors->first('certificate_type') }} 
     @endif
     <br />
     </br>
     {{ Form::label('signature algorithm: ', 'Signature Algorithm: ', ['class' => '']) }}
-    {{ Form::select('digest_alg', ['sha256' => 'sha256', 'sha384' => 'sha384', 'sha512' => 'sha512'], null, ['placeholder' => 'Select Hash Algorithm', 'class' => 'form-control' ]) }}
+    {{ Form::select('digest_alg', ['sha256' => 'sha256', 'sha384 ' => 'sha384 - Not implemented', 'sha512' => 'sha512 - Not implemented'], null, ['placeholder' => 'Select Hash Algorithm', 'class' => 'form-control' ]) }}
         @if($errors->has('digest_alg'))
         {{ $errors->first('digest_alg') }} 
     @endif     

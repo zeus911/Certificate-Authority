@@ -33,7 +33,7 @@
             </thead>
             <tbody>
                 <tr>
-                  <td>{{ $archive }}</td>
+                  <td>{{ $archives }}</td>
                   <td>signed_by</td>
                   <td>timestamp</td>
                   <td>$cert->created_at</td>

@@ -47,10 +47,8 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title"><strong>Error signing the request for: {{ $cn }}</div>
+                <div class="title"><strong>Error signing the request. }}</div>
                 <div class='data'>
-                <p>Help info:</p>
-                {{ $cn }}
                 <p>  {{ link_to(URL::previous(), 'Go Back', ['class' => 'btn btn-primary btn-lg']) }} </p>
                                     
                 </div>

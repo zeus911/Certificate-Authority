@@ -38,7 +38,7 @@ class SignerController extends Controller
 
         // Variables to exec jarsigner.
 		$keystore = "/opt/keystore/symantec_cs.jks";
-		$keystorealias = "grupotragsacs";
+		$keystorealias = "tragsa";
 		$tsaurl = "http://sha256timestamp.ws.symantec.com/sha256/timestamp"; // Timestamp Server used by Symantec. 
 
         $jarsigner = shell_exec("jarsigner -tsa $tsaurl -keystore $keystore -storepass 13Safter -signedjar $storagePath/$jar_name.signed $jar_uploaded $keystorealias 2>&1");
@@ -121,17 +121,12 @@ class SignerController extends Controller
    public function search()
    {
 
-   	$archives = File::allFiles(storage_path());
-   	//dd($archives);
+    $archives = File::files(storage_path());
 
-   	foreach($archives as $archive)
-   	{
-   		$filename = $archive::filename();
-   		echo(string)$filename, "\n";
-
-		return view('signer.search', array('archive' => $filename));
-   	}
-   }
+      return View('signer.search', array(
+        'archives' => $archives ));
+   } 
+     
    public function results(Request $request)
    {
 

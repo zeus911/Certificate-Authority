@@ -54,20 +54,48 @@ class ConverterController extends Controller
 
             // Certificate parser (SubjectName...)
             $subject = openssl_x509_parse($certprint, true);
-            //dd($subject['subject']['CN']);
             $cn = $subject['subject']['CN'];
 
             // P12 storage path.
             $p12 = storage_path($cn . '.p12');
 
+            // CACert storage path.
+            //$cacert = file(storage_path('cert.ca.cer'));
+
+            $cacert = array('-----BEGIN CERTIFICATE-----
+MIID+jCCAuKgAwIBAgIDAnEAMA0GCSqGSIb3DQEBCwUAMG0xCzAJBgNVBAYTAkVT
+MQ8wDQYDVQQIDAZNYWRyaWQxDzANBgNVBAcMBk1hZHJpZDEPMA0GA1UECgwGVFJB
+R1NBMRQwEgYDVQQLDAtUUkFHU0EgQ0EgMTEVMBMGA1UEAwwMVFJBR1NBIENBIEcy
+MB4XDTE2MDIwOTE1NTMxN1oXDTQxMDIwMjE1NTMxN1owbTELMAkGA1UEBhMCRVMx
+DzANBgNVBAgMBk1hZHJpZDEPMA0GA1UEBwwGTWFkcmlkMQ8wDQYDVQQKDAZUUkFH
+U0ExFDASBgNVBAsMC1RSQUdTQSBDQSAxMRUwEwYDVQQDDAxUUkFHU0EgQ0EgRzIw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQChNJLS56VTKsXuOriEe4m8
+2Wwc2PMZQ+tLlKbajZerqpXsziXZxsere18XqUEldeWyzZM68WWB0PbNPji5EgnL
+69leMpeCX5imB3Bsh/wVxdhQBJFUOlANGAkq5fG9MxzLBTAz/UjBMhMtr0XU00fd
+vSir3iWxl2v3ztW0/TZqR1S27Fivqp9ihq7XV4SXYOqyBsZtEuPSqtPQf8i0FP8j
+mzmGzO5tzsGsi5UFhrFPFFV537AuTFgzlylIQdWRMFSkrC3UEKsl5ubkcA3rv79G
+DYxzP/Brw84nFGzuS/LqGxOs+S45dsthW6wp7x11iLdtFbbmDBUqZFC/CqJdNjSJ
+AgMBAAGjgaIwgZ8wHQYDVR0OBBYEFK5n9AgxrpbXgOPNbQZfZbftBKH8MB8GA1Ud
+IwQYMBaAFK5n9AgxrpbXgOPNbQZfZbftBKH8MAwGA1UdEwQFMAMBAf8wCwYDVR0P
+BAQDAgEGMBEGCWCGSAGG+EIBAQQEAwIBBjAvBgNVHR8EKDAmMCSgIqAghh5odHRw
+Oi8vd3d3LnRyYWdzYS5lcy9jYS1nMi5jcmwwDQYJKoZIhvcNAQELBQADggEBACvi
+tBYsdkV9lWNygKOn1cCsg+KLjU7/BTszhZ6KvQLBmwOMc8mU/MpWtolCMxyPp4nu
+2B5qZfq1F8zVvs+j23XHE2a5HWZLob3msrbT0o4njh7oPk3i1iqwD4UVX7NQf7l9
+uyVtOECgjy0WypPGv7/LLcSDhyNvCCRd1lYC4HWemomQip4nwxmMFYVCyomqHotq
+XVAH0WcZMUGzQkYSCGlQUVJM8FcfDoZjB11jJPUIM+Kz0hwAaabUrPQVieJLAooc
+XlRXg40mdjehEK9dwNMnD2YGGP4vpeyY3/72FJ+RxWwr1yF3p5cmLdY1LIdGBiIf
+TXoKcfB8UFRI5KBGbyw=
+-----END CERTIFICATE-----
+');
+            
             // Arguments to pass to the P12 archive.
             $p12args = array (
-                'friendly_name' => $cn,
-                'extracerts' => storage_path('cert.ca.cer')
+              'extracerts' => $cacert,
+                'friendly_name' => $cn
             );
 
             // Export p12 to string to insert in DB.
-            $p12export = openssl_pkcs12_export($certprint, $p12string, $keyprint, $password);
+            $p12export = openssl_pkcs12_export($certprint, $p12string, $keyprint, $password, $p12args);
 
             $p12export_to_file = openssl_pkcs12_export_to_file($certprint, $p12, $keyprint, $password, $p12args);
 
@@ -139,8 +167,11 @@ class ConverterController extends Controller
 
    		$srcstoretype = $request::input('srcstoretype');
    		$password = $request::input('password');
-   		$dstalias = $request::input('dstalias');
    		$p12 = $request::file('p12');
+   		//$srcalias = shell_exec("keytool -v -list -storetype pkcs12 -keystore $p12 2>&1");
+   		//dd($srcalias);
+   		$dstalias = $request::input('dstalias');
+   		//$dstalias = $srcalias;
    		$p12storage = $p12->move($storagePath . '/tmp', $p12 . '.p12');
    	}
 

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CSR Error.</title>
+        <title>Error Creating CSR</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" type="text/css" href="theme.css">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
         <style>
             html, body {
                 height: 100%;
@@ -38,7 +40,6 @@
             .data {
                 font-size: 20px;
                 margin-bottom: 12px;
-                text-align: left;
                 color: #000000;
             }
         </style>
@@ -46,18 +47,11 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Error Creating the CSR.</div>
+                <div class="title"><strong>Error creating CSR.</div>
                 <div class='data'>
-                <p>All this info should be filled up:</p>
                 
-                <p>Common Name:</p>
-                <p>Certificate Type: </p>
-                <p>Signing Algorithm:</p>
-                <p>CSR: 'Received'</p>
-                <p>Private: Status: 'Received'</p>
-                <p>Password: 'Bad password'</p>
-                <p>  {{ link_to(URL::previous(), 'Go Back', ['class' => 'btn btn-info btn-bg']) }} </p>
-                    
+                <p class='text-info'>Probably you didn´t filled up all the data.</p>
+                <p>{{ link_to(URL::previous(), 'Go Back', ['class' => 'btn btn-primary btn-lg']) }}</p>         
                 </div>
             </div>
         </div>

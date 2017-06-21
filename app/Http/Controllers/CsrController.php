@@ -55,7 +55,6 @@ class CsrController extends Controller
                     ));
             }
   
-
         // Data needed to populate the certificate. This should be provided through the 'create' Form.
         $dn = array(
         "countryName" => 'ES',
@@ -98,8 +97,8 @@ class CsrController extends Controller
                 'p12' => $p12 ));
 
         } else {
-            
-            return view('errors.createdCSR');
+
+            return view('errors.csrError');
         }
         
     }
@@ -222,10 +221,7 @@ class CsrController extends Controller
                     ));
 
         	} else {
-
-            	return view ('errors.signError', array(
-                    'cn' => $cn['CN']
-                    ));
+            	return view ('errors.signError');
             }
         }
     } 

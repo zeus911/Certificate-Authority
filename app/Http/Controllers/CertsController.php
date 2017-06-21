@@ -112,7 +112,6 @@ class CertsController extends Controller
         openssl_x509_export($certgen, $certprint);
         //openssl_x509_export_to_file($certprint, $cn . 'crt' );
 
-
             return view('certs.created', array(
                 'cn' => $cn,
                 'certificate_type' => $certificate_type,
@@ -125,7 +124,6 @@ class CertsController extends Controller
                 ));
 
         } else {
-            
             return view('errors.csrError');
         }
         

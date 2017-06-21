@@ -28,7 +28,7 @@
     <br />
     </br>
     {{ Form::label('signature algorithm: ', 'Signature Algorithm: ', ['class' => '']) }}
-    {{ Form::select('digest_alg', ['sha256' => 'sha256', 'sha384' => 'sha384', 'sha512' => 'sha512'], null, ['placeholder' => 'Select Hash...', 'class' => 'form-control' ]) }}
+    {{ Form::select('digest_alg', ['sha256' => 'sha256', 'sha384' => 'sha384 - Not implemented', 'sha512' => 'sha512 - Not implemented'], null, ['placeholder' => 'Select Hash...', 'class' => 'form-control' ]) }}
         @if($errors->has('digest_alg'))
         {{ $errors->first('digest_alg') }} 
     @endif     

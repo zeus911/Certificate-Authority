@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => '&#128128; Certificate Authority',
+    'name' => 'Certificate Authority',
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -162,7 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-        // Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
         'Chumper\Zipper\ZipperServiceProvider',
 
         /*

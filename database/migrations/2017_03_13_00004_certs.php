@@ -18,14 +18,14 @@ class Certs extends Migration
             $table->string('cn')->unique();
             $table->string('certificate_type');
             $table->string('digest_alg');
-            $table->string('key_length');
+            //$table->string('key_length');
             $table->string('serial')->unique();
             $table->binary('csrprint');
             $table->binary('certprint');
             $table->binary('keyprint');
             $table->binary('p12');
-            $table->string('hasp12');  // Has PFX been generated?.
-            $table->string('status'); // Revoked OR not revoked.....that´s the question.
+            //$table->string('hasp12');  // Has PFX been generated?.
+            //$table->string('status'); // Revoked OR not revoked.....that´s the question.
             $table->timestamps();
         });
     }
