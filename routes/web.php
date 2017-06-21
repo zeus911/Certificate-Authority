@@ -37,7 +37,7 @@ Route::post('converter/getKeystore', 'ConverterController@getKeystore');
 Route::get('dashboard/index', 'DashboardController@index');
 Route::post('dashboard/results', 'DashboardController@results');
 Route::post('dashboard/search/', 'DashboardController@search');
-Route::post('dashboard/viewCSR', [ 'as' => 'viewCSR', 'uses' => 'DashboardController@viewCSR']);
+Route::post('dashboard/viewCSR', 'DashboardController@viewCSR');
 Route::post('dashboard/update', 'DashboardController@update');
 Route::post('dashboard/updated', 'DashboardController@updated');
 
