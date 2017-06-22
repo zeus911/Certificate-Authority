@@ -18,29 +18,6 @@ class DashboardController extends Controller
 
         }
 
-/*        $collection = Cert::where('cn', $cn)->get()->first();
-        $certprint = $collection->certprint;
-        $csrprint = $collection->csrprint;
-
-
-        // Parse certificate data.
-        $parse_cert = openssl_x509_parse($certprint);
-        $extensions = $parse_cert['extensions'];
-        $nsCertType = $extensions['nsCertType'];
-        $keyUsage = $extensions['keyUsage'];
-        $extendedKeyUsage = $extensions['extendedKeyUsage'];
-        //dd($parse_cert);
-            if($certprint == 'Do not apply'){
-	      		//return view('dashboard.index');
-	      		$csr_get_subject = openssl_csr_get_subject($csrprint);
-	      		$csr_get_public_key = openssl_csr_get_public_key($csrprint);
-
-	     	} else {
-
-     		$validFrom = date_create( '@' .  $parse_cert['validFrom_time_t'])->format('c');
-     		$validTo = date_create( '@' .  $parse_cert['validTo_time_t'])->format('c');
-     		}
-*/
         return view ('dashboard.index', array(
           'certs' => $certs,
           ));
@@ -54,8 +31,10 @@ class DashboardController extends Controller
       if(isset($_POST['cn']) && !empty($_POST['cn'])) {
 
     	$cn = $_POST['cn'];
+
       // Getting Collection from Certs.
       $certs = Cert::where('cn', $cn)->get()->first();
+
       // Getting data from Collection (DB). 
       $id = $certs->id;
       $csrprint = $certs->csrprint;
@@ -73,7 +52,6 @@ class DashboardController extends Controller
       //$key_length = $parse_cert['key_length']; // create in DB too.
       $serialNumber = $parse_cert['serialNumber'];
       $extensions = $parse_cert['extensions'];
-      //dd($extensions);
       //$nsCertType = $extensions['nsCertType'];
       $keyUsage = $extensions['keyUsage'];
 
@@ -110,6 +88,7 @@ class DashboardController extends Controller
             ));
 
      	} else {
+
         // Check if PFX archive and certificate exist.
         if ($p12 == 'PFX archive not generated. You have to re-generate it again if you renewed the certificate.')
         {

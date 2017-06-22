@@ -62,8 +62,8 @@ class CertsController extends Controller
         "countryName" => 'ES',
         "stateOrProvinceName" => 'Madrid',
         "localityName" => 'Madrid',
-        "organizationName" => 'LIQUABIT',
-        "organizationalUnitName" => 'LIQUABIT CA',
+        "organizationName" => 'Org. Name',
+        "organizationalUnitName" => 'Org. Unit',
         "commonName" => $cn,
         //"emailAddress" => $EMailAdress
         );   
