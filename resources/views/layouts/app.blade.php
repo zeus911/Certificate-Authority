@@ -52,8 +52,8 @@
                         <li class="active"><a href="{{ url('dashboard/index') }}">Dashboard</a></li>
                         <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                <ul class="dropdown-menu forAnimate" role="menu">
+                                    Certificates<span class="caret"></span>
+                                <ul class="dropdown-menu" role="menu">
                                    
                                     <li><a href="{{ url('certs/create') }}">New Certificate</a></li>
                                     <li><a href="csr/create">New CSR & Key</a></li>
