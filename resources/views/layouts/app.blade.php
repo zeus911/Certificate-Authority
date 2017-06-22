@@ -62,6 +62,8 @@
                                     <li class="divider"></li>
                                     <li><a href="{{ url('converter/keystore') }}">Create Keystore</a></li>
                                 </ul>
+                        </li>
+                        <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     JAR Signer<span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu">
@@ -70,7 +72,8 @@
                                     <li><a href="{{ url('converter/p12') }}">List JAR Signed Archives</a></li>
                                     <li class="divider"></li>
                                     <li><a href="{{ url('converter/keystore') }}">More....</a></li>
-                                </ul>                                
+                                </ul>
+                        </li>                             
                         <li class="text-info"><a href="{{ url('csr/sign') }}">Microsoft Authenticode</a></li>
                         <li><a href="{{ url('converter/p12') }}">Root & CRL</a></li>
                         <li class="text-danger"><a href="{{ url('converter/p12') }}">Let's Encrypt Signer</a></li>
