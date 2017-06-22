@@ -76,7 +76,7 @@
                     </div>
                   </div>
                 </nav>
-                <!-- end Nav bar-->
+                <!-- end Nav Bar-->
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
