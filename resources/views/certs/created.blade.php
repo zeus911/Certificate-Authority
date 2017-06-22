@@ -34,6 +34,7 @@
                 <input type="hidden" name="cn" value="{{ $cn }}">
                 <input type="hidden" name="certificate_type" value="{{ $certificate_type }}">
                 <input type="hidden" name="digest_alg" value="{{ $digest_alg }}">
+                <input type="hidden" name="key_length" value="{{ $key_length }}">
                 <input type="hidden" name="serial" value="{{ $serial }}">
                 <input type="hidden" name="csrprint" value="{{ $csrprint }}">
                 <input type="hidden" name="certprint" value="{{ $certprint }}">
