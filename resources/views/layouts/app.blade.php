@@ -40,7 +40,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/dashboad/index') }}">
+                    <a class="navbar-brand" href="{{ url('#') }}">
                     <!-- <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT - Home"> -->
                         {{ config('app.name', 'Certificate Authority') }}
                     </a>
@@ -51,16 +51,16 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{ url('dashboard/index') }}">Dashboard</a></li>
                         <li class="dropdown">
-                            <a href="{{ url('certs/create') }}">Certificates
+                            <a href="{{ url('#') }}">Certificates
                                 <ul class="dropdown-menu forAnimate" role="menu">
                                    
-                                    <li><a href="{{URL::to('createusuario')}}">Crear</a></li>
-                                    <li><a href="#">Modificar</a></li>
-                                    <li><a href="#">Reportar</a></li>
+                                    <li><a href="{{ url('dashboard/create') }}">New Certificate</a></li>
+                                    <li><a href="#">New CSR & Key</a></li>
+                                    <li><a href="#">Sign External CSR</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">Convert to PFX/P12</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Informes</a></li>
+                                    <li><a href="#">Create Keystore</a></li>
                                 </ul>
                         <li class="text-info"><a href="{{ url('csr/create') }}">Jar Signer</a></li>
                         <li class="text-info"><a href="{{ url('csr/sign') }}">Microsoft Authenticode</a></li>
