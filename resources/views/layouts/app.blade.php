@@ -74,7 +74,7 @@
                         </li>                             
                         <li class="text-info"><a href="{{ url('#') }}">Microsoft Authenticode</a></li>
                         <li><a href="{{ url('#') }}">Root & CRL</a></li>
-                        <li class="text-danger"><a href="{{ url('#') }}">Let's Encrypt CSR Signer</a></li>
+                        <li class="text-danger"><a href="{{ url('le/index') }}">Let's Encrypt CSR Signer</a></li>
                         &nbsp;
                     </ul>
 
