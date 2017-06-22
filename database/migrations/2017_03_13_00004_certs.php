@@ -18,7 +18,7 @@ class Certs extends Migration
             $table->string('cn')->unique();
             $table->string('certificate_type');
             $table->string('digest_alg');
-            //$table->string('key_length');
+            $table->string('key_length');
             $table->string('serial')->unique();
             $table->binary('csrprint');
             $table->binary('certprint');

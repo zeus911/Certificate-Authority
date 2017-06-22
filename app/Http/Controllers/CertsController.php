@@ -62,16 +62,16 @@ class CertsController extends Controller
         "countryName" => 'ES',
         "stateOrProvinceName" => 'Madrid',
         "localityName" => 'Madrid',
-        "organizationName" => 'TRAGSA',
-        "organizationalUnitName" => 'TRAGSA CA 1',
+        "organizationName" => 'Org. Name',
+        "organizationalUnitName" => 'Org. Unit',
         "commonName" => $cn,
         //"emailAddress" => $EMailAdress
         );   
         
         // Arguments to be passed to the CSR.
         $configArgs = array(
-                #'config' => '/usr/lib/ssl/openssl.cnf',
-                'config' => '/etc/ssl/openssl_serv.cnf',
+                //'config' => '/usr/lib/ssl/openssl.cnf',
+                'config' => '/etc/ssl/openssl.cnf',
                 'encrypt_key' => false,
                 'private_key_type' => OPENSSL_KEYTYPE_RSA,
                 'digest_alg' => $digest_alg );
@@ -79,7 +79,7 @@ class CertsController extends Controller
         // Generate CSR and his corresponding Private Key.
         $keygen = openssl_pkey_new();
         $csrgen = openssl_csr_new($dn, $keygen, $configArgs);
-         
+
         // Export Private Key to string.
         openssl_pkey_export($keygen, $keyprint);
         //openssl_pkey_export_to_file($keygen, $keystore);
@@ -98,11 +98,11 @@ class CertsController extends Controller
         $serial = random_int(160001, 170001);
 
         $configArgs = array(
-                'config' => '/etc/ssl/openssl_serv.cnf',
+                'config' => '/etc/ssl/openssl.cnf',
                 'encrypt_key' => false,
                 'private_key_type' => OPENSSL_KEYTYPE_RSA,
                 'digest_alg' => $digest_alg,
-                //'key_length' => $key_length,
+                'key_length' => $key_length,
                 'x509_extensions' => $certificate_type );
         
         // Sign certificate function.
@@ -134,6 +134,7 @@ class CertsController extends Controller
        if  (isset($_POST['cn']) && 
             isset($_POST['certificate_type']) &&
             isset($_POST['digest_alg']) &&
+            isset($_POST['key_length']) &&
             isset($_POST['serial']) &&
             isset($_POST['csrprint']) &&
             isset($_POST['keyprint']) && 
@@ -141,6 +142,7 @@ class CertsController extends Controller
             !empty($_POST['cn']) &&
             !empty($_POST['certificate_type']) &&
             !empty($_POST['digest_alg']) &&
+            !empty($_POST['key_length']) &&
             !empty($_POST['serial']) &&
             !empty($_POST['csrprint']) &&
             !empty($_POST['keyprint'])) 
@@ -148,6 +150,7 @@ class CertsController extends Controller
             $cn = $_POST['cn'];
             $certificate_type = $_POST['certificate_type'];
             $digest_alg = $_POST['digest_alg'];
+            $key_length = $_POST['key_length'];
             $serial = $_POST['serial'];
             $csrprint = $_POST['csrprint'];
             $certprint = $_POST['certprint'];
@@ -157,7 +160,7 @@ class CertsController extends Controller
             file_put_contents(storage_path('cert.cer'), $certprint);
             file_put_contents(storage_path('cert.key'), $keyprint);
 
-           Cert::create(Request::only('cn','certificate_type', 'digest_alg', 'serial', 'csrprint', 'certprint', 'keyprint', 'p12'));
+           Cert::create(Request::only('cn','certificate_type', 'digest_alg', 'key_length', 'serial', 'csrprint', 'certprint', 'keyprint', 'p12'));
 
            // ZIP the certificate, key and CA. Saved in storage folder.
            $zip = glob(storage_path('cert.*'));

@@ -60,8 +60,8 @@ class CsrController extends Controller
         "countryName" => 'ES',
         "stateOrProvinceName" => 'Madrid',
         "localityName" => 'Madrid',
-        "organizationName" => 'TRAGSA',
-        "organizationalUnitName" => 'TRAGSA CA 1',
+        "organizationName" => 'Org. Name',
+        "organizationalUnitName" => 'Org. Unit',
         "commonName" => $cn,
         //"emailAddress" => $EMailAdress
         );   
@@ -190,7 +190,7 @@ class CsrController extends Controller
             $csr = $_POST['csrprint'];
             $password = $_POST['password'];
             $cn = openssl_csr_get_subject($csr, true);
-            $certificate_type = 'WebserverTLS';
+            $certificate_type = 'SSL/TLS';
             $digest_alg = 'sha256';
             $cert = 'Needs update!';
             $key = 'We do not have the key becouse it has been generated in another device.';
@@ -203,7 +203,7 @@ class CsrController extends Controller
             {
             	return view ('errors.ooops', array(
             		'cn' => $cn['CN'],
-                    'error_details' => 'already exist in DB'
+                    'error_details' => 'Already exist in DB'
             	));
          
             } elseif ($cn_exists = 'null') {    
