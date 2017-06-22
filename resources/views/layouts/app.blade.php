@@ -56,7 +56,7 @@
                                 <ul class="dropdown-menu" role="menu">
                                    
                                     <li><a href="{{ url('certs/create') }}">New Certificate</a></li>
-                                    <li><a href="csr/create">New CSR & Key</a></li>
+                                    <li><a href="{{ url('csr/create') }}">New CSR & Key</a></li>
                                     <li><a href="csr/sign">Sign External CSR</a></li>
                                     <li class="divider"></li>
                                     <li><a href="#">Convert to PFX/P12</a></li>
