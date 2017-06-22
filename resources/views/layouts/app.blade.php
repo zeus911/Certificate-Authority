@@ -50,12 +50,17 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li class="dropdown"><a href="{{ url('home') }}">Certificates</a></li>
-                                                            <ul class="dropdown-menu" role="menu">
+                                <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="{{ url('/home') }}">
+                                        <a href="{{ url('/home') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                                             New Certificate
                                         </a>
 
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
                                     </li>
                                 </ul>
                         <li><a href="{{ url('csr/create') }}">Jar Signer</a></li>
