@@ -28,7 +28,7 @@
 <body>
     <div id="app">
 
-        <nav class="navbar navbar-default navbar-static-top">
+{{--         <nav class="navbar navbar-default navbar-static-top">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -46,7 +46,7 @@
                     </a>
                 </div>
         </nav>
-
+ --}}
         @yield('content')
     </div>
 
