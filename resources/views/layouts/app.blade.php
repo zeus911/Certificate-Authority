@@ -49,9 +49,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ url('dashboard/index') }}">Dashboard |</a></li>
+                        <li class="active"><a href="{{ url('dashboard/index') }}">Dashboard</a></li>
                         <li class="dropdown">
-                            <a href="{{ url('certs/create') }}">Certificates |
+                            <a href="{{ url('certs/create') }}">Certificates
                                 <ul class="dropdown-menu forAnimate" role="menu">
                                    
                                     <li><a href="{{URL::to('createusuario')}}">Crear</a></li>
@@ -62,10 +62,10 @@
                                     <li class="divider"></li>
                                     <li><a href="#">Informes</a></li>
                                 </ul>
-                        <li><a href="{{ url('csr/create') }}">Jar Signer |</a></li>
-                        <li><a href="{{ url('csr/sign') }}">Microsoft Authenticode |</a></li>
-                        <li><a href="{{ url('converter/p12') }}">Root & CRL |</a></li>
-                        <li><a href="{{ url('converter/p12') }}">Let's Encrypt Signer |</a></li>
+                        <li class="text-info"><a href="{{ url('csr/create') }}">Jar Signer</a></li>
+                        <li class="text-info"><a href="{{ url('csr/sign') }}">Microsoft Authenticode</a></li>
+                        <li><a href="{{ url('converter/p12') }}">Root & CRL</a></li>
+                        <li class="text-danger"><a href="{{ url('converter/p12') }}">Let's Encrypt Signer</a></li>
                         &nbsp;
                     </ul>
 
