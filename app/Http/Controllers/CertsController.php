@@ -62,8 +62,8 @@ class CertsController extends Controller
         "countryName" => 'ES',
         "stateOrProvinceName" => 'Madrid',
         "localityName" => 'Madrid',
-        "organizationName" => 'TRAGSA',
-        "organizationalUnitName" => 'TRAGSA CA 1',
+        "organizationName" => 'LIQUABIT',
+        "organizationalUnitName" => 'LIQUABIT CA',
         "commonName" => $cn,
         //"emailAddress" => $EMailAdress
         );   
@@ -79,7 +79,7 @@ class CertsController extends Controller
         // Generate CSR and his corresponding Private Key.
         $keygen = openssl_pkey_new();
         $csrgen = openssl_csr_new($dn, $keygen, $configArgs);
-         
+dd($csrgen);
         // Export Private Key to string.
         openssl_pkey_export($keygen, $keyprint);
         //openssl_pkey_export_to_file($keygen, $keystore);
