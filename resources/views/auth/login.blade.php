@@ -37,6 +37,20 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('octdec(octal_string)') ? ' has-error' : '' }}">
+                            <label for="otc" class="col-md-4 control-label">OTC</label>
+
+                            <div class="col-md-6">
+                                <input id="otc" type="password" class="form-control" name="otc" required>
+
+                                @if ($errors->has('otc'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('otc') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
