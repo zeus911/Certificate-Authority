@@ -49,7 +49,15 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('home') }}">Certificate</a></li>
+                        <li class="dropdown"><a href="{{ url('home') }}">Certificates</a></li>
+                                                            <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('/home') }}">
+                                            New Certificate
+                                        </a>
+
+                                    </li>
+                                </ul>
                         <li><a href="{{ url('csr/create') }}">Jar Signer</a></li>
                         <li><a href="{{ url('csr/sign') }}">Microsoft Authenticode</a></li>
                         <li><a href="{{ url('converter/p12') }}">Root & CRL</a></li>
