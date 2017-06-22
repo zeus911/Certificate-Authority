@@ -68,8 +68,7 @@
                                     JAR Signer<span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ url('signer/jar') }}">Sign a JAVA Archive</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="{{ url('signer/search') }}">Search Signed JAVA Archives</a></li>
+                                    <li class="text-danger"><a href="{{ url('signer/search') }}">Search for Archives</a></li>
                                     <li class="divider"></li>
                                 </ul>
                         </li>                             
