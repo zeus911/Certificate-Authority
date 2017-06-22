@@ -70,8 +70,8 @@ class CertsController extends Controller
         
         // Arguments to be passed to the CSR.
         $configArgs = array(
-                #'config' => '/usr/lib/ssl/openssl.cnf',
-                'config' => '/etc/ssl/openssl_serv.cnf',
+                //'config' => '/usr/lib/ssl/openssl.cnf',
+                'config' => '/etc/ssl/openssl.cnf',
                 'encrypt_key' => false,
                 'private_key_type' => OPENSSL_KEYTYPE_RSA,
                 'digest_alg' => $digest_alg );
