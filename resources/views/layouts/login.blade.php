@@ -15,7 +15,7 @@
     <link rel="icon" href="{{URL::asset('favicon.ico') }}"/>
 
     <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/login.css" rel="stylesheet">
     
 
     <!-- Scripts -->
