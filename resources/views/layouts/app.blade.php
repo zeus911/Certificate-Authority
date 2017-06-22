@@ -49,8 +49,9 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a
+                        <li><a href="{{ url('/certs') }}">New Certificate</a></li>
+                        <li><a href="{{ url('/NewCSR') }}">New CSR</a></li>
+                        <li><a href="{{ url('/signCSR') }}">Sign CSR</a></li>
                         &nbsp;
                     </ul>
 
