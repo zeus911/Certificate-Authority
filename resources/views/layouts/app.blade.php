@@ -51,16 +51,18 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="{{ url('dashboard/index') }}">Dashboard</a></li>
                         <li class="dropdown">
-                            <a href="{{ url('#') }}">Certificates
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
                                 <ul class="dropdown-menu forAnimate" role="menu">
                                    
-                                    <li><a href="{{ url('dashboard/create') }}">New Certificate</a></li>
-                                    <li><a href="#">New CSR & Key</a></li>
-                                    <li><a href="#">Sign External CSR</a></li>
+                                    <li><a href="{{ url('certs/create') }}">New Certificate</a></li>
+                                    <li><a href="csr/create">New CSR & Key</a></li>
+                                    <li><a href="csr/sign">Sign External CSR</a></li>
                                     <li class="divider"></li>
                                     <li><a href="#">Convert to PFX/P12</a></li>
                                     <li class="divider"></li>
                                     <li><a href="#">Create Keystore</a></li>
+
                                 </ul>
                         <li class="text-info"><a href="{{ url('csr/create') }}">Jar Signer</a></li>
                         <li class="text-info"><a href="{{ url('csr/sign') }}">Microsoft Authenticode</a></li>
