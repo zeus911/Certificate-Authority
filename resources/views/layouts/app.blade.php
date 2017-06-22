@@ -49,19 +49,18 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li class="dropdown"><a href="{{ url('home') }}">Certificates</a></li>
+                        <li class="active"><a href="{{ url('home') }}">Dashboard</a></li>
+                        <li class="dropdown">
+                            <a href="{{ url('certs/create') }}">Certificates
                                 <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/home') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            New Certificate
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
+                                   
+                                    <li><a href="{{URL::to('createusuario')}}">Crear</a></li>
+                                    <li><a href="#">Modificar</a></li>
+                                    <li><a href="#">Reportar</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Informes</a></li>
                                 </ul>
                         <li><a href="{{ url('csr/create') }}">Jar Signer</a></li>
                         <li><a href="{{ url('csr/sign') }}">Microsoft Authenticode</a></li>
