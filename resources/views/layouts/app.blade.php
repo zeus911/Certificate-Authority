@@ -54,17 +54,23 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Certificates<span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu">
-                                   
                                     <li><a href="{{ url('certs/create') }}">New Certificate</a></li>
                                     <li><a href="{{ url('csr/create') }}">New CSR & Key</a></li>
-                                    <li><a href="csr/sign">Sign External CSR</a></li>
+                                    <li><a href="{{ url('csr/sign') }}">Sign External CSR</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Convert to PFX/P12</a></li>
+                                    <li><a href="{{ url('converter/p12') }}">Convert to PFX/P12</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#">Create Keystore</a></li>
-
+                                    <li><a href="{{ url('converter/keystore') }}">Create Keystore</a></li>
                                 </ul>
-                        <li class="text-info"><a href="{{ url('csr/create') }}">Jar Signer</a></li>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    JAR Signer<span class="caret"></span>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('certs/create') }}">Sign JAR Archivve</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{ url('converter/p12') }}">List JAR Signed Archives</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{ url('converter/keystore') }}">More....</a></li>
+                                </ul>                                
                         <li class="text-info"><a href="{{ url('csr/sign') }}">Microsoft Authenticode</a></li>
                         <li><a href="{{ url('converter/p12') }}">Root & CRL</a></li>
                         <li class="text-danger"><a href="{{ url('converter/p12') }}">Let's Encrypt Signer</a></li>
