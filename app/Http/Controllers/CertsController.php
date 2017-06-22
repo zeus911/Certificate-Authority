@@ -98,7 +98,7 @@ class CertsController extends Controller
         $serial = random_int(160001, 170001);
 
         $configArgs = array(
-                'config' => '/etc/ssl/openssl_serv.cnf',
+                'config' => '/etc/ssl/openssl.cnf',
                 'encrypt_key' => false,
                 'private_key_type' => OPENSSL_KEYTYPE_RSA,
                 'digest_alg' => $digest_alg,
