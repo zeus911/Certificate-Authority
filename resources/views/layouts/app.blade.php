@@ -49,7 +49,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ url('dashboard') }}">Dashboard</a></li>
+                        <li class="active"><a href="{{ url('dashboard/index') }}">Dashboard</a></li>
                         <li class="dropdown">
                             <a href="{{ url('certs/create') }}">Certificates
                                 <ul class="dropdown-menu" role="menu">
