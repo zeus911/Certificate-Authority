@@ -160,7 +160,7 @@ class CertsController extends Controller
             file_put_contents(storage_path('cert.cer'), $certprint);
             file_put_contents(storage_path('cert.key'), $keyprint);
 
-           Cert::create(Request::only('cn','certificate_type', 'digest_alg', 'key_length' 'serial', 'csrprint', 'certprint', 'keyprint', 'p12'));
+           Cert::create(Request::only('cn','certificate_type', 'digest_alg', 'key_length', 'serial', 'csrprint', 'certprint', 'keyprint', 'p12'));
 
            // ZIP the certificate, key and CA. Saved in storage folder.
            $zip = glob(storage_path('cert.*'));
