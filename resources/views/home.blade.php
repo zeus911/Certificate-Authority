@@ -9,9 +9,8 @@
   	<p></p>
   		<ul class="nav nav-pills">
     			<li class='active'><a data-toggle="pill" href="#certauth">Cetificate Authority</a></li>
-    			<li><a data-toggle="pill" href="#bcapi">BlueCoat API Client </a></li>
     			<li><a data-toggle="pill" href="#2falatch">2FA + Latch</a></li>
-    			<li><a data-toggle="pill" href="#py">Python Scripts</a></li>
+    			<li><a data-toggle="pill" href="#py">DevOps Scripts</a></li>
           <li><a data-toggle="pill" href="#git">Github</a></li>
     			<li><a data-toggle="pill" href="#le">Let's Encrypt Web App</a></li>
   		</ul>
@@ -26,7 +25,7 @@
 
 			<p><strong>Log in with 'Username' instead of 'email' in Laravel Framework.</strong></p>
 				<p>In order to log in with 'username' instead of 'email' field, you have to include the field
-				 'username' in the database fist like this:</br>
+				 'username' in the database first like this:</br>
 				 Edit database/migrations/*_create_users_table.php and include these fields:</br>
 				 <code>$table->string('username', 60);</code></br>
          <pre>
@@ -45,18 +44,14 @@ Schema::create('users', function (Blueprint $table) {
 			
     	</div>
     	<!-- ################################################################## -->
-    	<div id="bcapi" class="tab-pane fade">
-      	<h3>BlueCoat API Client</h3>
-      	<p></p>
-    	</div>
 		<div id="2falatch" class="tab-pane fade">
       	<h3>Laravel Framework + 2FA + Latch</h3>
       	<p></p>
     	</div>
     	<!-- ################################################################### -->
     	<div id="py" class="tab-pane fade">
-      	<h3>Python Scripts</h3>
-      	<p></p>
+      	<h3>DevOps Scripts</h3>
+          <p>Github: <a href="https://github.com/lopeaa/Scripts.git"><span class=""></span>Scripts Source</a></p>
     	</div>
     	
     	<!-- #################################################################### -->
@@ -71,6 +66,10 @@ Schema::create('users', function (Blueprint $table) {
         <H3>Credencials Caching:</H3>
         <code>git config --global credential.helper cache</code></br>
         <code>git config --global credential.helper 'cache --timeout=3600'</code></br>
+        <H3>Proxy Configuration:</H3>
+        <code>git config --global http.proxy http://user:pass@proxyaddress:port</code>
+        <code>git config --global --get http.proxy</code>
+        <code>git config --global --unset http.proxy</code>
       </div>
       
       <!-- #################################################################### -->
