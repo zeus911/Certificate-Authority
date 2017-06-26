@@ -55,6 +55,7 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Certificates<span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('certs/mgmt') }}">Certificate Management</a></li>
                                     <li><a href="{{ url('certs/create') }}">Request New Certificate</a></li>
                                     <li><a href="{{ url('csr/create') }}">Request New CSR & Key</a></li>
                                     <li><a href="{{ url('csr/sign') }}">Sign Certificate Request</a></li>
