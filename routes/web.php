@@ -9,6 +9,7 @@ Route::get('/', function () {
 // [Self-Service]
 Route::get('home', 'HomeController@index');
 
+Route::get('certs/mgmt', 'DashboardController@index');
 Route::get('certs/create', 'CertsController@create');
 Route::post('certs/created', 'CertsController@created');
 Route::post('certs/getP12', 'CertsController@getP12');
