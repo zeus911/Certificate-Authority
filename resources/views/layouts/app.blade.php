@@ -29,6 +29,7 @@
     <div id="app">
 
         <nav class="navbar navbar-default navbar-static-top">
+            <div class="container">
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
