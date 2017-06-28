@@ -133,7 +133,6 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endif
                     </ul>
                 </div>
             </div>
