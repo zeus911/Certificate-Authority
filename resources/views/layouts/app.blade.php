@@ -124,7 +124,6 @@
                                     <li class="btn btn-danger navbar-btn"><a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <span class="glyphicon glyphicon-user"></span>
                                             Logout
                                         </a>
 
