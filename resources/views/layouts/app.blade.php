@@ -121,11 +121,12 @@
 
                             <li class="dropdown">
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('/logout') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                                    <li><a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                        <span class="glyphicon glyphicon-user"></span>
                                             Logout
-                                        
+                                        </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
