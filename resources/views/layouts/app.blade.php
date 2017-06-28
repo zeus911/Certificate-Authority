@@ -48,7 +48,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ url('dashboard/index') }}">Dashboard</a></li>
+                        <li class="active"><a href="{{ url('dashboard/index') }}">Pills & Resources</a></li>
                         <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Certificates<span class="caret"></span>
