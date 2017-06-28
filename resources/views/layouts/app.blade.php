@@ -121,7 +121,7 @@
 
                             <li>
                                 <ul>
-                                    <li class="btn btn-info navbar-btn"><a href="{{ url('/logout') }}"
+                                    <li class="btn btn-default navbar-btn"><a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             Logout
