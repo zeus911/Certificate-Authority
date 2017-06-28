@@ -4848,7 +4848,7 @@ tbody.collapse.in {
    display: none
 }
 
-.certauth .tab-content>.tab-pane {
+.tab-content>.certauth {
    color : white;
    background-color: #53808a;
    padding : 5px 15px;
