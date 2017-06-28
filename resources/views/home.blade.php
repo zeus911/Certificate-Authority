@@ -75,8 +75,8 @@ Schema::create('users', function (Blueprint $table) {
       <!-- #################################################################### -->
 
     	<div id="le" class="tab-pane fade">
-      	<h3>Let's Encrypt Web App</h3>
-         	<p>Web app for having Let's Encrypt signing CSR and returning a public certificate chain.</p>
+      	<h3>Let's Encrypt CSR Signer</h3>
+         	<p>Web app for having Let's Encrypt signing CSR and returning a public certificate.</p>
     	</div>	
     	<!-- #################################################################### -->
       
