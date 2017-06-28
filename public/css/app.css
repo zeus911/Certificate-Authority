@@ -4852,6 +4852,7 @@ tbody.collapse.in {
    color : white;
    background-color: #53808a;
    padding : 5px 15px;
+}
 
 .tab-content>.active {
     display: block
