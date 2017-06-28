@@ -119,8 +119,8 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
 
-                            <li class="dropdown">
-                                <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <ul>
                                     <li><a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
