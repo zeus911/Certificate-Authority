@@ -12,7 +12,7 @@
     			<li><a data-toggle="pill" href="#2falatch">2FA + Latch</a></li>
     			<li><a data-toggle="pill" href="#py">DevOps Scripts</a></li>
           <li><a data-toggle="pill" href="#git">Github</a></li>
-    			<li><a data-toggle="pill" href="#le">Let's Encrypt Web App</a></li>
+    			<li><a data-toggle="pill" href="#le">Let's Encrypt CSR Signer</a></li>
   		</ul>
     	<div class="tab-content">
 
