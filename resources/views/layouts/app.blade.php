@@ -91,7 +91,7 @@
     <!-- Scripts -->
     <script src="/js/app.js"></script>
 </body>
-        <nav class="navbar navbar-default navbar-static-bottom">
+        <nav class="navbar navbar-default navbar-fixed-bottom">
             <div class="container">
                 <div class="navbar-header">
 
