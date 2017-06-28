@@ -106,7 +106,7 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand">
                     <!-- <a class="navbar-brand" href="{{ url('/') }}"> -->
-                        {{ config('app.footer', '&#128128; Lopeaa, 2017.') }}
+                        {{ config('app.footer', '') }}
                     </a>
                 </div>
 
