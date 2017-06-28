@@ -4958,6 +4958,11 @@ tbody.collapse.in {
     right: 0;
     left: 0;
     z-index: 1030
+    # added for transparency
+    background:transparent;
+    background-image:none;
+    border-color:transparent;
+    box-shadow:none;
 }
 
 .navbar-fixed-top {
