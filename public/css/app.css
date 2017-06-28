@@ -4845,7 +4845,10 @@ tbody.collapse.in {
 }
 
 .tab-content>.tab-pane {
-    display: none
+   color : white;
+   background-color: #428bca ;
+   padding : 5px 15px;
+   #display: none
 }
 
 .tab-content>.active {
