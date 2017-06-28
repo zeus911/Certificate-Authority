@@ -48,6 +48,33 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                        <li class="active"><a href="{{ url('dashboard/index') }}">Dashboard</a></li>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Certificates<span class="caret"></span>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('certs/mgmt') }}">Certificate Management</a></li>
+                                    <li><a href="{{ url('certs/create') }}">Request New Certificate</a></li>
+                                    <li><a href="{{ url('csr/create') }}">Request New CSR & Key</a></li>
+                                    <li><a href="{{ url('csr/sign') }}">Sign Certificate Request</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{ url('converter/p12') }}">Convert to PFX/P12</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="{{ url('converter/keystore') }}">Create Keystore</a></li>
+                                </ul>
+                        </li>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    JAR Signer<span class="caret"></span>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('signer/jar') }}">Sign a JAVA Archive</a></li>
+                                    <li class="text-danger"><a href="{{ url('signer/search') }}">Search for Archives</a></li>
+                                    <li class="divider"></li>
+                                </ul>
+                        </li>                             
+                        <li class="text-info"><a href="{{ url('#') }}">Microsoft Authenticode</a></li>
+                        <li><a href="{{ url('#') }}">Root & CRL</a></li>
+                        <li class="text-danger"><a href="{{ url('le/index') }}">Let's Encrypt CSR Signer</a></li>
                         &nbsp;
                     </ul>
 
@@ -56,8 +83,8 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                         <!--
-                            <li><a href="{{ url('/login') }}">Login</a></li>
-                            <li><a href="{{ url('/register') }}">Register</a></li>
+                           <li><a href="{{ url('/login') }}">Login</a></li>
+                           <li><a href="{{ url('/register') }}">Register</a></li>
                         -->
                         @else
                             <li class="dropdown">
@@ -81,7 +108,7 @@
                             </li>
                         @endif
                     </ul>
-                </div>
+                </div> 
             </div>
         </nav>
 
