@@ -75,7 +75,7 @@
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }}</a><br />
-                                <a class="text-default"><strong>NDSBL/RBL Check:</strong></a>
+                                <a class="text-default"><strong>DNSBL/RBL Check:</strong></a>
                             </div>
                         </div>    
                     </form>
