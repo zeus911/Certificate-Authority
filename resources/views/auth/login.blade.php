@@ -70,8 +70,9 @@
                                 <!-- <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
                                 </a> -->
-                                <a class="text-info"><strong>REPUTATION:</strong> {{ $_SERVER['REMOTE_ADDR'] }} & <strong>RBL:</strong>OK</a>
                             </div>
+                           <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }} & <strong>RBL Status:</strong><returncode></a>
+
                         </div>
                     </form>
                 </div>
