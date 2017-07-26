@@ -76,7 +76,7 @@
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }}<strong></a><br />
-                                <a class="text-default"><strong>RBL Status:</strong> {{ returncode }}<strong></a><br />
+                                <a class="text-default"><strong>RBL Status:</strong> CLEAN<strong></a><br />
                             </div>
                         </div>    
                     </form>
