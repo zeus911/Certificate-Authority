@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login to Certificate Authority [ STATUS: {{ $_SERVER['REMOTE_ADDR'] }}]</div>
+                <div class="panel-heading">Login to Certificate Authority</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -70,6 +70,7 @@
                                 <!-- <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
                                 </a> -->
+                                <a class="text-info"><strong>REPUTATION:</strong> {{ $_SERVER['REMOTE_ADDR'] }} & {{ $_SERVER['HTTP_X_FORWARDED_FOR'] }}</a>
                             </div>
                         </div>
                     </form>
