@@ -71,11 +71,13 @@
                                 <!-- <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
                                 </a> -->
-                                <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }} & <strong>RBL Status:</strong>returncode</a>
-
-
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }} & <strong>RBL Status:</strong>returncode</a>
+                            </div>
+                        </div>    
                     </form>
                 </div>
             </div>
