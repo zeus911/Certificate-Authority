@@ -10,7 +10,7 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="username" class="col-md-4 control-label" placeholder="Username">Username</label>
+                            <label for="username" class="col-md-4 control-label" placeholder="Username"></label>
 
                             <div class="col-md-6">
                                 <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus placeholder="Username">
@@ -24,10 +24,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+                            <label for="password" class="col-md-4 control-label"></label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -38,10 +38,10 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('octdec(octal_string)') ? ' has-error' : '' }}">
-                            <label for="otc" class="col-md-4 control-label">OTC</label>
+                            <label for="otc" class="col-md-4 control-label"></label>
 
                             <div class="col-md-6">
-                                <input id="otc" type="password" class="form-control" name="otc" required>
+                                <input id="otc" type="password" class="form-control" name="otc" required placeholder="One-Time-Code">
 
                                 @if ($errors->has('otc'))
                                     <span class="help-block">
