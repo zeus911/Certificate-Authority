@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login to Certificate Authority [<a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }} & <strong>RBL Status:</strong><returncode></a>
+                <div class="panel-heading">Login to Certificate Authority</a>
 ]</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
@@ -71,6 +71,8 @@
                                 <!-- <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
                                 </a> -->
+                                <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }} & <strong>RBL Status:</strong>returncode</a>
+
 
                             </div>
                         </div>
