@@ -10,7 +10,7 @@
   		<ul class="nav nav-pills">
     			<li class='active'><a data-toggle="pill" href="#certauth">Cetificate Authority</a></li>
     			<li><a data-toggle="pill" href="#2falatch">2FA + Latch</a></li>
-    			<li><a data-toggle="pill" href="#py">DevOps Scripts</a></li>
+    			<li><a data-toggle="pill" href="#py">Scripts</a></li>
           <li><a data-toggle="pill" href="#git">Github</a></li>
     			<li><a data-toggle="pill" href="#le">Let's Encrypt CSR Signer</a></li>
   		</ul>
@@ -45,7 +45,7 @@ Schema::create('users', function (Blueprint $table) {
     	</div>
     	<!-- ################################################################## -->
 		<div id="2falatch" class="tab-pane fade">
-      	<h3>Laravel Framework + 2FA + Latch</h3>
+      	<h3>2FA + Latch</h3>
       	<p></p>
     	</div>
     	<!-- ################################################################### -->
@@ -55,10 +55,10 @@ Schema::create('users', function (Blueprint $table) {
     	</div>
     	
     	<!-- #################################################################### -->
-       <div id="git" class="tab-pane fade">
+      <div id="git" class="tab-pane fade">
         <H3>Github Commands</H3>
         <H4 class="text-info">Clone and Update repos:</H4>
-        <code>git clone git@github.com:lopeaa/prototypes.git OR git@github.com:lopeaa/Certificate-Authority.git</code></br>
+        <code>git clone https://github.com:lopeaa/prototypes.git OR https://github.com:lopeaa/Certificate-Authority.git</code></br>
         <code>git status</code></br>
         <code>git add . OR git add -A</code></br>
         <code>git commit -m "comment"</code></br>
@@ -67,9 +67,9 @@ Schema::create('users', function (Blueprint $table) {
         <code>git config --global credential.helper cache</code></br>
         <code>git config --global credential.helper 'cache --timeout=3600'</code></br>
         <H3>Proxy Configuration:</H3>
-        <code>git config --global http.proxy http://user:pass@proxyaddress:port</code>
-        <code>git config --global --get http.proxy</code>
-        <code>git config --global --unset http.proxy</code>
+        <code>git config --global http.proxy http://user:pass@proxyaddress:port</code></br>
+        <code>git config --global --get http.proxy</code></br>
+        <code>git config --global --unset http.proxy</code></br>
       </div>
       
       <!-- #################################################################### -->
