@@ -71,8 +71,9 @@
                                     Forgot Your Password?
                                 </a> -->
                             </div>
+                            <div>
                            <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }} & <strong>RBL Status:</strong><returncode></a>
-
+                           </div>
                         </div>
                     </form>
                 </div>
