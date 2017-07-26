@@ -324,7 +324,7 @@ th {
 
 .img-thumbnail,
 body {
-    background-color: #d2d6de
+    #background-color: #d2d6de
 }
 
 @font-face {
@@ -2022,6 +2022,7 @@ pre code {
 
 .container,
 .container-fluid {
+    padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px
 }
@@ -6350,7 +6351,7 @@ button.list-group-item-danger.active:hover {
 
 .panel {
     margin-bottom: 22px;
-    background-color: #fff;
+    #background-color: #fff;
     border: 1px solid transparent;
     #border-radius: 4px;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
@@ -6595,10 +6596,12 @@ button.list-group-item-danger.active:hover {
 }
 
 .panel-default {
-    border-color: #d3e0e9
+    #border-color: #d3e0e9
 }
 
 .panel-default>.panel-heading {
+    text-align: center;
+    font-weight: bold;
     color: #333;
     background-color: #fff;
     border-color: #d3e0e9
