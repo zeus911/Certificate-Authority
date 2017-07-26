@@ -5,8 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login to Certificate Authority</a>
-]</div>
+                <div class="panel-heading">Login to Certificate Authority</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -75,8 +74,8 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }}<strong></a><br />
-                                <a class="text-default"><strong>RBL Status:</strong> CLEAN<strong></a><br />
+                                <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }}</a><br />
+                                <a class="text-default"><strong>NDSBL/RBL Check:</strong></a>
                             </div>
                         </div>    
                     </form>
