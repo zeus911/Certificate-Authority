@@ -10,7 +10,7 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="username" class="col-md-4 control-label" placeholder="Username"></label>
+                            <label for="username" class="col-md-4 control-label" placeholder="Username">Username</label>
 
                             <div class="col-md-6">
                                 <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus placeholder="Username">
@@ -24,7 +24,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label"></label>
+                            <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('octdec(octal_string)') ? ' has-error' : '' }}">
-                            <label for="otc" class="col-md-4 control-label"></label>
+                            <label for="otc" class="col-md-4 control-label">One-Time-Code</label>
 
                             <div class="col-md-6">
                                 <input id="otc" type="password" class="form-control" name="otc" required placeholder="One-Time-Code">
