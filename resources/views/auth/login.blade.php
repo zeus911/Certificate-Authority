@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="form-group{{ $errors->has('octdec(octal_string)') ? ' has-error' : '' }}">
-                            <label for="otc" class="col-md-4 control-label">One-Time-Code</label>
+                            <label for="otc" class="col-md-4 control-label">OTC</label>
 
                             <div class="col-md-6">
                                 <input id="otc" type="password" class="form-control" name="otc" required placeholder="One-Time-Code">
