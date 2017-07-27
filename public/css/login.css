@@ -6601,7 +6601,7 @@ button.list-group-item-danger.active:hover {
 
 .panel-default>.panel-heading {
     text-align: center;
-    font-weight: bold;
+    #font-weight: bold;
     color: #333;
     background-color: #fff;
     #border-color: #d3e0e9
