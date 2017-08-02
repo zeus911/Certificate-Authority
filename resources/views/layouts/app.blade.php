@@ -26,6 +26,11 @@
 </head>
 <body>
     <div id="app">
+        <!-- SideMenuBar left -->
+        <div>
+            @include('layouts/sidemenubar')
+        </div>
+        <!-- end of SideMenuBar left -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
