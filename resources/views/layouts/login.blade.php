@@ -49,6 +49,7 @@
  --}}
         @yield('content')
     </div>
+    <blockquote>BLDDLDLDLDLDL</blockquote>
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
