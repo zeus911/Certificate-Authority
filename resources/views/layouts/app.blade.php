@@ -130,7 +130,7 @@
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
-                                    </li><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                                    </li>
                                 </ul>
                             </li>
                     </ul>
