@@ -84,14 +84,9 @@
                 </div>
             </div>
         </nav>
-                        <!-- SideMenuBar left -->
-                <div>
-                    @include('layouts/side-menu')
-                </div>
-                <!-- end of SideMenuBar left -->
-
 
         @yield('content')
+
     </div>
 
     <!-- Scripts -->
