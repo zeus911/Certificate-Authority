@@ -53,7 +53,6 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <span class="glyphicon glyphicon-log-out">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                         <!--
@@ -70,7 +69,7 @@
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();"><span class="glyphicon glyphicon-log-out">
+                                                     document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
 
