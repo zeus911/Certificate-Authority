@@ -16,6 +16,8 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="/css/tabs.css" rel="stylesheet">
+
 
     <!-- Scripts -->
     <script>
