@@ -1,6 +1,6 @@
 <div class="row">
     <!-- uncomment code for absolute positioning tweek see top comment in css -->
-    <!-- <div class="absolute-wrapper"> </div> -->
+    <div class="absolute-wrapper"> </div>
     <!-- Menu -->
     <div class="side-menu">
     
