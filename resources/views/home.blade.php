@@ -6,7 +6,6 @@
     <blockquote>There are two theories to arguing with a woman. Neither works.</blockquote>
     
       <h2>Pills &amp Resources</h2>
-      <!-- @include('layouts.tabs'); -->
     	<p></p>
   		<ul class="nav nav-pills">
     			<li class='active'><a data-toggle="pill" href="#certauth">Cetificate Authority</a></li>
