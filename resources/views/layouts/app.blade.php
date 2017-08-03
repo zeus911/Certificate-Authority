@@ -28,11 +28,6 @@
     <div id="app">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
-                <!-- SideMenuBar left -->
-                <div>
-                    @include('layouts/sidemenubar')
-                </div>
-                <!-- end of SideMenuBar left -->
                 <div class="navbar-header">
 
                     <!-- Collapsed Hamburger -->
@@ -89,6 +84,12 @@
                 </div>
             </div>
         </nav>
+                        <!-- SideMenuBar left -->
+                <div>
+                    @include('layouts/sidemenubar')
+                </div>
+                <!-- end of SideMenuBar left -->
+
 
         @yield('content')
     </div>
