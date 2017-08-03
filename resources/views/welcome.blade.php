@@ -31,8 +31,8 @@
 
 		@if (Route::has('login'))
                 <div class="">
-                    <a class='btn btn-primary btn-lg' href="{{ url('/login') }}"><span class="glyphicon glyphicon-log-in">Login</a>
-                    <a class='btn btn-primary btn-lg' href="{{ url('https://github.com/lopeaa') }}"><span class="glyphicon glyphicon-github">Github</a>
+                    <a class='btn btn-primary btn-lg btn-block' href="{{ url('/login') }}">Login</a>
+                    <a class='btn btn-primary btn-lg' href="{{ url('https://github.com/lopeaa') }}">Github</a>
                 </div>
                @endif
                <br />
