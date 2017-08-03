@@ -1,3 +1,6 @@
+<hear>
+    <link href="/css/tabs.css" rel="stylesheet">
+</hear>
     <div class="tab_container">
       <input id="tab1" type="radio" name="tabs" checked>
       <label for="tab1"><i class="fa fa-code"></i><span>Code</span></label>
