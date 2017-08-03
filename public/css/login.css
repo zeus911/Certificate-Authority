@@ -6366,6 +6366,7 @@ button.list-group-item-danger.active:hover {
 }
 
 .panel-body {
+    background-color: white;
     padding: 15px
 }
 
@@ -6601,9 +6602,10 @@ button.list-group-item-danger.active:hover {
 }
 
 .panel-default>.panel-heading {
-    color: #333;
+    text-align: center;
+    #color: #333;
     background-color: #fff;
-    border-color: #d3e0e9
+    #border-color: #d3e0e9
 }
 
 .panel-default>.panel-heading+.panel-collapse>.panel-body {
