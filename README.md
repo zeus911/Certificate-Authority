@@ -1,7 +1,7 @@
 # prototypes
 Protoypes Website
 Installation:
-1. git clone https://github.com/lopeaa/prototypes.git
+1. git clone https://github.com/lopeaa/prototypes
 2. Replace/create .env file with yours
 3. composer update
 
