@@ -3,7 +3,7 @@ Protoypes Website
 
 Installation:
 
-1. git clone https://github.com/lopeaa/prototypes.git
+1. git clone https://github.com/lopeaa/prototypes
 2. Replace/create .env file with yours
 3. composer update
 
@@ -15,6 +15,3 @@ Then, do the same with register.blade.php and login.blade.php in order to add th
 Use:
 1. Register a new Username and use it to login. 
 
-
-
-"# prototypes" 
