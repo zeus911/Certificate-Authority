@@ -1,21 +1,18 @@
-<hear>
-    <link href="/css/tabs.css" rel="stylesheet">
-</hear>
     <div class="tab_container">
       <input id="tab1" type="radio" name="tabs" checked>
-      <label for="tab1"><i class="fa fa-code"></i><span>Code</span></label>
+      <label for="tab1"><i class="fa fa-code"></i><span>Certificate Authority</span></label>
 
       <input id="tab2" type="radio" name="tabs">
-      <label for="tab2"><i class="fa fa-pencil-square-o"></i><span>About</span></label>
+      <label for="tab2"><i class="fa fa-pencil-square-o"></i><span>2FA + Latch</span></label>
 
       <input id="tab3" type="radio" name="tabs">
-      <label for="tab3"><i class="fa fa-bar-chart-o"></i><span>Services</span></label>
+      <label for="tab3"><i class="fa fa-bar-chart-o"></i><span>Github</span></label>
 
       <input id="tab4" type="radio" name="tabs">
-      <label for="tab4"><i class="fa fa-folder-open-o"></i><span>Portfolio</span></label>
+      <label for="tab4"><i class="fa fa-folder-open-o"></i><span>Scripts</span></label>
 
       <input id="tab5" type="radio" name="tabs">
-      <label for="tab5"><i class="fa fa-envelope-o"></i><span>Contact</span></label>
+      <label for="tab5"><i class="fa fa-envelope-o"></i><span>Let's Encrypt</span></label>
 
       <section id="content1" class="tab-content">
         <h3>Headline 1</h3>
