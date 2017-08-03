@@ -13,6 +13,3 @@ Then, do the same with register.blade.php and login.blade.php in order to add th
 
 Use:
 1. Register a new Username and use it to login. Then, do the same with register.blade.php and login.blade.php in order to add the "username" form.
-
-Use:
-1. Register a new Username and use it to login.
