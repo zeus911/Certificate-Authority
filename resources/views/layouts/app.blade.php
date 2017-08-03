@@ -86,7 +86,7 @@
         </nav>
                         <!-- SideMenuBar left -->
                 <div>
-                    @include('layouts/sidemenubar')
+                    @include('layouts/side-menu')
                 </div>
                 <!-- end of SideMenuBar left -->
 
