@@ -52,6 +52,7 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
+https://github.com/lopeaa/prototypes
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -95,5 +96,5 @@
     <script src="/js/app.js"></script>
 </body> 
     <br />
-        @include('layouts/footer')
+        <center>@include('layouts/footer')</center>a
 </html>
