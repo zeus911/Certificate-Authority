@@ -37,10 +37,16 @@
                @endif
                <br />
 <<<<<<< HEAD
+<<<<<<< HEAD
                @include('layouts.footer')
                <div class="footer">
                <strong>&#128128; Lopeaa, 2015 - {{ date('Y') }}.</strong>
                </div>
+=======
+
+               @include('layouts.footer')
+
+>>>>>>> f37235422b7aa9c95fa494e117a442dd064d7d32
 =======
 
                @include('layouts.footer')
