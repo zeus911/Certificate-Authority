@@ -1452,7 +1452,7 @@ a:focus {
 hr {
     margin-top: 22px;
     margin-bottom: 22px;
-    border-top: 1px solid #53808a
+    border-top: 1px solid #d2d6de
 }
 
 .sr-only {
@@ -1783,7 +1783,7 @@ table {
 .page-header {
     padding-bottom: 10px;
     margin: 44px 0 22px;
-    border-bottom: 1px solid #53808a
+    border-bottom: 1px solid #d2d6de
 }
 
 dl,
@@ -1891,7 +1891,7 @@ blockquote {
     padding: 11px 22px;
     margin: 0 0 22px;
     font-size: 17.5px;
-    border-left: 5px solid #53808a
+    border-left: 5px solid #d2d6de
 }
 
 blockquote .small,
@@ -1918,7 +1918,7 @@ blockquote small:before {
 blockquote.pull-right {
     padding-right: 15px;
     padding-left: 0;
-    border-right: 5px solid #53808a;
+    border-right: 5px solid #d2d6de;
     border-left: 0;
     text-align: right
 }
@@ -3191,7 +3191,7 @@ output {
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
-    background-color: #53808a;
+    background-color: #d2d6de;
     opacity: 1
 }
 
@@ -4579,7 +4579,7 @@ tbody.collapse.in {
     line-height: 1;
     color: #555;
     text-align: center;
-    background-color: #53808a;
+    background-color: #d2d6de;
     border: 1px solid #ccd0d2;
     ##border-radius: 4px
 }
@@ -4690,7 +4690,7 @@ tbody.collapse.in {
 .nav>li>a:focus,
 .nav>li>a:hover {
     text-decoration: none;
-    background-color: #53808a
+    background-color: #d2d6de
 }
 
 .nav>li.disabled>a {
@@ -4708,7 +4708,7 @@ tbody.collapse.in {
 .nav .open>a,
 .nav .open>a:focus,
 .nav .open>a:hover {
-    background-color: #53808a;
+    background-color: #d2d6de;
     border-color: #3097D1
 }
 
@@ -4775,8 +4775,7 @@ tbody.collapse.in {
 .nav-pills>li.active>a:focus,
 .nav-pills>li.active>a:hover {
     color: #fff;
-    #background-color: #53808a;
-    background-color: #ccc
+    background-color: #d2d6de
 
 }
 
@@ -5265,7 +5264,7 @@ tbody.collapse.in {
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover {
     color: #555;
-    background-color: #ccc
+    background-color: #d2d6de
 }
 
 .navbar-default .navbar-nav>.disabled>a,
@@ -5785,7 +5784,7 @@ a.badge:hover {
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 30px;
-    background-color: #53808a
+    background-color: #d2d6de
 }
 
 .jumbotron p {
@@ -6161,7 +6160,7 @@ button.list-group-item {
 .list-group-item.disabled,
 .list-group-item.disabled:focus,
 .list-group-item.disabled:hover {
-    background-color: #53808a;
+    background-color: #d2d6de;
     color: #777;
     cursor: not-allowed
 }
