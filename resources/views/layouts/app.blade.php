@@ -52,8 +52,7 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
-https://github.com/lopeaa/prototypes
-
+                    <blockquote>sdfasdfgmaf</blockquote>
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
