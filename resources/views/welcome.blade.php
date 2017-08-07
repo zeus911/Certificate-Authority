@@ -36,8 +36,9 @@
                 </div>
                @endif
                <br />
+               @includes('layout.footer')
                <div class="footer">
-               &#128128; Lopeaa, 2017.
+               <strong>&#128128; Lopeaa, 2015 - {{ date('Y'); }}.</strong>
                </div>
             </div>
         </div>
