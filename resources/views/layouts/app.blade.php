@@ -43,7 +43,7 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand">
                     <!-- <a class="navbar-brand" href="{{ url('/') }}"> -->
-                        {{ config('app.name', 'Prototypes') }} There are two theories to arguing with a woman. Neither works.
+                        {{ config('app.name', 'Prototypes') }} <blockquote>There are two theories to arguing with a woman. Neither works.</blockquote>
                     </a>
                 </div>
 
