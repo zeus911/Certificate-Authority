@@ -93,6 +93,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-</body>
+</body> 
+    <br />
         @include('layouts/footer')
 </html>
