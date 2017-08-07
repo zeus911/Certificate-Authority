@@ -43,7 +43,7 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand">
                     <!-- <a class="navbar-brand" href="{{ url('/') }}"> -->
-                        {{ config('app.name', 'Prototypes') }}
+                        {{ config('app.name', 'Prototypes') }} There are two theories to arguing with a woman. Neither works.
                     </a>
                 </div>
 
@@ -52,7 +52,6 @@
                     <ul class="nav navbar-nav">
                         &nbsp;
                     </ul>
-                    <blockquote>sdfasdfgmaf</blockquote>
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
