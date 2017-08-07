@@ -38,7 +38,7 @@
                <br />
                @includes('layout.footer')
                <div class="footer">
-               <strong>&#128128; Lopeaa, 2015 - {{ date('Y'); }}.</strong>
+               <strong>&#128128; Lopeaa, 2015 - {{ date('Y') }}.</strong>
                </div>
             </div>
         </div>
