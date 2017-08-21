@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <title>{{ config('app.name', 'Certificate Authority') }}</title>
+    <title>{{ config('app.name', 'CA') }}</title>
 
     <!-- .ico -->
     <link rel="icon" href="{{URL::asset('favico.ico') }}"/>
@@ -46,7 +46,7 @@
                     <a class="navbar-brand nav" href="{{ url('dashboard/index') }}">
                     <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT - Home"></div>
                     -->
-                        <!-- {{ config('app.name', '') }} -->
+                        <!-- {{ config('app.name', 'CA') }} -->
                     </a>
                 </div>
 
