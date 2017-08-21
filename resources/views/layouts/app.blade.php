@@ -114,9 +114,10 @@
                         <strong>Search</strong></a>
                         </li>
                         &nbsp;
+                        <!-- // Popup Code // -->
                     </ul>
                    <!-- Search form -->
-                    <!-- <div>
+{{--                     <div>
                         {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
                         {{csrf_field()}}
                         {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
@@ -127,8 +128,8 @@
                         <br />
                         {{ Form::token() }}
                         {{ Form::close() }}    
-                    </div> -->
-                    
+                    </div>
+ --}}                    
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
