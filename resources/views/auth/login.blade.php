@@ -63,7 +63,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-block">
                                     Login
                                 </button>
 
@@ -74,6 +74,9 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
+                            <blockquote>
+                                Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning...
+                            </blockquote>
                                 <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }}</a><br />
                                 <a class="text-default"><strong>DNSBL/RBL Check:</strong></a>
                             </div>
