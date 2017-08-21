@@ -9,10 +9,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <title>{{ config('app.name', '') }}</title>
+    <title>{{ config('app.name', 'Certificate Authority') }}</title>
 
     <!-- .ico -->
-    <link rel="icon" href="{{URL::asset('tragsa.ico') }}"/>
+    <link rel="icon" href="{{URL::asset('favico.ico') }}"/>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -42,10 +42,10 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
+                    <!-- Branding Image
                     <a class="navbar-brand nav" href="{{ url('dashboard/index') }}">
-                    <div class="container"><img src="{{URL::asset('/img/logo_tragsa.gif')}}" alt="TRAGSA CA - Home"></div>
-
+                    <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT - Home"></div>
+                    -->
                         <!-- {{ config('app.name', 'Certificate Authority') }} -->
                     </a>
                 </div>
