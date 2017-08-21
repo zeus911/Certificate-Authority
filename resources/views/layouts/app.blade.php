@@ -163,7 +163,7 @@
                         @endif
                     </ul>
                                         <!-- Search form -->
-                    <div>
+{{--                     <div>
                         {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
                         {{csrf_field()}}
                         <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
@@ -175,7 +175,7 @@
                         {{ Form::token() }}
                         {{ Form::close() }}    
                     </div>
-
+ --}}
                 </div>
             </div>
         </nav>
