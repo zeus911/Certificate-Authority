@@ -4141,7 +4141,7 @@ fieldset[disabled] .btn-link:hover {
 
 .btn-block {
     display: block;
-    width: 100%
+    width: inherit
 }
 
 .btn-block+.btn-block {
