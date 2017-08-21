@@ -12,11 +12,14 @@
     <title>{{ config('app.name', '') }}</title>
 
     <!-- .ico -->
-    <link rel="icon" href="{{URL::asset('favicon.ico') }}"/>
+    <link rel="icon" href="{{URL::asset('tragsa.ico') }}"/>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    
+
+    <!-- Fonts -->
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
+   
 
     <!-- Scripts -->
     <script>
@@ -27,8 +30,7 @@
 </head>
 <body>
     <div id="app">
-
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-default navbar-fixed-top"> <!-- opt: default, static, fixed -->
             <div class="container">
                 <div class="navbar-header">
 
@@ -41,57 +43,100 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('#') }}">
-                    <!-- <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT - Home"> -->
-                        {{ config('app.name', 'Certificate Authority') }}
+                    <a class="navbar-brand nav" href="{{ url('dashboard/index') }}">
+                    <div class="container"><img src="{{URL::asset('/img/logo_tragsa.gif')}}" alt="TRAGSA CA - Home"></div>
+
+                        <!-- {{ config('app.name', 'Certificate Authority') }} -->
                     </a>
                 </div>
 
+                <br />
+                <br />
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        <li class="active"><a href="{{ url('dashboard/index') }}">Dashboard</a></li>
+                    <ul class="nav navbar-nav navbar">
+                        <li class="active"><a href="{{ url('certs/mgmt/') }}">
+                        <i class="fa fa-home" aria-hidden="true"></i></a></li>
                         <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Certificates<span class="caret"></span>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <i class="fa fa-certificate" aria-hidden="true"></i>
+                                <strong>Certificates</strong><span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu">
+                                    <li class="dropdown-header"><strong>CERTIFICATES</strong></li>
                                     <li><a href="{{ url('certs/mgmt') }}">Certificate Management</a></li>
                                     <li><a href="{{ url('certs/create') }}">Request New Certificate</a></li>
                                     <li><a href="{{ url('csr/create') }}">Request New CSR & Key</a></li>
                                     <li><a href="{{ url('csr/sign') }}">Sign Certificate Request</a></li>
                                     <li class="divider"></li>
+                                    <li class="dropdown-header"><strong>PFX/P12 ARCHIVES</strong></li> 
                                     <li><a href="{{ url('converter/p12') }}">Convert to PFX/P12</a></li>
                                     <li class="divider"></li>
+                                    <li class="dropdown-header"><strong>JAVA KEYSTORE</strong></li>
                                     <li><a href="{{ url('converter/keystore') }}">Create Keystore</a></li>
                                 </ul>
                         </li>
                         <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    JAR Signer<span class="caret"></span>
+                                <i class="fa fa-archive" aria-hidden="true"></i>
+                                <strong>JAR Signer</strong><span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ url('signer/jar') }}">Sign a JAVA Archive</a></li>
-                                    <li class="text-danger"><a href="{{ url('signer/search') }}">Search for Archives</a></li>
-                                    <li class="divider"></li>
+                                    <li class="disabled"><a href="{{ url('signer/search') }}">Search for Archives</a></li>
+                                </ul>
+                        </li>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <i class="fa fa-windows" aria-hidden="true"></i>
+                                <strong>Microsoft Authenticode</strong><span class="caret"></span>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('signer/authenticode') }}">Sign a Microsoft Archive</a></li>
+                                    <li class="disabled"><a href="{{ url('signer/search') }}">Search for Archives</a></li>
                                 </ul>
                         </li>                             
-                        <li class="text-info"><a href="{{ url('#') }}">Microsoft Authenticode</a></li>
-                        <li><a href="{{ url('#') }}">Root & CRL</a></li>
-                        <li class="text-danger"><a href="{{ url('le/index') }}">Let's Encrypt CSR Signer</a></li>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <i class="fa fa-cloud-download" aria-hidden="true"></i>
+                                <strong>Root & CRL</strong><span class="caret"></span>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li class="dropdown-header"><strong>ROOT CERTIFICATES</strong></li>
+                                    <li><a href="{{ url('rootcrl/root') }}">Download Root Certificate</a></li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header"><strong>CERTIFICATES REVOCATION LIST</strong></li>
+                                    <li><a href="{{ url('rootcrl/crl') }}">Update & Download CRL</a></li>
+                                </ul>
+                        </li>                             
+                        <li><a href="{{ url('le/index') }}">
+                        <i class="fa fa-shield" aria-hidden="true"></i>
+                        <strong>Let's Encrypt CSR Signer</strong></a></li>
                         &nbsp;
                     </ul>
-
+                   <!-- Search form
+                    <div>
+                        {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
+                        {{csrf_field()}}
+                        <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
+                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
+                        @if($errors->has('cn'))
+                            {{ $errors->first('cn') }} 
+                        @endif
+                        <br />
+                        {{ Form::token() }}
+                        {{ Form::close() }}    
+                    </div>
+-->
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                        <!--
+                           <!-- 
                            <li><a href="{{ url('/login') }}">Login</a></li>
                            <li><a href="{{ url('/register') }}">Register</a></li>
-                        -->
+                           -->
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                    <strong>{{ Auth::user()->name }} <span class="caret"></span></strong>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -99,6 +144,7 @@
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
                                             Logout
                                         </a>
 
@@ -110,13 +156,31 @@
                             </li>
                         @endif
                     </ul>
+                                        <!-- Search form -->
+                    <div>
+                        {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
+                        {{csrf_field()}}
+                        <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
+                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
+                        @if($errors->has('cn'))
+                            {{ $errors->first('cn') }} 
+                        @endif
+                        <br />
+                        {{ Form::token() }}
+                        {{ Form::close() }}    
+                    </div>
+
                 </div>
             </div>
         </nav>
 
         @yield('content')
-    </div>
 
+    </div>
+    <br />
+    <!-- footer -->
+    <div class="text-info"><center>TRAGSA &#128128; 2016 - {{ date('F Y') }}.</center></div>
+    <br />
     <!-- Scripts -->
     <script src="/js/app.js"></script>
 </body>
