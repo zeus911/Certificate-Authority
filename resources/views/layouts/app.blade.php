@@ -45,10 +45,10 @@
 {{--                     <!-- Branding Image -->
                     <a class="navbar-brand nav" href="{{ url('dashboard/index') }}">
                     <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT - Home"></div>
- --}}               
-                        {{ config('app.name', 'CA') }}
-                    <!-- </a> -->
-                </div>
+               
+                        {{ config('app.name', '') }}
+                    </a>
+--}}                </div>
 
                 <br />
                 <br />
