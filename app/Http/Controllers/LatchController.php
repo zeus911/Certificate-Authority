@@ -22,4 +22,21 @@ Class LatchController extends BaseController {
             }
         }
     }
+    
+    public function unpair()
+    {
+        // Obtenemos el identificador del usuario de Latch de nuestra base de datos
+        $accountId = Auth::user()->latch_account_id;
+        // Despareamos al usuario de Latch
+        if (Latch::unpair($accountId))
+        {
+            // Eliminamos el identificador del usuario de Latch de nuestra base de datos
+        }
+        // Si hay algun error, se lo mostramos al usuario
+        else
+        {
+            echo Latch::error();
+        }
+    }
 }
+
