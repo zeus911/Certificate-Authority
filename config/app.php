@@ -166,6 +166,8 @@ return [
         /*Khill\Fontawesome\FontAwesomeServiceProvider, */
         Collective\Html\HtmlServiceProvider::class,
         'Chumper\Zipper\ZipperServiceProvider',
+        'Faytzel\LaravelLatch\LaravelLatchServiceProvider',
+
 
         
 
@@ -233,7 +235,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Zipper' => 'Chumper\Zipper\Zipper'
+        'Zipper' => 'Chumper\Zipper\Zipper',
+        'Latch' => 'Faytzel\LaravelLatch\Facades\LaravelLatch'
+
         
 
     ],
