@@ -109,25 +109,12 @@
                         <i class="fa fa-shield" aria-hidden="true"></i>
                         <strong>Let's Encrypt CSR Signer</strong></a>
                         </li>
-                        <li><button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#yourModal">Search</li>
-
-                        <div class="modal fade" id="yourModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel">Title</h4>
-                              </div>
-                              <div class="modal-body">
-                                Search Form Here
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <li><a href="{{ url('dashboard/search') }}">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <strong>Search</strong></a>
+                        </li>
+                        &nbsp;
+                        <!-- // Popup Code // -->
                     </ul>
                    <!-- Search form -->
 {{--                     <div>
@@ -175,20 +162,6 @@
                             </li>
                         @endif
                     </ul>
-                                        <!-- Search form -->
-{{--                     <div>
-                        {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
-                        {{csrf_field()}}
-                        <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
-                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
-                        @if($errors->has('cn'))
-                            {{ $errors->first('cn') }} 
-                        @endif
-                        <br />
-                        {{ Form::token() }}
-                        {{ Form::close() }}    
-                    </div>
- --}}
                 </div>
             </div>
         </nav>
