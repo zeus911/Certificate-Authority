@@ -111,22 +111,32 @@
                         </li>
                         <li>
                         <i class="fa fa-search" aria-hidden="true"></i>
-                        <strong>Search</strong></a>
+                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal1">Search</button>
+
+                        <a><strong>Search</strong></a>
                                                 <div id="myModal1" class="modal fade" role="dialog">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Certicate Server Request (CSR)</h4>
+                            <h4 class="modal-title">Search certificate by CommonName</h4>
                           </div>
                           <div class="modal-body">
-                            <p>Copy &amp Paste.</p>
-                            <pre>{{ $csrprint }}</pre>
+                            <p>Type complete CommonName.</p>
+                            {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
+                        {{csrf_field()}}
+                        {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
+                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
+                        @if($errors->has('cn'))
+                            {{ $errors->first('cn') }} 
+                        @endif
+                        <br />
+                        {{ Form::token() }}
+                        {{ Form::close() }}    
                           </div>
                           <div class="modal-footer">
-  
-                              <!-- // Button to Update CSR in DB. // -->
-                                {{ Form::open(['url' => 'dashboard/update', 'method' => 'post']) }}
+                               <!-- // Button to download CSR to a file. // -->
+                                {{ Form::open(['url' => 'dashboard/search', 'method' => 'post']) }}
                                     {{csrf_field()}}
                                     <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
                                     @if($errors->has('cn'))
@@ -134,20 +144,7 @@
                                     @endif
                                     <br />
                                     {{ Form::token() }}
-                                    {{ Form::submit('Update CSR', ['class' => 'btn btn-primary btn-md']) }}
-                                    {{ Form::close() }}
-                                <!-- // End Button to Update in DB. // -->
-  
-                                <!-- // Button to download CSR to a file. // -->
-                                {{ Form::open(['url' => 'dashboard/getCSR', 'method' => 'post']) }}
-                                    {{csrf_field()}}
-                                    <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
-                                    @if($errors->has('cn'))
-                                        {{ $errors->first('cn') }} 
-                                    @endif
-                                    <br />
-                                    {{ Form::token() }}
-                                    {{ Form::submit('Get CSR', ['class' => 'btn btn-primary btn-md']) }}
+                                    {{ Form::submit('Go', ['class' => 'btn btn-primary btn-md']) }}
                                     {{ Form::close() }}
                                 </br>
                                 <!-- // End Button to download CSR to a file. // -->
