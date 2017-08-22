@@ -60,7 +60,7 @@
     @endif
     <br />
     {{ Form::token() }}
-    {{ Form::submit('Export to Excel', ['class' => 'btn btn-primary btn-md' disabled]) }}
+    {{ Form::submit('Export to Excel', ['class' => 'btn btn-primary btn-md'] disabled) }}
     {{ Form::close() }}
 
     </br>
