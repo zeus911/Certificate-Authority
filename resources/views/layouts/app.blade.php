@@ -45,6 +45,11 @@
                     <!-- <a class="navbar-brand" href="{{ url('/') }}"> -->
                         {{ config('app.name', 'Prototypes') }} &#128128;
                     </a>
+                        <!-- {{ Form::label('pills &amp resources: ', 'Pills &amp Resources: ', ['class' => '']) }} -->
+    {{ Form::select('certificate_type', ['SSL/TLS Server' => 'SSL/TLS Server', 'ClientID' => 'Client ID', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
+        @if($errors->has('certificate_type'))
+        {{ $errors->first('certificate_type') }} 
+    @endif
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

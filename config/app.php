@@ -164,6 +164,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         /*Khill\Fontawesome\FontAwesomeServiceProvider, */
+        Collective\Html\HtmlServiceProvider::class,
+        'Chumper\Zipper\ZipperServiceProvider',
+
         
 
         /*
@@ -228,6 +231,10 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Zipper' => 'Chumper\Zipper\Zipper'
+        
 
     ],
 
