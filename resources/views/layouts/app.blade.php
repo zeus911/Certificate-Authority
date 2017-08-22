@@ -16,8 +16,9 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-    <!-- link href="/css/tabs.css" rel="stylesheet"-->
 
+    <!-- Fonts -->
+	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -36,7 +37,7 @@
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
                         <span class="icon-bar"></span>
                     </button>
 
@@ -62,7 +63,9 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    <strong>{{ Auth::user()->name }}</strong> <span class="caret"></span>
+                                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                                    <strong>{{ Auth::user()->name }}</strong>
+                                    <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -70,6 +73,7 @@
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
                                             Logout
                                         </a>
 
@@ -93,5 +97,5 @@
     <script src="/js/app.js"></script>
 </body> 
     <br />
-        <center>@include('layouts/footer')</center>a
+        <center>@include('layouts/footer')</center>
 </html>

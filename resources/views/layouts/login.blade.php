@@ -17,6 +17,10 @@
     <!-- Styles -->
     <link href="/css/login.css" rel="stylesheet">
 
+    <!-- Fonts -->
+	<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
+
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([

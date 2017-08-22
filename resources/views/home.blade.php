@@ -20,8 +20,9 @@
     	<div id="certauth" class="tab-pane fade in active">  
       	<h3>Certificate Authority</h3>
       	<p>Management WebApp for Certificate Authority.</p>
-      		<p>URL: <a href="https://ca.liquabit.com"><span class=""></span>ca.liquabit.com</a></p>
-          <p>Github: <a href="https://github.com/lopeaa/Certificate-Authority.git"><span class=""></span>Certificate Authority Source</a></p>
+      		<p><i class="fa fa-external-link" aria-hidden="true"></i>
+ URL: <a href="https://ca.liquabit.com"><span class=""></span>ca.liquabit.com</a></p>
+          <p><i class="fa fa-github" aria-hidden="true"></i> Github: <a href="https://github.com/lopeaa/Certificate-Authority.git"><span class=""></span>Certificate Authority Source</a></p>
 
 			<p><strong>Log in with 'Username' instead of 'email' in Laravel Framework.</strong></p>
 				<p>In order to log in with 'username' instead of 'email' field, you have to include the field

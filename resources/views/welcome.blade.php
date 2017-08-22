@@ -6,14 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Prototypes</title>
-
-        <!-- Fonts -->
-        <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> -->
         
         <link href="/css/app.css" rel="stylesheet">
 	
 	   <!-- Styles -->
         <link rel="stylesheet" type="text/css" href="css/welcome.css">
+
+       <!-- Fonts -->
+		<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
+ 
         
     </head>
     <body>
@@ -31,8 +32,9 @@
 
 		@if (Route::has('login'))
                 <div class="">
-                    <a class='btn btn-primary btn-lg' href="{{ url('/login') }}">Login</a>
-                    <a class='btn btn-primary btn-lg' href="{{ url('https://github.com/lopeaa') }}">Github</a>
+                    <a class='btn btn-primary btn-lg' href="{{ url('/login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
+                    <a class='btn btn-primary btn-lg' href="{{ url('https://github.com/lopeaa') }}"><i class="fa fa-github" aria-hidden="true"></i>
+ Github</a>
                 </div>
                @endif
                <br />
