@@ -110,47 +110,28 @@
                         <strong>Let's Encrypt CSR Signer</strong></a>
                         </li>
                         <li>
-                        <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal1"><i class="fa fa-search" aria-hidden="true"></i></button>
-
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <strong>Search</strong></a>
                         <div id="myModal1" class="modal fade" role="dialog">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Search certificate by CommonName</h4>
-                          </div>
-                          <div class="modal-body">
-                            <p>Type complete CommonName.</p>
-                            {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
-                            {{csrf_field()}}
-                            <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ?    e($input['cn']) : '' }}" placeholder="Search by CN">
-                            @if($errors->has('cn'))
-                                {{ $errors->first('cn') }} 
-                            @endif
-                        <br />
-                        {{ Form::token() }}
-                        {{ Form::close() }}    
-                          </div>
-                          <div class="modal-footer">
-                               <!-- // Button to download CSR to a file. // -->
-                                {{ Form::open(['url' => 'dashboard/search', 'method' => 'post']) }}
-                                    {{csrf_field()}}
-                                    <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
-                                    @if($errors->has('cn'))
-                                        {{ $errors->first('cn') }} 
-                                    @endif
-                                    <br />
-                                    {{ Form::token() }}
-                                    {{ Form::submit('Go', ['class' => 'btn btn-primary btn-md']) }}
-                                    {{ Form::close() }}
-                                </br>
-                                <!-- // End Button to download CSR to a file. // -->
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                          </div>
-                        </div>
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Certicate Server Request (CSR)</h4>
+                              </div>
+                              <div class="modal-body">
+                                <p>Copy &amp Paste.</p>
+                                <pre>{{ $csrprint }}</pre>
+                              </div>
+                              <div class="modal-footer">
+      
+                                    <!-- // End Button to download CSR to a file. // -->
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                              </div>
+                            </div>
 
-                      </div>
-                    </div>                        
+                          </div>
+                        </div>                        
                         </li>
                         &nbsp;
 
