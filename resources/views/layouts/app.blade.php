@@ -109,17 +109,17 @@
                         <i class="fa fa-shield" aria-hidden="true"></i>
                         <strong>Let's Encrypt CSR Signer</strong></a>
                         </li>
-                        <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#yourModal">Search</li>
+                        <li><button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#yourModal">Search</li>
 
                         <div class="modal fade" id="yourModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel">test->someTitle</h4>
+                                <h4 class="modal-title" id="myModalLabel">Title</h4>
                               </div>
                               <div class="modal-body">
-                                test->someField
+                                Search Form Here
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
