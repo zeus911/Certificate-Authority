@@ -42,7 +42,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                        <!-- {{ config('app.name', 'Certificate Authority') }} -->
+                        {{ config('app.name', 'Certificate Authority (Procyon)') }}
                     </a>
                 </div>
 
