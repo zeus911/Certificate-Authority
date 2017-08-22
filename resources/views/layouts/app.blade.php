@@ -111,10 +111,9 @@
                         </li>
                         <li>
                         <i class="fa fa-search" aria-hidden="true"></i>
-                        <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal1">Search</button>
+                        <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal1"><i class="fa fa-search" aria-hidden="true"></i>Search</button>
 
-                        <a><strong>Search</strong></a>
-                                                <div id="myModal1" class="modal fade" role="dialog">
+                        <div id="myModal1" class="modal fade" role="dialog">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
