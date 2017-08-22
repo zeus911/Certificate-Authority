@@ -19,7 +19,7 @@
         "khill/fontawesomephp" : "1.0.x"
         
     },
-    "autoload": {
+    "autoload": { 
         "classmap": [
             "database"
         ],
