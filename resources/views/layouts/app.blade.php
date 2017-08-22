@@ -114,8 +114,9 @@
                      <div>
                         {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
                         {{csrf_field()}}
-                        {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
-                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder='<i class="fa fa-search" aria-hidden="true"></i>Search by CN'>
+                        <!-- {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }} -->
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder=<i class="fa fa-search" aria-hidden="true"></i>"Search by CN">
                         @if($errors->has('cn'))
                             {{ $errors->first('cn') }} 
                         @endif
