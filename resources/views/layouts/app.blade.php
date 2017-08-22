@@ -12,7 +12,7 @@
     <title>{{ config('app.name', '') }}</title>
 
     <!-- .ico -->
-    <link rel="icon" href="{{URL::asset('favico.ico') }}"/>
+    <link rel="icon" href="{{URL::asset('tragsa.ico') }}"/>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -42,13 +42,13 @@
                         <span class="icon-bar"></span>
                     </button>
 
-{{--                     <!-- Branding Image -->
+                    <!-- Branding Image -->
                     <a class="navbar-brand nav" href="{{ url('dashboard/index') }}">
-                    <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT - Home"></div>
-               
-                        {{ config('app.name', '') }}
+                    <div class="container"><img src="{{URL::asset('/img/logo_tragsa.gif')}}" alt="TRAGSA CA - Home"></div>
+
+                        <!-- {{ config('app.name', 'Certificate Authority') }} -->
                     </a>
---}}                </div>
+                </div>
 
                 <br />
                 <br />
@@ -107,24 +107,9 @@
                         </li>                             
                         <li><a href="{{ url('le/index') }}">
                         <i class="fa fa-shield" aria-hidden="true"></i>
-                        <strong>Let's Encrypt CSR Signer</strong></a>
-                        </li>
+                        <strong>Let's Encrypt CSR Signer</strong></a></li>
+                        &nbsp;
                     </ul>
-                   <!-- Search form -->
-                     <div>
-                        {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
-                        {{csrf_field()}}
-                        <!-- {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }} -->
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                        <input class="form-control input-md" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
-                        @if($errors->has('cn'))
-                            {{ $errors->first('cn') }} 
-                        @endif
-                        <br />
-                        {{ Form::token() }}
-                        {{ Form::close() }}    
-                    </div>
-                    
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -157,6 +142,20 @@
                             </li>
                         @endif
                     </ul>
+                                        <!-- Search form -->
+                    <div>
+                        {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
+                        {{csrf_field()}}
+                        <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
+                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
+                        @if($errors->has('cn'))
+                            {{ $errors->first('cn') }} 
+                        @endif
+                        <br />
+                        {{ Form::token() }}
+                        {{ Form::close() }}    
+                    </div>
+
                 </div>
             </div>
         </nav>
