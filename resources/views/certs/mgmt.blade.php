@@ -5,23 +5,8 @@
 
     <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
     
-      <h2>Self-Service</h2>
-			<h3>Certificates Management</h3>      		
-    {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post']) }}
-    {{csrf_field()}}
-    <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
-    <input class="form-control" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CommonName">
-    @if($errors->has('cn'))
-        {{ $errors->first('cn') }} 
-    @endif
-    <br />
-    {{ Form::token() }}
-    {{ Form::submit('Search for details', ['class' => 'btn btn-primary btn-md']) }}
-    {{ Form::close() }}
-
-    </br>
-
-    
+		<h2>Certificates Management</h2>      		
+    </br>   
 	    <table id="dashboard" class="table table-bordered table-condensed table-responsive" cellspacing="0" width="100%">
 	        <thead>
 	            <tr>
