@@ -42,10 +42,6 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand nav" href="{{ url('dashboard/index') }}">
-                    <div class="container"><img src="{{URL::asset('/img/logo_tragsa.gif')}}" alt="TRAGSA CA - Home"></div>
-
                         <!-- {{ config('app.name', 'Certificate Authority') }} -->
                     </a>
                 </div>
