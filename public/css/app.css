@@ -324,7 +324,8 @@ th {
 
 .img-thumbnail,
 body {
-    background-color: #d2d6de
+    #background-color: #d2d6de;
+    background-color: #eee
 }
 
 @font-face {
@@ -1385,7 +1386,7 @@ body {
 *,
 :after,
 :before {
-    box-sizing: border-box
+    #box-sizing: border-box
 }
 
 html {
@@ -1397,7 +1398,8 @@ body {
     font-family: Raleway, sans-serif;
     font-size: 14px;
     line-height: 1.6;
-    color: #636b6f
+    color: #636b6f;
+    padding-top: 150px
 }
 
 button,
@@ -1891,7 +1893,7 @@ blockquote {
     padding: 11px 22px;
     margin: 0 0 22px;
     font-size: 17.5px;
-    border-left: 5px solid #eee
+    border-left: 5px solid #538cc6
 }
 
 blockquote .small,
@@ -2876,7 +2878,7 @@ caption {
 .table-bordered>tfoot>tr>th,
 .table-bordered>thead>tr>td,
 .table-bordered>thead>tr>th {
-    border: 1px solid #ddd
+    #border: 1px solid #ddd
 }
 
 .table-bordered>thead>tr>td,
@@ -3143,7 +3145,7 @@ output {
     height: 36px;
     padding: 6px 12px;
     background-color: #fff;
-    border: 1px solid #ccd0d2;
+    border: 3px solid #ccd0d2;
     #border-radius: 4px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
