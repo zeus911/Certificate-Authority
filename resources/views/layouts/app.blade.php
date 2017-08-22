@@ -116,7 +116,7 @@
                         {{csrf_field()}}
                         <!-- {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }} -->
                         <i class="fa fa-search" aria-hidden="true"></i>
-                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
+                        <input class="form-control" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
                         @if($errors->has('cn'))
                             {{ $errors->first('cn') }} 
                         @endif
