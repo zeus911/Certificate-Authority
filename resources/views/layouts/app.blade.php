@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <title>{{ config('app.name', 'CA') }}</title>
+    <title>{{ config('app.name', '') }}</title>
 
     <!-- .ico -->
     <link rel="icon" href="{{URL::asset('favico.ico') }}"/>
@@ -185,7 +185,7 @@
     </div>
     <br />
     <!-- footer -->
-    <div class="text-info"><center>TRAGSA &#128128; 2016 - {{ date('F Y') }}.</center></div>
+    <div class="text-info"><center>LIQUABIT &#128128; 2016 - {{ date('F Y') }}.</center></div>
     <br />
     <!-- Scripts -->
     <script src="/js/app.js"></script>
