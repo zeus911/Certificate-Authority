@@ -109,12 +109,57 @@
                         <i class="fa fa-shield" aria-hidden="true"></i>
                         <strong>Let's Encrypt CSR Signer</strong></a>
                         </li>
-                        <li><a href="{{ url('dashboard/search') }}">
+                        <li>
                         <i class="fa fa-search" aria-hidden="true"></i>
                         <strong>Search</strong></a>
+                                                <div id="myModal1" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Certicate Server Request (CSR)</h4>
+                          </div>
+                          <div class="modal-body">
+                            <p>Copy &amp Paste.</p>
+                            <pre>{{ $csrprint }}</pre>
+                          </div>
+                          <div class="modal-footer">
+  
+                              <!-- // Button to Update CSR in DB. // -->
+                                {{ Form::open(['url' => 'dashboard/update', 'method' => 'post']) }}
+                                    {{csrf_field()}}
+                                    <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
+                                    @if($errors->has('cn'))
+                                        {{ $errors->first('cn') }} 
+                                    @endif
+                                    <br />
+                                    {{ Form::token() }}
+                                    {{ Form::submit('Update CSR', ['class' => 'btn btn-primary btn-md']) }}
+                                    {{ Form::close() }}
+                                <!-- // End Button to Update in DB. // -->
+  
+                                <!-- // Button to download CSR to a file. // -->
+                                {{ Form::open(['url' => 'dashboard/getCSR', 'method' => 'post']) }}
+                                    {{csrf_field()}}
+                                    <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
+                                    @if($errors->has('cn'))
+                                        {{ $errors->first('cn') }} 
+                                    @endif
+                                    <br />
+                                    {{ Form::token() }}
+                                    {{ Form::submit('Get CSR', ['class' => 'btn btn-primary btn-md']) }}
+                                    {{ Form::close() }}
+                                </br>
+                                <!-- // End Button to download CSR to a file. // -->
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>                        
                         </li>
                         &nbsp;
-                        <!-- // Popup Code // -->
+
                     </ul>
                    <!-- Search form -->
 {{--                     <div>
