@@ -109,42 +109,25 @@
                         <i class="fa fa-shield" aria-hidden="true"></i>
                         <strong>Let's Encrypt CSR Signer</strong></a>
                         </li>
-                        <li>
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                        <strong>Search</strong></a>
-                        <div id="myModal1" class="modal fade" role="dialog">
-                          <div class="modal-dialog">
+                        <li><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#yourModal"></li>
+
+                        <div class="modal fade" id="yourModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Certicate Server Request (CSR)</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">{{ test->someTitle}}</h4>
                               </div>
                               <div class="modal-body">
-                                <div>
-                                    {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
-                                    {{csrf_field()}}
-                                    {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
-                                    <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
-                                    @if($errors->has('cn'))
-                                        {{ $errors->first('cn') }} 
-                                    @endif
-                                    <br />
-                                    {{ Form::token() }}
-                                    {{ Form::close() }}    
-                                </div>
+                                {{ test->someField}}
                               </div>
                               <div class="modal-footer">
-      
-                                    <!-- // End Button to download CSR to a file. // -->
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
                               </div>
                             </div>
-
                           </div>
-                        </div>                        
-                        </li>
-                        &nbsp;
-
+                        </div>
                     </ul>
                    <!-- Search form -->
 {{--                     <div>
