@@ -120,8 +120,18 @@
                                 <h4 class="modal-title">Certicate Server Request (CSR)</h4>
                               </div>
                               <div class="modal-body">
-                                <p>Copy &amp Paste.</p>
-                                <pre>{{ $csrprint }}</pre>
+                                <div>
+                                    {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
+                                    {{csrf_field()}}
+                                    {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
+                                    <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
+                                    @if($errors->has('cn'))
+                                        {{ $errors->first('cn') }} 
+                                    @endif
+                                    <br />
+                                    {{ Form::token() }}
+                                    {{ Form::close() }}    
+                                </div>
                               </div>
                               <div class="modal-footer">
       
