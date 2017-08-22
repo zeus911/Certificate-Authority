@@ -109,19 +109,13 @@
                         <i class="fa fa-shield" aria-hidden="true"></i>
                         <strong>Let's Encrypt CSR Signer</strong></a>
                         </li>
-                        <li><a href="{{ url('dashboard/search') }}">
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                        <strong>Search</strong></a>
-                        </li>
-                        &nbsp;
-                        <!-- // Popup Code // -->
                     </ul>
                    <!-- Search form -->
                      <div>
                         {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
                         {{csrf_field()}}
                         {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
-                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
+                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder='<i class="fa fa-search" aria-hidden="true"></i>Search by CN'>
                         @if($errors->has('cn'))
                             {{ $errors->first('cn') }} 
                         @endif
