@@ -16,7 +16,7 @@
         "phpunit/phpunit": "~5.0",
         "symfony/css-selector": "3.1.*",
         "symfony/dom-crawler": "3.1.*",
-        //"khill/fontawesomephp" : "1.0.x"
+        "khill/fontawesomephp" : "1.0.x"
         
     },
     "autoload": {
