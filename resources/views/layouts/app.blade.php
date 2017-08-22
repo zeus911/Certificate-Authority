@@ -110,8 +110,7 @@
                         <strong>Let's Encrypt CSR Signer</strong></a>
                         </li>
                         <li>
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                        <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal1"><i class="fa fa-search" aria-hidden="true"></i>Search</button>
+                        <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#myModal1"><i class="fa fa-search" aria-hidden="true"></i></button>
 
                         <div id="myModal1" class="modal fade" role="dialog">
                       <div class="modal-dialog">
@@ -123,12 +122,11 @@
                           <div class="modal-body">
                             <p>Type complete CommonName.</p>
                             {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
-                        {{csrf_field()}}
-                        {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
-                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
-                        @if($errors->has('cn'))
-                            {{ $errors->first('cn') }} 
-                        @endif
+                            {{csrf_field()}}
+                            <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ?    e($input['cn']) : '' }}" placeholder="Search by CN">
+                            @if($errors->has('cn'))
+                                {{ $errors->first('cn') }} 
+                            @endif
                         <br />
                         {{ Form::token() }}
                         {{ Form::close() }}    
