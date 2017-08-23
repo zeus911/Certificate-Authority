@@ -21,6 +21,8 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 }*/
 
 class LoginController extends BaseController {
+
+    use AuthenticatesUsers;
     
     public function login()
     {
