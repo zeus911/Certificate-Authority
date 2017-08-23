@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Http\Controllers;
 
 Class LatchController extends BaseController {
     

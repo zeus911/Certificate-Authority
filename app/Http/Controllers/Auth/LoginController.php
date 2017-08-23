@@ -5,30 +5,21 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
+/*class LoginController extends Controller
 {
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
     protected $redirectTo = '/home';
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    
+    // Create a new controller instance.
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
-}
+}*/
 
-/*class LoginController extends BaseController {
+class LoginController extends BaseController {
     
     public function login()
     {
@@ -36,7 +27,7 @@ class LoginController extends Controller
         $input = Input::all();
         // Reglas de validacion
         $rules = array(
-            'email'       => 'required|email',
+            'username'       => 'required|username',
             'password' => 'required'
         );
         // validamos los datos del formulario de login
@@ -44,14 +35,14 @@ class LoginController extends Controller
         if ($validator->passes())
         {
             // Credenciales para el inicio de sesion del usuario
-            $credentials = array('email' => $input['email'], 'password' => $input['password']);
+            $credentials = array('username' => $input['username'], 'password' => $input['password']);
             // Establece si tenemos acceso para acceder a nuestra cuenta de usuario
             $locked = true;
             // Comprobamos si el usuario es valido pero sin loguearlo
             if (Auth::validate($credentials))
             {
                 // Obtenemos el identificador del usuario de Latch de nuestra base de datos (con sql)
-                $user          = User::where('email', '=', $input['email'])->first();
+                $user          = User::where('username', '=', $input['username'])->first();
                 $accountId = $user->latch_account_id;
                 // Comprueba si Latch nos da acceso
                 if (Latch::unlocked($accountId))
@@ -71,4 +62,3 @@ class LoginController extends Controller
         }
     }
 }
-*/
