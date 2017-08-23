@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
 use App\User;
+use Config\Latch;
 
 /*class LoginController extends Controller
 {
@@ -68,7 +69,7 @@ class LoginController extends BaseController {
                 $user = User::where('username', '=', $input[0])->first();
                 //dd($user);
                 //$accountId = $user->latch_account_id;
-                $accountId = Latch::app_id;
+                $accountId = \Latch::app_id;
                 dd($accountId);
 
                 // Comprueba si Latch nos da acceso
