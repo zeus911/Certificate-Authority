@@ -48,6 +48,7 @@ class LoginController extends BaseController {
         );
         // validamos los datos del formulario de login
         $validator = Validator::make($input, $rules);
+        dd($validator);
         if ($validator->passes())
         {
             // Credenciales para el inicio de sesion del usuario
