@@ -30,11 +30,11 @@ class LoginController extends BaseController {
         //$input = Input::all();
         if(isset($_POST['username']) &&  
              isset($_POST['password']) &&  
-             isset($_POST['otc']) {
+             isset($_POST['otc'])) {
 
              $input = $_POST['username'];
+             dd($input);
          }
-        dd($input);
 
         // Reglas de validacion
         $rules = array(
