@@ -50,7 +50,7 @@ class LoginController extends BaseController {
         //$validator = Validator::make($input, $rules);
         //dd($validator);
         //if ($validator->passes())
-        if ($validator)
+        if ($input)
         {
             dd($validator->passes());
             // Credenciales para el inicio de sesion del usuario
