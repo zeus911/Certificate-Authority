@@ -27,8 +27,10 @@ class LoginController extends BaseController {
     public function login()
     {
         // Datos del formulario enviados por el usuario
-        $input = Input::all();
-dd($input);
+        //$input = Input::all();
+        $input = $_POST['username'];
+        dd($input);
+
         // Reglas de validacion
         $rules = array(
             'username'       => 'required|username',
