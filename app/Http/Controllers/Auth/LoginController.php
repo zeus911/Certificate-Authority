@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Controller as BaseController;
@@ -61,7 +61,7 @@ class LoginController extends BaseController {
             $locked = true;
 
             // Comprobamos si el usuario es valido pero sin loguearlo
-            if (\Auth::validate($credentials))
+            if (Auth::validate($credentials))
             {
                 // Obtenemos el identificador del usuario de Latch de nuestra base de datos (con sql)
                 $user          = User::where('username', '=', $input['username'])->first();
