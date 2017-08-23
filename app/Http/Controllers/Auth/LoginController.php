@@ -52,7 +52,7 @@ class LoginController extends BaseController {
         if ($validator->passes())
         {
             // Credenciales para el inicio de sesion del usuario
-            $credentials = array('username' => $input['username'], 'password' => $input['password']);
+            $credentials = array('username' => $input[0], 'password' => $input[1], 'otc' => $input[2]);
             dd($credentials);
             // Establece si tenemos acceso para acceder a nuestra cuenta de usuario
             $locked = true;
@@ -63,7 +63,7 @@ class LoginController extends BaseController {
                 // Obtenemos el identificador del usuario de Latch de nuestra base de datos (con sql)
                 $user          = User::where('username', '=', $input['username'])->first();
                 $accountId = $user->latch_account_id;
-                
+
                 // Comprueba si Latch nos da acceso
                 if (Latch::unlocked($accountId))
                 {
