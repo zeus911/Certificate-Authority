@@ -65,7 +65,7 @@ class LoginController extends BaseController {
             if (\Auth::validate($credentials))
             {
                 // Obtenemos el identificador del usuario de Latch de nuestra base de datos (con sql)
-                $user = User::where('username', '=', $input['username'])->first();
+                $user = User::where('username', '=', $input[0])->first();
                 $accountId = $user->latch_account_id;
 
                 // Comprueba si Latch nos da acceso
