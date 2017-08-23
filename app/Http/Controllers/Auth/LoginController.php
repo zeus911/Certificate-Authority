@@ -29,10 +29,14 @@ class LoginController extends BaseController {
         // Datos del formulario enviados por el usuario
         //$input = Input::all();
 <<<<<<< HEAD
+<<<<<<< HEAD
         $input = $_POST['username'];
 =======
         $input = $_POST['username'] && $_POST['password'] && $_POST['otc'] ;
 >>>>>>> 2b5f9f78af4654cdfc4480e474e6aa991d1f8935
+=======
+        $input = $_POST['username'] && $_POST['password'] && $_POST['otc'];
+>>>>>>> 10bf344b1480961b06ec017ddc95d095a8cf0b39
         dd($input);
 
         // Reglas de validacion
