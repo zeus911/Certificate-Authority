@@ -30,6 +30,7 @@ class LoginController extends BaseController {
         //$input = Input::all();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         $input = $_POST['username'];
 =======
         $input = $_POST['username'] && $_POST['password'] && $_POST['otc'] ;
@@ -37,6 +38,14 @@ class LoginController extends BaseController {
 =======
         $input = $_POST['username'] && $_POST['password'] && $_POST['otc'];
 >>>>>>> 10bf344b1480961b06ec017ddc95d095a8cf0b39
+=======
+        if(isset($_POST['username']) &&  
+             isset($_POST['password']) &&  
+             isset($_POST['otc'])
+
+             $input = $_POST['cn'] + $_POST['password'] + $_POST['otc'];
+
+>>>>>>> 3f9682e32fd31d43001ba0c2882f4e333e4d8cfa
         dd($input);
 
         // Reglas de validacion
