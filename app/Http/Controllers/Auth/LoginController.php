@@ -55,7 +55,8 @@ class LoginController extends BaseController {
             //dd($validator->passes());
             // Credenciales para el inicio de sesion del usuario
             $credentials = array('username' => $input[0], 'password' => $input[1], 'otc' => $input[2]);
-            dd($credentials);
+            //dd($credentials);
+            
             // Establece si tenemos acceso para acceder a nuestra cuenta de usuario
             $locked = true;
 
