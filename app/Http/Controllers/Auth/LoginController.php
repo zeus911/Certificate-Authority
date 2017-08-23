@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Controller as BaseController;
@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Validator;
 
 class LoginController extends BaseController {
 
-    //use AuthenticatesUsers;
+    use AuthenticatesUsers;
     
     public function login()
     {
@@ -61,14 +61,14 @@ class LoginController extends BaseController {
             $locked = true;
 
             // Comprobamos si el usuario es valido pero sin loguearlo
-            if (Auth::validate($credentials))
+            if (\Auth::validate($credentials))
             {
                 // Obtenemos el identificador del usuario de Latch de nuestra base de datos (con sql)
-                $user = User::where('username', '=', $input['username'])->first();
+                $user = \User::where('username', '=', $input['username'])->first();
                 $accountId = $user->latch_account_id;
 
                 // Comprueba si Latch nos da acceso
-                if (Latch::unlocked($accountId))
+                if (\Latch::unlocked($accountId))
                 {
                     $locked = false;
                 }
@@ -77,7 +77,7 @@ class LoginController extends BaseController {
             if ( ! $locked)
             {
                 // Autentica al usuario
-                if (Auth::attempt($credentials))
+                if (\Auth::attempt($credentials))
                 {
                     //
                 }
