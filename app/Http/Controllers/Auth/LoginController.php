@@ -41,15 +41,16 @@ class LoginController extends BaseController {
              //dd($input);
          }
 
-        // Reglas de validacion
+/*        // Reglas de validacion
         $rules = array(
             'username'       => 'required|username',
             'password' => 'required'
         );
-        // validamos los datos del formulario de login
-        $validator = Validator::make($input, $rules);
+*/        // validamos los datos del formulario de login
+        //$validator = Validator::make($input, $rules);
         //dd($validator);
-        if ($validator->passes())
+        //if ($validator->passes())
+        if ($validator)
         {
             dd($validator->passes());
             // Credenciales para el inicio de sesion del usuario
