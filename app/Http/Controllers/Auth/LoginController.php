@@ -36,7 +36,7 @@ class LoginController extends BaseController {
              $password=  $_POST['password'];
              $otc = $_POST['otc'];
 
-             $input = $username + $password + $otc;
+             $input = array($username, $password, $otc);
              dd($input);
          }
 
