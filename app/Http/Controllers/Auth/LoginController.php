@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 
 
-class LoginController extends BaseController {
+class LoginController extends Controller {
     
     public function login()
     {
