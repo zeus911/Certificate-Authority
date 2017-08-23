@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
+use App\User;
 
 /*class LoginController extends Controller
 {
@@ -64,7 +65,7 @@ class LoginController extends BaseController {
             if (\Auth::validate($credentials))
             {
                 // Obtenemos el identificador del usuario de Latch de nuestra base de datos (con sql)
-                $user = User::where('username', '=', $input['username'])->first();
+                $user = \User::where('username', '=', $input['username'])->first();
                 $accountId = $user->latch_account_id;
 
                 // Comprueba si Latch nos da acceso
