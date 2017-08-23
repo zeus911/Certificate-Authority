@@ -52,7 +52,7 @@ class LoginController extends BaseController {
         //if ($validator->passes())
         if ($input)
         {
-            dd($validator->passes());
+            //dd($validator->passes());
             // Credenciales para el inicio de sesion del usuario
             $credentials = array('username' => $input[0], 'password' => $input[1], 'otc' => $input[2]);
             dd($credentials);
