@@ -35,7 +35,7 @@ Schema::create('users', function (Blueprint $table) {
 	    	$table->string('username', 10);
 	    	$table->string('email')->unique();
             $table->string('password'); 
-            $table->rememberToken();
+            $table->rememberToken(); 
             $table->timestamps();
         });
 			</pre>
