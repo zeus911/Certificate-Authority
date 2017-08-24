@@ -7,6 +7,18 @@
     
 			<h2>Certificates Management</h2>      		
       </br>
+      <div>
+          {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
+          {{csrf_field()}}
+          <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
+          <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
+             @if($errors->has('cn'))
+               {{ $errors->first('cn') }} 
+             @endif
+          <br />
+          {{ Form::token() }}
+          {{ Form::close() }}    
+      </div>
       <table id="dashboard" class="table table-bordered table-condensed table-responsive" cellspacing="0" width="100%">
 	        <thead>
 	            <tr>
