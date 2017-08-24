@@ -87,6 +87,13 @@
                                         </form>
                                     </li>
                                 </ul>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('auth/latch') }}"><i class="fa fa-shield" aria-hidden="true"></i>Latch</a>
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
                             </li>
                         @endif
                     </ul>
