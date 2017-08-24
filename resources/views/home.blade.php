@@ -7,6 +7,7 @@
     
       <h2>Pills &amp Resources</h2>
     	<p></p> 
+<<<<<<< HEAD
       <ul class="nav nav-pills">
 <<<<<<< HEAD
     <!-- {{ Form::label('pills &amp resources: ', 'Pills &amp Resources: ', ['class' => '']) }} -->
@@ -24,6 +25,9 @@ select.onchange = function(){
     @endif
 =======
 >>>>>>> 03239d46be28c376ebcc836f494384cb0e8a3dbe
+=======
+      <ul class="nav nav-pills"> 
+>>>>>>> 64f49794dbdc151e9227ad5ee58078d7dab2d31a
     			<li class='active'><a data-toggle="pill" href="#certauth">Cetificate Authority</a></li>
     			<li><a data-toggle="pill" href="#2falatch">2FA + Latch</a></li>
     			<li><a data-toggle="pill" href="#py">Scripts</a></li>
