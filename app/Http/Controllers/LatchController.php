@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 Class LatchController extends BaseController {
+
+    public function latch()
+    {
+        return view ('auth.latch');
+    }
     
     public function pair()
     {
