@@ -9,7 +9,15 @@
     	<p></p> 
       <ul class="nav nav-pills">
     <!-- {{ Form::label('pills &amp resources: ', 'Pills &amp Resources: ', ['class' => '']) }} -->
+<<<<<<< HEAD
     {{ Form::select('Select Articles', ['#certauth' => 'Certificate Authprity', '2falatch' => '2FA with Latch', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
+=======
+    {{ Form::select('select_articles', [<a href="#certauth"> => 'Certificate Authority', '#2falatch' => '2FA with Latch', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
+  <script>  var select = document.getElementById('select_articles');
+select.onchange = function(){
+    this.form.submit();
+};</script>
+>>>>>>> b19ba1c48c60f5ddef8e0d8937a8b4721f9f549c
         @if($errors->has('certificate_type'))
         {{ $errors->first('certificate_type') }} 
     @endif
