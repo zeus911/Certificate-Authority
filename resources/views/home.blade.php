@@ -9,7 +9,7 @@
     	<p></p> 
       <ul class="nav nav-pills">
     <!-- {{ Form::label('pills &amp resources: ', 'Pills &amp Resources: ', ['class' => '']) }} -->
-    {{ Form::select('Select Articles', ['#certauth' => 'Certificate Authprity', '2falatch' => '2FA with Latch', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
+    {{ Form::select('Select Articles', [<a href="#certauth"> => 'Certificate Authority', '#2falatch' => '2FA with Latch', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
         @if($errors->has('certificate_type'))
         {{ $errors->first('certificate_type') }} 
     @endif
