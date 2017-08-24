@@ -7,12 +7,12 @@
     
       <h2>Pills &amp Resources</h2>
     	<p></p> 
+      <ul class="nav nav-pills">
     <!-- {{ Form::label('pills &amp resources: ', 'Pills &amp Resources: ', ['class' => '']) }} -->
-    {{ Form::select('Select Article', ['Certificate Authority' => 'Certificate Authority', '2FA + Latch' => '2FA + Latch', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
+    {{ Form::select('Select Articles', ['Certificate Authority' => '#certauth', 'ClientID' => 'Client ID', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
         @if($errors->has('certificate_type'))
         {{ $errors->first('certificate_type') }} 
     @endif
-  		<ul class="nav nav-pills">
     			<li class='active'><a data-toggle="pill" href="#certauth">Cetificate Authority</a></li>
     			<li><a data-toggle="pill" href="#2falatch">2FA + Latch</a></li>
     			<li><a data-toggle="pill" href="#py">Scripts</a></li>
