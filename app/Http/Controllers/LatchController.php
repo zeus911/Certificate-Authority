@@ -19,6 +19,7 @@ Class LatchController extends BaseController {
         {
             // Obtenemos el código de pareado del usuario
             $token = Input::token('token');
+            dd($token);
             // Intenta parear Latch con el código (token)
             if ($accountId = Latch::pair($token))
             {
