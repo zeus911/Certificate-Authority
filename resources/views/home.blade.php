@@ -84,3 +84,4 @@ Schema::create('users', function (Blueprint $table) {
     </div>
 
 @endsection
+ 
