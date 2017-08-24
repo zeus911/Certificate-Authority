@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Routing\Controller as BaseController;
+
 Class LatchController extends BaseController {
 
     public function latch()
