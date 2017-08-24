@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Latch</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('auth/latch') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('auth/latchPair') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">Username</label>
