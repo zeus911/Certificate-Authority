@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use App\User;
 use App\Latch;
 
-/*class LoginController extends Controller
+class LoginController extends Controller
 {
 
     use AuthenticatesUsers;
@@ -21,9 +21,9 @@ use App\Latch;
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
-}*/
+}
 
-class LoginController extends BaseController {
+/*class LoginController extends BaseController {
 
     use AuthenticatesUsers;
     
@@ -43,12 +43,12 @@ class LoginController extends BaseController {
              //dd($input);
          }
 
-/*        // Reglas de validacion
-        $rules = array(
-            'username'       => 'required|username',
-            'password' => 'required'
-        );
-*/        // validamos los datos del formulario de login
+        // Reglas de validacion
+        //$rules = array(
+        //    'username'       => 'required|username',
+        //    'password' => 'required'
+        //);
+        // validamos los datos del formulario de login
         //$validator = Validator::make($input, $rules);
         //dd($validator);
         //if ($validator->passes())
@@ -88,3 +88,4 @@ class LoginController extends BaseController {
         }
     }
 }
+*/
