@@ -45,7 +45,7 @@ Schema::create('users', function (Blueprint $table) {
     	</div>
     	<!-- ################################################################## -->
 		<div id="2falatch" class="tab-pane fade">
-      	<h3>2FA + Latch</h3>
+      	<h3>2FA + Latch</h3> 
       	<p></p>
     	</div>
     	<!-- ################################################################### -->
