@@ -50,13 +50,9 @@
                     </a>
                 </div>
 
-                <br />
-                <br />
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav navbar">
-                        <!-- <li class="active"><a href="{{ url('certs/mgmt/') }}"> -->
-                        <!-- <i class="fa fa-home" aria-hidden="true"></i></a></li> -->
                         <li class="dropdown">
                         <li class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <i class="fa fa-certificate" aria-hidden="true"></i>
