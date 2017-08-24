@@ -47,7 +47,7 @@
                     <!-- <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT CA - Home"></div> -->
 
                         {{ config('app.name', 'Certificate Authority') }}
-                    </a> -->
+                    </a>
                 </div>
 
                 <br />
@@ -55,10 +55,10 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav navbar">
-                        <li class="active"><a href="{{ url('certs/mgmt/') }}">
-                        <i class="fa fa-home" aria-hidden="true"></i></a></li>
+                        <!-- <li class="active"><a href="{{ url('certs/mgmt/') }}"> -->
+                        <!-- <i class="fa fa-home" aria-hidden="true"></i></a></li> -->
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <li class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <i class="fa fa-certificate" aria-hidden="true"></i>
                                 <strong>Certificates</strong><span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu">
