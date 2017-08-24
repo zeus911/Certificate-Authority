@@ -42,9 +42,9 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image
-                    <a class="navbar-brand nav" href="{{ url('dashboard/index') }}">
-                    <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT CA - Home"></div>
+                    <!-- Branding Image -->
+                    <a class="navbar-brand nav" href="{{ url('certs/mgmt/') }}">
+                    <!-- <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT CA - Home"></div> -->
 
                         {{ config('app.name', 'Certificate Authority') }}
                     </a> -->
