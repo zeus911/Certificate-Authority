@@ -1,8 +1,12 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 @extends('layouts.app') 
 =======
 @extends('layouts.login')
 >>>>>>> 2014e3346a9d16969dad98093fcb349c3c762735
+=======
+@extends('layouts.login') 
+>>>>>>> e960d4b6deec62183c1f02a8feb1d08cc9072d33
 
 @section('content')
 <div class="container">
