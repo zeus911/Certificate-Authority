@@ -50,7 +50,7 @@ Schema::create('users', function (Blueprint $table) {
             $table->string('name');
 	    	$table->string('username', 10);
 	    	$table->string('email')->unique();
-            $table->string('password');
+            $table->string('password'); 
             $table->rememberToken();
             $table->timestamps();
         });
@@ -100,3 +100,4 @@ Schema::create('users', function (Blueprint $table) {
     </div>
 
 @endsection
+ 
