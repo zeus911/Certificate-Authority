@@ -74,6 +74,9 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li class="text-danger">
+                                    <a href="{{ url('auth/latch') }}"><i class="fa fa-shield" aria-hidden="true"></i> Latch</a>
+                                    </li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
@@ -86,9 +89,7 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                    <li>
-                                    <a href="{{ url('auth/latch') }}"><i class="fa fa-shield" aria-hidden="true"></i> Latch</a>
-                                    </li>
+
                                 </ul>
                             </li>
                         @endif
