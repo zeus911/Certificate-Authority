@@ -8,6 +8,7 @@
       <h2>Pills &amp Resources</h2>
     	<p></p> 
       <ul class="nav nav-pills">
+<<<<<<< HEAD
     <!-- {{ Form::label('pills &amp resources: ', 'Pills &amp Resources: ', ['class' => '']) }} -->
 <<<<<<< HEAD
     {{ Form::select('Select Articles', ['#certauth' => 'Certificate Authprity', '2falatch' => '2FA with Latch', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
@@ -21,6 +22,8 @@ select.onchange = function(){
         @if($errors->has('certificate_type'))
         {{ $errors->first('certificate_type') }} 
     @endif
+=======
+>>>>>>> 03239d46be28c376ebcc836f494384cb0e8a3dbe
     			<li class='active'><a data-toggle="pill" href="#certauth">Cetificate Authority</a></li>
     			<li><a data-toggle="pill" href="#2falatch">2FA + Latch</a></li>
     			<li><a data-toggle="pill" href="#py">Scripts</a></li>
@@ -33,9 +36,8 @@ select.onchange = function(){
     	<div id="certauth" class="tab-pane fade in active">  
       	<h3>Certificate Authority</h3>
       	<p>Management WebApp for Certificate Authority.</p>
-      		<p><i class="fa fa-external-link" aria-hidden="true"></i>
- URL: <a href="https://ca.liquabit.com"><span class=""></span>ca.liquabit.com</a></p>
-          <p><i class="fa fa-github" aria-hidden="true"></i> Github: <a href="https://github.com/lopeaa/Certificate-Authority.git"><span class=""></span>Certificate Authority Source</a></p>
+      		<p><i class="fa fa-external-link" aria-hidden="true"></i> URL: <a href="https://ca.liquabit.com">ca.liquabit.com</a></p>
+          <p><i class="fa fa-github" aria-hidden="true"></i> Github: <a href="https://github.com/lopeaa/Certificate-Authority.git">Certificate Authority Source</a></p>
 
 			<p><strong>Log in with 'Username' instead of 'email' in Laravel Framework.</strong></p>
 				<p>In order to log in with 'username' instead of 'email' field, you have to include the field
@@ -65,7 +67,7 @@ Schema::create('users', function (Blueprint $table) {
     	<!-- ################################################################### -->
     	<div id="py" class="tab-pane fade">
       	<h3>DevOps Scripts</h3>
-          <p>Github: <a href="https://github.com/lopeaa/Scripts.git"><span class=""></span>Scripts Source</a></p>
+          <p><i class="fa fa-github" aria-hidden="true"></i>Github: <a href="https://github.com/lopeaa/Scripts.git">Scripts Source</a></p>
     	</div>
     	
     	<!-- #################################################################### -->
