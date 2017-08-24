@@ -87,7 +87,7 @@
                                         </form>
                                     </li>
                                     <li>
-                                    <a href="{{ url('auth/latch') }}"><i class="fa fa-shield" aria-hidden="true"></i>Latch</a>
+                                    <a href="{{ url('auth/latch') }}"><i class="fa fa-shield" aria-hidden="true"></i> Latch</a>
                                     </li>
                                 </ul>
                             </li>
