@@ -71,7 +71,7 @@ class LoginController extends BaseController {
                 $accountId = $user->latch_account_id;
 
                 // Comprueba si Latch nos da acceso
-                if (\Latch::unlocked($accountId))
+                if (Latch::unlocked($accountId))
                 {
                     $locked = false;
                 }
