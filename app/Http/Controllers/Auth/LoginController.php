@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Validator;
 use App\User;
-//use Config\Latch;
+use App\Latch;
 
 /*class LoginController extends Controller
 {
@@ -71,7 +71,7 @@ class LoginController extends BaseController {
                 $accountId = $user->latch_account_id;
 
                 // Comprueba si Latch nos da acceso
-                if (Latch::unlocked($accountId))
+                if (\Latch::unlocked($accountId))
                 {
                     $locked = false;
                 }
