@@ -12,8 +12,8 @@
     {{ Form::select('select_articles', [<a href="#certauth"> => 'Certificate Authority', '#2falatch' => '2FA with Latch', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
   <script>  var select = document.getElementById('select_articles');
 select.onchange = function(){
-    this.form.submit();</script>
-};
+    this.form.submit();
+};</script>
         @if($errors->has('certificate_type'))
         {{ $errors->first('certificate_type') }} 
     @endif
