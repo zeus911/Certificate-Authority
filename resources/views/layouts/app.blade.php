@@ -99,7 +99,7 @@
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
-    @include('layouts/analytics.blade.php')
+    <script src="js/analytics.js"></script>
 </body> 
     <br />
         <center>@include('layouts/footer')</center>
