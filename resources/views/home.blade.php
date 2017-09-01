@@ -7,27 +7,21 @@
     
       <h2>Pills &amp Resources</h2>
     	<p></p> 
-    <!-- {{ Form::label('pills &amp resources: ', 'Pills &amp Resources: ', ['class' => '']) }} -->
-    {{ Form::select('certificate_type', ['SSL/TLS Server' => 'SSL/TLS Server', 'ClientID' => 'Client ID', 'CodeSigning' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
-        @if($errors->has('certificate_type'))
-        {{ $errors->first('certificate_type') }} 
-    @endif
-  		<ul class="nav nav-pills">
+      <ul class="nav nav-pills"> 
     			<li class='active'><a data-toggle="pill" href="#certauth">Cetificate Authority</a></li>
     			<li><a data-toggle="pill" href="#2falatch">2FA + Latch</a></li>
     			<li><a data-toggle="pill" href="#py">Scripts</a></li>
           <li><a data-toggle="pill" href="#git">Github</a></li>
     			<li><a data-toggle="pill" href="#le">Let's Encrypt CSR Signer</a></li>
   		</ul>
-    	<div class="tab-content">
+    	<div class="tab-content">  
 
     	<!-- ################################################################## -->
     	<div id="certauth" class="tab-pane fade in active">  
       	<h3>Certificate Authority</h3>
       	<p>Management WebApp for Certificate Authority.</p>
-      		<p><i class="fa fa-external-link" aria-hidden="true"></i>
- URL: <a href="https://ca.liquabit.com"><span class=""></span>ca.liquabit.com</a></p>
-          <p><i class="fa fa-github" aria-hidden="true"></i> Github: <a href="https://github.com/lopeaa/Certificate-Authority.git"><span class=""></span>Certificate Authority Source</a></p>
+      		<p><i class="fa fa-external-link" aria-hidden="true"></i> URL: <a href="https://ca.liquabit.com">ca.liquabit.com</a></p>
+          <p><i class="fa fa-github" aria-hidden="true"></i> Github: <a href="https://github.com/lopeaa/Certificate-Authority.git">Certificate Authority Source</a></p>
 
 			<p><strong>Log in with 'Username' instead of 'email' in Laravel Framework.</strong></p>
 				<p>In order to log in with 'username' instead of 'email' field, you have to include the field
@@ -40,8 +34,8 @@ Schema::create('users', function (Blueprint $table) {
             $table->string('name');
 	    	$table->string('username', 10);
 	    	$table->string('email')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('password'); 
+            $table->rememberToken(); 
             $table->timestamps();
         });
 			</pre>
@@ -51,13 +45,13 @@ Schema::create('users', function (Blueprint $table) {
     	</div>
     	<!-- ################################################################## -->
 		<div id="2falatch" class="tab-pane fade">
-      	<h3>2FA + Latch</h3>
+      	<h3>2FA + Latch</h3> 
       	<p></p>
     	</div>
     	<!-- ################################################################### -->
     	<div id="py" class="tab-pane fade">
       	<h3>DevOps Scripts</h3>
-          <p>Github: <a href="https://github.com/lopeaa/Scripts.git"><span class=""></span>Scripts Source</a></p>
+          <p><i class="fa fa-github" aria-hidden="true"></i>Github: <a href="https://github.com/lopeaa/Scripts.git">Scripts Source</a></p>
     	</div>
     	
     	<!-- #################################################################### -->
@@ -90,3 +84,4 @@ Schema::create('users', function (Blueprint $table) {
     </div>
 
 @endsection
+ 
