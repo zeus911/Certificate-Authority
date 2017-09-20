@@ -32,18 +32,22 @@
    
 
     <!-- Scripts -->
-    <script>
+    <script> 
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
 </head>
 <body>
+<<<<<<< HEAD
     <?php include_once("analyticstracking.blade.php") ?>
     <div id="app">
+=======
+    <div id="app"> 
+>>>>>>> 1b5e88d2d30c4cf5e43b1a4c075c5bdf4f5a48f9
         <nav class="navbar navbar-default navbar-fixed-top"> <!-- opt: default, static, fixed -->
             <div class="container">
-                <div class="navbar-header">
+                <div class="navbar-header"> 
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -53,23 +57,19 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image
-                    <a class="navbar-brand nav" href="{{ url('dashboard/index') }}">
-                    <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT CA - Home"></div>
+                    <!-- Branding Image -->
+                    <a class="navbar-brand nav" href="{{ url('certs/mgmt/') }}">
+                    <!-- <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT CA - Home"></div> -->
 
                         {{ config('app.name', 'Certificate Authority') }}
-                    </a> -->
+                    </a>
                 </div>
 
-                <br />
-                <br />
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav navbar">
-                        <li class="active"><a href="{{ url('certs/mgmt/') }}">
-                        <i class="fa fa-home" aria-hidden="true"></i></a></li>
                         <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        <li class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <i class="fa fa-certificate" aria-hidden="true"></i>
                                 <strong>Certificates</strong><span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu">
@@ -153,8 +153,8 @@
                             </li>
                         @endif
                     </ul>
-                                        <!-- Search form -->
-                    <div>
+                    <!-- Search form -->
+{{--                <div>
                         {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
                         {{csrf_field()}}
                         <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
@@ -166,7 +166,7 @@
                         {{ Form::token() }}
                         {{ Form::close() }}    
                     </div>
-
+ --}}
                 </div>
             </div>
         </nav>
