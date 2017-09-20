@@ -40,6 +40,7 @@
 
 </head>
 <body>
+    <?php include_once("analyticstracking.blade.php") ?>
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">

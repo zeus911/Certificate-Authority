@@ -28,6 +28,7 @@
         
     </head>
     <body>
+        <?php include_once("analyticstracking.blade.php") ?>
         <div class="flex-center position-ref full-height">
             
 
