@@ -39,12 +39,10 @@
     </script>
 </head>
 <body>
-<<<<<<< HEAD
+
     <?php include_once("analyticstracking.blade.php") ?>
+
     <div id="app">
-=======
-    <div id="app"> 
->>>>>>> 1b5e88d2d30c4cf5e43b1a4c075c5bdf4f5a48f9
         <nav class="navbar navbar-default navbar-fixed-top"> <!-- opt: default, static, fixed -->
             <div class="container">
                 <div class="navbar-header"> 
