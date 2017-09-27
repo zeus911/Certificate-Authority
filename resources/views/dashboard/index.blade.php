@@ -9,7 +9,7 @@
 
       <div>
           {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
-          {{csrf_field()}} 
+          {{csrf_field()}}
           <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
           <input class="form-control" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by full Common Name. Ex. www.domain.com">
              @if($errors->has('cn'))
