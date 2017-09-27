@@ -4,12 +4,18 @@
 <div class="container">
 
     <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
+<<<<<<< HEAD
     
 			<h2>Certificates Management</h2>      		
 <<<<<<< HEAD
       </br>
 =======
 >>>>>>> 0961faa1884cbf86d0849ac74e481af6d44fdb88
+=======
+
+			<h2>Certificates Management</h2>
+          		
+>>>>>>> fe506666503915c8e0d2a6f0286a56ba824a369c
       <div>
           {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
           {{csrf_field()}}
