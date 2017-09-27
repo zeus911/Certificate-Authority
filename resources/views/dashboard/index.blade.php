@@ -4,8 +4,9 @@
 <div class="container">
 
     <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-    
-			<h2>Certificates Management</h2>      		
+
+			<h2>Certificates Management</h2>
+          		
       <div>
           {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
           {{csrf_field()}}
