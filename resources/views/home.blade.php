@@ -18,11 +18,11 @@
     </title>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-    <link href="../assets/css/toolkit.css" rel="stylesheet">
+    <link href="/css/toolkit.css" rel="stylesheet">
     
-      <link href="../assets/css/docs.css" rel="stylesheet">
+      <link href="/css/docs.css" rel="stylesheet">
     
-    <link href="../assets/css/application.css" rel="stylesheet">
+    <link href="/css/application.css" rel="stylesheet">
 
     <style>
       /* note: this is a hack for ios iframe for bootstrap themes shopify page */
@@ -43,7 +43,7 @@
 <nav class="ck mo zq mt qh app-navbar">
 
   <a class="e" href="../index.html">
-    <img src="../assets/img/brand-white.png" alt="brand">
+    <img src="/img/brand-white.png" alt="brand">
   </a>
 
   <button
