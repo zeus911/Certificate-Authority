@@ -45,7 +45,7 @@
                 <div class="">
                     <a class='btn btn-primary btn-lg' href="{{ url('/login') }}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</a>
                     <a class='btn btn-primary btn-lg' href="{{ url('https://ca.liquabit.com') }}"><i class="fa fa-flask" aria-hidden="true"></i> Labs</a>
-                    <a class='btn btn-primary btn-lg' href="{{ url('https://github.com/lopeaa') }}"><i class="fa fa-github" aria-hidden="true"></i></a>
+                    <a class='btn btn-primary btn-lg' href="{{ url('https://github.com/lopeaa') }}"><i class="fa fa-github" aria-hidden="true"></i></a> 
  Github</a>
                 </div>
                @endif
