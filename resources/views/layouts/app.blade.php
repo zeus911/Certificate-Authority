@@ -56,7 +56,7 @@
                     <!-- Branding Image -->
                     <a class="navbar-brand">
                     <a class="navbar-brand" href="{{ url('/home') }}">
-                        {{ config('app.name', 'Prototypes') }}
+                        {{ config('app.name', 'Prototypess') }}
 
                     </a>
                 </div>
