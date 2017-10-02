@@ -22,8 +22,8 @@
 	   <!-- Styles -->
         <link rel="stylesheet" type="text/css" href="css/welcome.css">
 
-       <!-- Fonts -->
-		<link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
+     <!-- Fonts -->
+		    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
  
         
     </head>
