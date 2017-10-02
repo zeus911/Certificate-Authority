@@ -7,6 +7,13 @@
     
       <h2>Pills &amp Resources</h2>
     	<p></p> 
+      {{ Form::label('certificate type: ', 'Certificate Type: ', ['class' => '']) }}
+      {{ Form::select('certificate_type', ['TLS Web Server' => 'TLS Web Server', 'Client Authentication' => 'Client Authentication', 'Code Signing' => 'Code Signing'], null, ['placeholder' => 'Select certificate type', 'class' => 'form-control' ]) }}
+        @if($errors->has('certificate_type'))
+        {{ $errors->first('certificate_type') }} 
+      @endif
+      <br />
+
       <ul class="nav nav-pills"> 
     			<li class='active'><a data-toggle="pill" href="#certauth">Cetificate Authority</a></li>
     			<li><a data-toggle="pill" href="#2falatch">2FA + Latch</a></li>
