@@ -1,3 +1,3 @@
 <div class="footer">
-    <strong>&#128128; Lopeaa: 2015 - {{ date('F, Y') }}</strong>
+    <strong><i class="fa fa-flask" aria-hidden="true"></i> Lopeaa: 2015 - {{ date('F, Y') }}</strong>
 </div>
