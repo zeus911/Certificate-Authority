@@ -324,7 +324,7 @@ th {
 
 .img-thumbnail,
 body {
-    background-color: #d2d6de
+    background-color: #636b6f
 }
 
 @font-face {
@@ -5223,8 +5223,8 @@ tbody.collapse.in {
 }
 
 .navbar-default {
-    background-color: #fff;
-    border-color: #d3e0e9
+    #background-color: #fff;
+    #border-color: #d3e0e9
 }
 
 .navbar-default .navbar-brand {
