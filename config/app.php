@@ -12,17 +12,8 @@ return [
     | any other location as required by the application or its packages.
     */
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    'name' => 'Certificate Authority',
-=======
-    'name' => 'Prototypes',
-    'footer' => '&#128128; Lopeaa, 2017.',
-
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
-=======
     'name' => 'Certificate Authority', 
->>>>>>> 8026867a9885f9d215fc3de2bdf3af5de32989bd
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -60,11 +51,7 @@ return [
     |
     */
 
-<<<<<<< HEAD
     'url' => env('APP_URL', 'https://ca.liquabit.com/'),
-=======
-    'url' => env('APP_URL', 'https://prototypes.liquabit.com'),
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 
     /*
     |--------------------------------------------------------------------------
@@ -134,13 +121,8 @@ return [
     */
 
     'log' => env('APP_LOG', 'daily'),
-
-<<<<<<< HEAD
     'log_level' => env('APP_LOG_LEVEL', 'errorlog'),
-=======
-    'log_level' => env('APP_LOG_LEVEL', 'debug'),
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
-
+    
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -179,20 +161,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-<<<<<<< HEAD
-        Collective\Html\HtmlServiceProvider::class,
-        Arcanedev\LogViewer\LogViewerServiceProvider::class,
-        'Chumper\Zipper\ZipperServiceProvider',
-=======
         /*Khill\Fontawesome\FontAwesomeServiceProvider, */
         Collective\Html\HtmlServiceProvider::class,
         'Chumper\Zipper\ZipperServiceProvider',
         'Faytzel\LaravelLatch\LaravelLatchServiceProvider',
-
-
-        
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
-
         /*
          * Package Service Providers...
          */
@@ -257,15 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-<<<<<<< HEAD
         'Zipper' => 'Chumper\Zipper\Zipper'
-=======
-        'Zipper' => 'Chumper\Zipper\Zipper',
-        'Latch' => 'Faytzel\LaravelLatch\Facades\LaravelLatch'
-
-        
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
-
     ],
 
 ];
