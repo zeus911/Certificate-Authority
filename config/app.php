@@ -13,12 +13,16 @@ return [
     */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     'name' => 'Certificate Authority',
 =======
     'name' => 'Prototypes',
     'footer' => '&#128128; Lopeaa, 2017.',
 
 >>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
+=======
+    'name' => 'Certificate Authority', 
+>>>>>>> 8026867a9885f9d215fc3de2bdf3af5de32989bd
     /*
     |--------------------------------------------------------------------------
     | Application Environment
