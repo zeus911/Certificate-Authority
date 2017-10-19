@@ -18,8 +18,7 @@
     <link href="/css/app.css" rel="stylesheet">
 
     <!-- Fonts -->
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
-   
+    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -44,8 +43,8 @@
 
                     <!-- Branding Image
                     <a class="navbar-brand nav" href="{{ url('dashboard/index') }}">
-                    <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="Prototypes - Home"></div>
-		   	
+                    <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="Prototypes - Home"></div
+
                     {{ config('app.name', 'Certificate Authority') }}
                     </a> -->
                 </div>
@@ -90,7 +89,7 @@
                                     <li><a href="{{ url('signer/authenticode') }}">Sign a Microsoft Archive</a></li>
                                     <li class="disabled"><a href="{{ url('signer/search') }}">Search for Archives</a></li>
                                 </ul>
-                        </li>                             
+                        </li>
                         <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <i class="fa fa-cloud-download" aria-hidden="true"></i>
@@ -109,7 +108,7 @@
                                 <strong>SSL Tools</strong><span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu">
                                 	<li class="dropdown-header"><strong>SSL DECODER</strong></li>
-                                    <li><a target="_blank" href="{{ url('https://gestion6.tragsa.es/ssldecoder/') }}">
+                                    <li><a target="_blank" href="{{ url('https://ssldecoder.liquabit.com/') }}">
                                     <i class="fa fa-certificate" aria-hidden="true"></i> SSL Decoder</a></li>
                                     <li><a target="_blank" href="{{ url('https://cryptoreport.websecurity.symantec.com/checker/views/csrCheck.jsp') }}">
                                     <i class="fa fa-external-link" aria-hidden="true"></i> Symantec CryptoReport</a></li>
@@ -128,18 +127,18 @@
                         <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
                         <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
                         @if($errors->has('cn'))
-                            {{ $errors->first('cn') }} 
+                            {{ $errors->first('cn') }}
                         @endif
                         <br />
                         {{ Form::token() }}
-                        {{ Form::close() }}    
+                        {{ Form::close() }}
                     </div>
 -->
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                           <!-- 
+                           <!--
                            <li><a href="{{ url('/login') }}">Login</a></li>
                            <li><a href="{{ url('/register') }}">Register</a></li>
                            -->
