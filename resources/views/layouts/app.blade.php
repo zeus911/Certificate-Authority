@@ -85,7 +85,7 @@
                         <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 <i class="fa fa-windows" aria-hidden="true"></i>
-                                <strong>Microsoft Authenticode</strong><span class="caret"></span>
+                                <strong>MS Authenticode</strong><span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{{ url('signer/authenticode') }}">Sign a Microsoft Archive</a></li>
                                     <li class="disabled"><a href="{{ url('signer/search') }}">Search for Archives</a></li>
