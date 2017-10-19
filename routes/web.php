@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 Auth::routes();
@@ -109,3 +110,19 @@ Route::get('ssldecoder/','SSLDecoderController@index');
 // [Admin] - Update previously generated CSR with the Certificate signed by an external CA.
 Route::get('admin/csr/update', 'AdminCsrController@update');
 Route::post('admin/csr/updateCSRWithCertificate', 'AdminCsrController@updateCSRWithCertificate');
+=======
+ <?php
+
+Route::get('/', function(){
+	return view('welcome');
+});
+
+
+Auth::routes(); 
+
+Route::get('/home', 'HomeController@index');
+
+// Latch.
+Route::get('auth/latch', 'LatchController@latch');
+Route::post('auth/latchPair', 'LatchController@pair');
+>>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac

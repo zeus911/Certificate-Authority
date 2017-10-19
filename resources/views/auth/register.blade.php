@@ -5,7 +5,11 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
+<<<<<<< HEAD
                 <div class="panel-heading">Register an account</div>
+=======
+                <div class="panel-heading">Register</div>
+>>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}

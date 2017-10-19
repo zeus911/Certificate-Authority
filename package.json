@@ -5,7 +5,12 @@
     "dev": "gulp watch"
   },
   "devDependencies": {
+<<<<<<< HEAD
     "bootstrap-sass": "^3.3.7",
+=======
+    //"bootstrap-sass": "^3.3.7",
+    "bootstrap": "4.0.0-alpha.6"
+>>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     "gulp": "^3.9.1",
     "jquery": "^3.1.0",
     "laravel-elixir": "^6.0.0-9",

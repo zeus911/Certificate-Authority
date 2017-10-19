@@ -31,7 +31,11 @@ return [
 
     'lifetime' => 120,
 
+<<<<<<< HEAD
     'expire_on_close' => true,
+=======
+    'expire_on_close' => false,
+>>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 
     /*
     |--------------------------------------------------------------------------
@@ -44,7 +48,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'encrypt' => true,
+=======
+    'encrypt' => false,
+>>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 
     /*
     |--------------------------------------------------------------------------
@@ -122,7 +130,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'cookie' => 'ca_session',
+=======
+    'cookie' => 'laravel_session',
+>>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 
     /*
     |--------------------------------------------------------------------------
@@ -161,7 +173,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'secure' => env('SESSION_SECURE_COOKIE', true),
+=======
+    'secure' => env('SESSION_SECURE_COOKIE', false),
+>>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 
     /*
     |--------------------------------------------------------------------------

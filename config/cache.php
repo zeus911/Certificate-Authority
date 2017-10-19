@@ -86,6 +86,10 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'prefix' => 'ca',
+=======
+    'prefix' => 'laravel',
+>>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 
 ];

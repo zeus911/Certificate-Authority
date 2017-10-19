@@ -24,6 +24,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
+<<<<<<< HEAD
         'password', 'remember_token',
+=======
+        'password', 'remember_token', //'latch_account_id'
+>>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     ];
 }
