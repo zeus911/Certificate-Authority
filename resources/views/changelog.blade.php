@@ -13,7 +13,7 @@
 
 <ul>
 	<li>Added subjectAltNames in certificates, CSR and signing CSR.</li>
-	<li>Added SSL decoder tool (beta) - ssldecoder.liquabit.com
+	<li>Added SSL decoder tool (beta) - ssldecoder.liquabit.com</li>
 	<li>Added Root CA certificates from Symantec and Firmaprofesional.</li>
 </ul>
 
