@@ -8,13 +8,13 @@
       <h2>ChangeLog</h2>
 <div class="content">
 
-<h2>Version 2.0.0</h2>
-<p>Release Date: 27/4/2017</p>
+<h2>Version 2.1.0</h2>
+<p>Release Date: 19/10/2017</p>
 
 <ul>
-	<li>...</li>
-	<li>... <kbd><a href="library.html#set">$this->template->set();</a></kbd>... </li>
-	<li>...</li>
+	<li>Added subjectAltNames in certificates, CSR and signing CSR.</li>
+	<li>Added SSL decoder tool (beta) - ssldecoder.liquabit.com
+	<li>Added Root CA certificates from Symantec and Firmaprofesional.</li>
 </ul>
 
 <h2>Version 2.0.0</h2>
