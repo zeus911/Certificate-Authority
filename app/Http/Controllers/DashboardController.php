@@ -12,6 +12,12 @@ class DashboardController extends Controller
     {
         $certs = Cert::all();
 
+        $searchCerts = \Request::get('search');  //the param of URI
+
+        $certs =  Cert::where('cn','like','%'.$searchCerts.'%')
+        ->orderBy('id')
+        ->paginate('100');
+
         foreach ($certs as $cert) {
          $id = $cert->id;
          $cn = $cert->cn;
@@ -20,6 +26,7 @@ class DashboardController extends Controller
 
         return view ('dashboard.index', array(
           'certs' => $certs,
+
           ));
         
     }
@@ -31,10 +38,8 @@ class DashboardController extends Controller
       if(isset($_POST['cn']) && !empty($_POST['cn'])) {
 
     	$cn = $_POST['cn'];
-
       // Getting Collection from Certs.
       $certs = Cert::where('cn', $cn)->get()->first();
-
       // Getting data from Collection (DB). 
       $id = $certs->id;
       $csrprint = $certs->csrprint;
@@ -50,8 +55,11 @@ class DashboardController extends Controller
       $issuerCN = $issuer['CN'];
       $signatureTypeSN = $parse_cert['signatureTypeSN'];
       //$key_length = $parse_cert['key_length']; // create in DB too.
-      $serialNumber = $parse_cert['serialNumber'];
+      $serialNumber = $parse_cert['serialNumber']; // Decimal format by default???
+      $serialNumberHex = dechex($parse_cert['serialNumber']); // Hexadecimal format
+
       $extensions = $parse_cert['extensions'];
+      //dd($extensions);
       //$nsCertType = $extensions['nsCertType'];
       $keyUsage = $extensions['keyUsage'];
 
@@ -74,6 +82,7 @@ class DashboardController extends Controller
             'signatureTypeSN' => $certs->digest_alg,
             //'key_length' => $cert->key_length,
             'serialNumber' => 'No Serial',
+            'serialNumberHex' => 'No Serial',
             'extensions' => 'No Extensions',
             'keyUsage' => 'No Key Usage',
             'extendedKeyUsage' => 'No  Extended Key Usage',
@@ -88,7 +97,6 @@ class DashboardController extends Controller
             ));
 
      	} else {
-
         // Check if PFX archive and certificate exist.
         if ($p12 == 'PFX archive not generated. You have to re-generate it again if you renewed the certificate.')
         {
@@ -114,6 +122,7 @@ class DashboardController extends Controller
           'signatureTypeSN' => $signatureTypeSN,
           //'key_length' => $key_length,
           'serialNumber' => $serialNumber,
+          'serialNumberHex' => $serialNumberHex,
           //'nsCertType' => $nsCertType,
           'keyUsage' => $keyUsage,
           'extendedKeyUsage' => $extendedKeyUsage,

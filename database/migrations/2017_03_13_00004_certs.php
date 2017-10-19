@@ -24,8 +24,8 @@ class Certs extends Migration
             $table->binary('certprint');
             $table->binary('keyprint');
             $table->binary('p12');
-            //$table->string('hasp12');  // Has PFX been generated?.
-            //$table->string('status'); // Revoked OR not revoked.....that´s the question.
+            $table->string('hasp12');  // Has PFX been generated?.
+            $table->string('status'); // Revoked OR not revoked.....that´s the question.
             $table->timestamps();
         });
     }

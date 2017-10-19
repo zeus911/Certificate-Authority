@@ -59,4 +59,54 @@ class RootCRLController extends Controller
       return Response::download(storage_path('ca-g2.crl'), 'ca-g2.crl', $headers);
 
     }
+
+    public function authenticode()
+   	{
+
+            return view ('signer.authenticode');
+    }   
+
+        public function signAuthenticode(Request $request)
+    {
+        if ($request::hasFile('archive')) 
+    	{
+        $storagePath = storage_path();
+        $archive = $request::file('archive');
+        $archive_type = $request::input('archive_type');
+        $password = $request::input('password');
+        $archive_name = $request::file('archive')->getClientOriginalName();
+        $archive_uploaded = $archive->move($storagePath . '/tmp', $archive . $archive_type);
+    	}
+
+        // Variables to exec jarsigner.
+		$keystore = "/opt/keystore/symantec_cs.p12";
+		$keystorealias = "grupotragsacs";
+		$tsaurl = "http://sha256timestamp.ws.symantec.com/sha256/timestamp"; // Timestamp Server used by Symantec. 
+
+        $osslsigncode = shell_exec("osslsigncode sign -pkcs12 $keystore -pass $password -h sha2 -in $archive_uploaded -out $storagePath/$archive_name.signed 2>&1");
+
+        File::delete($archive_uploaded);
+
+        return view ('signer.signAuthenticode', array(
+            'archive_name' => $archive_name,
+            'archive_type' => $archive_type,
+            'result' => $osslsigncode )
+        );     
+
+    }
+     
+    public function getAuthenticode(Request $request)
+   {
+      
+          $archive_name = $request::input('archive_name');
+          $archive_type = $request::input('archive_type');
+
+          // Update field 'JAR in DB.
+          //Cert::where('dstalias', $dstalias)->update(['keystore' => $dstalias]);
+
+          $headers = array('Content_Type: application/x-download',);
+          
+        return Response::download(storage_path($archive_name . '.signed'), $archive_name . $archive_type, $headers);
+
+   }
 }

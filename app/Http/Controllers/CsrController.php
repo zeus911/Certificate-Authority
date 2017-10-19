@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Request;
-use App\Csr; // Makes the model available to the Controller.
+use App\Csr;
 use App\Cert;
 use Input;
 use Zipper;
@@ -26,7 +26,7 @@ class CsrController extends Controller
 
     public function created()
     {
-        if(isset($_POST['cn']) && 
+        if(isset($_POST['cn']) &&
             isset($_POST['certificate_type']) && 
             isset($_POST['digest_alg']) &&
 
@@ -35,6 +35,12 @@ class CsrController extends Controller
             !empty($_POST['digest_alg']))
         {
             $cn = $_POST['cn'];
+            // Separate CN and SANs.
+            $commonName = explode(" ", $cn);
+			$cn = $commonName[0]; //separated cn
+            $san = explode(",", ("DNS:".implode(",DNS:", $commonName)));
+            $san = implode(",", $san); // separated sans
+
             $certificate_type = $_POST['certificate_type'];
             $digest_alg = $_POST['digest_alg'];
             $serial = 'Do not apply: ' . $cn;
@@ -42,35 +48,46 @@ class CsrController extends Controller
             $certprint = 'Do not apply';
             $keyprint = 'Do not apply';
             $p12 = 'PFX archive not generated. You have to re-generate it again if you renewed the certificate.';
+            $config = '/etc/ssl/openssl_serv.cnf';
 
-        // Check if CN already exists.
 
+            // Check if CN already exists.
             $cn_exists = Cert::where('cn', '=', Request::get('cn'))->first();
-
-            if (isset($cn_exists))
-            {
-                return view ('errors.ooops', array(
-                    'cn' => $cn,
-                    'error_details' => 'already exist in DB'
-                    ));
-            }
+                if (isset($cn_exists))
+                {
+                    return view ('errors.ooops', array(
+                        'cn' => $cn,
+                        'error_details' => 'already exist in DB'
+                        ));
+                }
   
         // Data needed to populate the certificate. This should be provided through the 'create' Form.
         $dn = array(
         "countryName" => 'ES',
         "stateOrProvinceName" => 'Madrid',
         "localityName" => 'Madrid',
-        "organizationName" => 'Org. Name',
-        "organizationalUnitName" => 'Org. Unit',
+        "organizationName" => 'TRAGSA',
+        "organizationalUnitName" => 'TRAGSA CA 1',
         "commonName" => $cn,
         //"emailAddress" => $EMailAdress
-        );   
-        
+        );
+
+        // Open Config file.
+        $data = file_get_contents($config);
+
+        // Do replacements.
+        $data = str_replace("DNS:",$san, $data);
+
+        //Save it back.
+        file_put_contents($config, $data);
+        unset($data);
+    
         // Arguments to be passed to the CSR.
         $configArgs = array(
-                'config' => '/usr/lib/ssl/openssl.cnf',
+                'config' => $config,
                 'encrypt_key' => false,
                 'private_key_type' => OPENSSL_KEYTYPE_RSA,
+                'subjectAltName' => $san,
                 'digest_alg' => $digest_alg );
         
         // Generate CSR and his corresponding Private Key.
@@ -83,19 +100,21 @@ class CsrController extends Controller
 
         // Export CSR to string.
         openssl_csr_export($csrgen, $csrprint);
-        //openssl_csr_export_to_file($csrgen, $csrstore); 
+        //openssl_csr_export_to_file($csrgen, $csrstore);
 
+        // Clean DNS entries.
+        shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");
         
-         	return view('csr.created', array(
-                'cn' => $cn,
-                'certificate_type' => $certificate_type,
-                'digest_alg' => $digest_alg,
-                'serial' => $serial,
-                'csrprint' => $csrprint,
-                'certprint' => $certprint,
-                'keyprint' => $keyprint,
-                'p12' => $p12 ));
-
+     	return view('csr.created', array(
+            'cn' => $cn,
+            'san' => $san,
+            'certificate_type' => $certificate_type,
+            'digest_alg' => $digest_alg,
+            'serial' => $serial,
+            'csrprint' => $csrprint,
+            'certprint' => $certprint,
+            'keyprint' => $keyprint,
+            'p12' => $p12 ));
         } else {
 
             return view('errors.csrError');
@@ -190,7 +209,8 @@ class CsrController extends Controller
             $csr = $_POST['csrprint'];
             $password = $_POST['password'];
             $cn = openssl_csr_get_subject($csr, true);
-            $certificate_type = 'SSL/TLS';
+            //dd($cn);
+            $certificate_type = 'SSL/TLS Server';
             $digest_alg = 'sha256';
             $cert = 'Needs update!';
             $key = 'We do not have the key becouse it has been generated in another device.';
@@ -203,7 +223,7 @@ class CsrController extends Controller
             {
             	return view ('errors.ooops', array(
             		'cn' => $cn['CN'],
-                    'error_details' => 'Already exist in DB'
+                    'error_details' => 'already exist in DB'
             	));
          
             } elseif ($cn_exists = 'null') {    
@@ -254,24 +274,47 @@ class CsrController extends Controller
             $cacert = file_get_contents('/opt/CA/cacert.pem');
             $pkeyid = array(file_get_contents('/opt/CA/private/cakey.pem'), $password );
             //$serial = random_int(260001, 270001); // serial for external CSR
+
+            // Extracting SAN fron CSR.
+			  $random_blurp = rand(1000,99999); 
+			  //openssl_csr_get_subject doesn't support SAN names.
+			  $filename = "/tmp/csr-" . $random_blurp . ".csr.pem";
+			  $write_csr = file_put_contents($filename, $csr);
+			  if($write_csr !== FALSE) {
+			    $san = trim(shell_exec(" openssl req -noout -text -in " . $filename . " | grep -e 'DNS:' -e 'IP:'"));
+			  }
+			  unlink($filename); // Completely deletes the file.
+
+
+            // replace subjectAltName in openssl_serv.conf with $san.
+            $data = file_get_contents("/etc/ssl/openssl_serv.cnf");
+
+            // do replacements.
+            $data = str_replace("DNS:",$san, $data);
+
+            //save it back.
+            file_put_contents("/etc/ssl/openssl_serv.cnf", $data);
+            unset($data); // Clears the content of the file.
+
             $configArgs = array(
-                'config' => '/usr/lib/ssl/openssl.cnf',
+                //'config' => '/usr/lib/ssl/openssl.cnf',
+                'config' => '/etc/ssl/openssl_serv.cnf',
                 'encrypt_key' => false,
                 'private_key_type' => OPENSSL_KEYTYPE_RSA,
                 'digest_alg' => $digest_alg,
-                'x509_extensions' => 'WebserverTLS' );
+                'subjectAltName' => $san,
+                'x509_extensions' => $certificate_type );
 
             // Check if CN already exists. // Posible Error: field 'cn' does not exists.
             $cn_exists = Cert::where('cn', '=', Request::get('cn'))->first();
 
-            if (isset($cn_exists))
-            {
+            if (isset($cn_exists)){
                 return view ('errors.ooops', array(
                     'cn' => $cn,
                     'error_details' => 'already in DB'
                 ));
-
             } elseif ($cn_exists = 'null') {
+
 
             // Sign certificate function.
             $cert = openssl_csr_sign($csr , $cacert, $pkeyid, 730, $configArgs, $serial);
@@ -292,6 +335,9 @@ class CsrController extends Controller
             File::delete(storage_path('cert.csr'));
             File::delete(storage_path('cert.cer'));
 
+            // Clean SAN DNS entries.
+            shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");
+
             // Creates records for the giving $CN.
             Cert::create(Request::only('cn', 'certificate_type', 'digest_alg', 'serial', 'csrprint', 'certprint', 'keyprint', 'p12'));
 
@@ -305,6 +351,7 @@ class CsrController extends Controller
             } else {
                 return view ('errors.getExtCertError', array (
                     'cn' => $cn,
+                    'san' => $san,
                     'certificate_type' => $certificate_type,
                     'digest_alg' => $digest_alg,
                     'serial' => $serial,
@@ -314,7 +361,7 @@ class CsrController extends Controller
                     'key' => $key,
                     ));
             }
-        }   
+        }
     } 
 }
  

@@ -3,10 +3,11 @@
 @section('content')
 
 <div class="container">
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-    <H1>Certificate details for: <strong>{{ $cn }}</strong></H1>
+    <H2>Certificate details for: <strong>{{ $cn }}</strong></H2>
     <H3> Issued by: <strong>{{ $issuerCN }}</strong></H3>
-    <p class="text-primary"><strong>Valid from: {{ $validFrom }} | Updated on: {{ $updated_at }} | Expires on: {{ $validTo }}</strong></H3>
+    <p class="text-info"><strong><i class="fa fa-calendar" aria-hidden="true"></i> Valid from: {{ $validFrom }}</strong></p>
+    <p class="text-info"><strong><i class="fa fa-calendar" aria-hidden="true"></i> Updated on: {{ $updated_at }}</strong></p>
+    <p class="text-info"><strong><i class="fa fa-calendar" aria-hidden="true"></i> Expires on: {{ $validTo }}</strong></p>
     
     <div class="container">
         
@@ -24,10 +25,10 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr class="text-info">
 
                   <td>{{ $signatureTypeSN }}</td>
-                  <td>{{ $serialNumber }}</td>
+                  <td>{{ $serialNumber }} ( {{ $serialNumberHex }} )</td>
                   <td>{{ $keyUsage }}</td>
                   <td>{{ $extendedKeyUsage }}</td>
                   <td><!-- View CSR -->

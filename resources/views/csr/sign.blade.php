@@ -8,7 +8,7 @@
       <h2>Self-Service</h2>
 	  <h3>Sign Certificate Request</h3>      
 		
-	 <p>Generate a new certificate from a given CSR. This is used for signing CSR files generated externally.</p>
+	 <p class="text-info">Generate a new certificate from a given CSR. This is used for signing CSR files generated externally.</p>
     </br>
     <p><strong>Copy &amp Paste your CSR content.</strong></p>
     {{ Form::open(['url' => 'csr/signed', 'files' => 'true', 'method' => 'post']) }}
@@ -22,7 +22,7 @@ MIICxDCCAawCAQAwYzELMAkGA1UEBhMCRVMxDzANBgNVBAgTBk1hZHJpZDEPMA0G
     
     <br />
     </br>
-    {{ Form::label('password', 'Password', ['class' => '']) }}
+    {{ Form::label('password', 'CA Password', ['class' => '']) }}
     {{ Form::password('password', ['placeholder' => 'Password', 'class' => 'form-control']) }}
         @if($errors->has('password'))
         {{ $errors->first('password') }}
