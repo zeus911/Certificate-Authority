@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login to Certificate Authority (Procyon)</div>
+                <div class="panel-heading"><strong><i class="fa fa-lock" aria-hidden="true"></i></strong> Login to Certificate Authority (Procyon)</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -63,7 +63,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary btn-block">
+                                <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in" aria-hidden="true"></i>
                                     Login
                                 </button>
 
@@ -75,7 +75,7 @@
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }}</a><br />
-                                <a class="text-default"><strong>DNSBL/RBL Check: PASS</strong></a>
+                                <a class="text-default"><strong>DNSBL/RBL Check:</strong></a>
                             </div>
                         </div> 
                             <blockquote>
