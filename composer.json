@@ -8,35 +8,18 @@
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
         "laravelcollective/html": "^5.3.0",
-<<<<<<< HEAD
         "arcanedev/log-viewer": "~4.0",
-        "chumper/zipper": "^0.6.1",
-        "view-components/grids": "^0.5.9",
-        "view-components/eloquent-data-processing": "^1.2",
-        "view-components/doctrine-data-processing": "^1.0"
+        "chumper/zipper": "1.0.x"
     
-=======
-        "chumper/zipper": "1.0.x",
-        "faytzel/laravel-latch": "1.*"
-
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.0",
         "symfony/css-selector": "3.1.*",
-<<<<<<< HEAD
         "symfony/dom-crawler": "3.1.*"
     },
     "autoload": {
-=======
-        "symfony/dom-crawler": "3.1.*",
-        "khill/fontawesomephp" : "1.0.x"
-        
-    },
-    "autoload": { 
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
         "classmap": [
             "database"
         ],
