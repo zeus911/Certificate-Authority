@@ -19,22 +19,22 @@
         @endif
         <br />
         </br>
-        <!-- {{ Form::label('Source Archive Type: ', 'Source Archive Type: ') }} -->
-        {{ Form::select('srcstoretype', ['PKCS12' => 'PKCS12', 'none' => 'More coming...'], null, ['placeholder' => 'Source Archive Type', 'class' => 'form-control' ]) }}
+        {{ Form::label('Source Archive Type: ', 'Source Archive Type: ') }}
+        {{ Form::select('srcstoretype', ['PKCS12' => 'PKCS12', 'none' => 'Not implemented'], null, ['placeholder' => 'Source Archive Type', 'class' => 'form-control' ]) }}
         @if($errors->has('srcstoretype'))
             {{ $errors->first('srcstoretype') }} 
         @endif
         <br />
         </br>
         <!-- {{ Form::label('PFX(P12) Passphrase: ', 'PFX(P12) Passphrase: ', ['class' => '']) }} -->
-        <input type="password" class="form-control input-md" name="password" value="{{ (isset($input['password'])) ? e($input['password']) : '' }}" placeholder="  PFX(P12) Passphrase (Keystore will also have this Passphrase.)">
+        <input type="password" class="form-control input-lg" name="password" value="{{ (isset($input['password'])) ? e($input['password']) : '' }}" placeholder="  PFX(P12) Passphrase (Keystore will also have this Passphrase.)">
         @if($errors->has('password'))
             {{ $errors->first('password') }} 
         @endif
         <br />
         </br>
         <!-- {{ Form::label('Keystore Alias: ', 'Keystore Alias: ', ['class' => '']) }} -->
-        <input type="text" class="form-control input-md" name="dstalias" value="{{ (isset($input['dstalias'])) ? e($input['dstalias']) : '' }}" placeholder="  Keystore Name (example: TragsaKeystore)">
+        <input type="text" class="form-control input-lg" name="dstalias" value="{{ (isset($input['dstalias'])) ? e($input['dstalias']) : '' }}" placeholder="  Keystore Name (example: TragsaKeystore)">
         @if($errors->has('dstalias'))
             {{ $errors->first('dstalias') }} 
         @endif

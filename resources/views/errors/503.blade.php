@@ -14,11 +14,7 @@
                 margin: 0;
                 padding: 0;
                 width: 100%;
-<<<<<<< HEAD
                 color: rgba(27, 109, 133, 1);
-=======
-                color: #B0BEC5;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
                 display: table;
                 font-weight: 100;
                 font-family: 'Lato', sans-serif;

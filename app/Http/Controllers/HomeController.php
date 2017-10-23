@@ -25,11 +25,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-<<<<<<< HEAD
-    public function changelog()
-    {
-        return view('changelog');
-    }
-=======
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }

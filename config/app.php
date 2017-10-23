@@ -12,8 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Certificate Authority', 
-
+    'name' => 'Certificate Authority',
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -121,8 +120,9 @@ return [
     */
 
     'log' => env('APP_LOG', 'daily'),
-    'log_level' => env('APP_LOG_LEVEL', 'errorlog'),
-    
+
+    'log_level' => env('APP_LOG_LEVEL', 'debug'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
@@ -161,10 +161,10 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        /*Khill\Fontawesome\FontAwesomeServiceProvider, */
         Collective\Html\HtmlServiceProvider::class,
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
         'Chumper\Zipper\ZipperServiceProvider',
-        'Faytzel\LaravelLatch\LaravelLatchServiceProvider',
+
         /*
          * Package Service Providers...
          */
@@ -230,6 +230,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Zipper' => 'Chumper\Zipper\Zipper'
+
     ],
 
 ];

@@ -5,13 +5,15 @@
         <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
     
       	<H1>You have successfully generated the CSR.</H1>
-    	<p class='text-info'>Now, You can download the CSR &amp his Private Key archive for: <strong> {{ $cn }} </strong>. </p>
+    	<p class='text-info'>Now, You can download the CSR &amp his Private Key archive.</p>
+
+    
 
     <div class="container">
 
+        <p class='text-danger'>Download the CSR archive for: <strong> {{ $cn }} </strong>.</p>
         {{ Form::open(['url' => 'csr/getCSR', 'method' => 'post']) }}
         <input type="hidden" name="cn" value="{{ $cn }}">
-        <input type="hidden" name="san" value="{{ $san }}">
         <input type="hidden" name="certificate_type" value="{{ $certificate_type }}">
         <input type="hidden" name="digest_alg" value="{{ $digest_alg }}">
         <input type="hidden" name="serial" value="{{ $serial }}">
@@ -25,9 +27,7 @@
         {{ Form::submit('Download CSR', ['class' =>'btn btn-primary btn-lg']) }}
         {{ Form::close() }}
         </br>
-        <a class='text-success' href="https://gestion6.tragsa.es/ssldecoder/" target="_blank"><strong> Check your CSR (SSL Decoder Tools) </strong></a>
-        <br />
-        <a class='text-success' href="https://cryptoreport.websecurity.symantec.com/checker/views/csrCheck.jsp" target="_blank"><strong> Check your CSR (Symantec CryptoReport) </strong></a>
+        <a class='text-success' href="https://cryptoreport.websecurity.symantec.com/checker/views/csrCheck.jsp" target="_blank"><strong> Check your CSR Online </strong></a>
         
    </div>
 

@@ -5,19 +5,15 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-<<<<<<< HEAD
-                <div class="panel-heading">Login to Prototypes</div>
-=======
-                <div class="panel-heading">Login</div>
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
+                <div class="panel-heading">Login to Certificate Authority (Procyon)</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Username</label>
+                            <label for="username" class="col-md-4 control-label" placeholder="Username">Username</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus>
+                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autofocus placeholder="Username">
 
                                 @if ($errors->has('username'))
                                     <span class="help-block">
@@ -31,7 +27,7 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <input id="password" type="password" class="form-control" name="password" required placeholder="Password">
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -41,13 +37,11 @@
                             </div>
                         </div>
 
-<<<<<<< HEAD
-=======
-                        <div class="form-group{{ $errors->has('otc') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('octdec(octal_string)') ? ' has-error' : '' }}">
                             <label for="otc" class="col-md-4 control-label">OTC</label>
 
                             <div class="col-md-6">
-                                <input id="otc" type="password" class="form-control" name="otc" required>
+                                <input id="otc" type="password" class="form-control" name="otc" required placeholder="One-Time-Code">
 
                                 @if ($errors->has('otc'))
                                     <span class="help-block">
@@ -57,7 +51,6 @@
                             </div>
                         </div>
 
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
@@ -70,12 +63,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-<<<<<<< HEAD
-                                <button type="submit" class="btn btn-outline-primary">
-                                <i class="fa fa-sign-in" aria-hidden="true"></i>
-=======
-                                <button type="submit" class="btn btn-primary">
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
+                                <button type="submit" class="btn btn-primary btn-block">
                                     Login
                                 </button>
 
@@ -84,6 +72,16 @@
                                 </a> -->
                             </div>
                         </div>
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <a class="text-default"><strong>IP Address:</strong> {{ $_SERVER['REMOTE_ADDR'] }}</a><br />
+                                <a class="text-default"><strong>DNSBL/RBL Check: PASS</strong></a>
+                            </div>
+                        </div> 
+                            <blockquote>
+                                Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning...
+                            </blockquote>
+   
                     </form>
                 </div>
             </div>

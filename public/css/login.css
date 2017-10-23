@@ -324,11 +324,7 @@ th {
 
 .img-thumbnail,
 body {
-<<<<<<< HEAD
-    background-color: #d2d6de
-=======
-    background-color: #636b6f
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
+    #background-color: #d2d6de
 }
 
 @font-face {
@@ -1456,11 +1452,7 @@ a:focus {
 hr {
     margin-top: 22px;
     margin-bottom: 22px;
-<<<<<<< HEAD
     border-top: 1px solid #eee
-=======
-    border-top: 1px solid #53808a
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .sr-only {
@@ -1698,11 +1690,7 @@ mark {
 
 a.text-primary:focus,
 a.text-primary:hover {
-<<<<<<< HEAD
     color: #53808a
-=======
-    color: #2579a9
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .text-success {
@@ -1748,11 +1736,7 @@ a.text-danger:hover {
 
 a.bg-primary:focus,
 a.bg-primary:hover {
-<<<<<<< HEAD
     background-color: #53808a
-=======
-    background-color: #2579a9
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .bg-success {
@@ -1799,11 +1783,7 @@ table {
 .page-header {
     padding-bottom: 10px;
     margin: 44px 0 22px;
-<<<<<<< HEAD
     border-bottom: 1px solid #eee
-=======
-    border-bottom: 1px solid #53808a
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 dl,
@@ -1911,11 +1891,7 @@ blockquote {
     padding: 11px 22px;
     margin: 0 0 22px;
     font-size: 17.5px;
-<<<<<<< HEAD
-    border-left: 5px solid #eee
-=======
-    border-left: 5px solid #53808a
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
+    border-left: 5px solid #999
 }
 
 blockquote .small,
@@ -1942,11 +1918,7 @@ blockquote small:before {
 blockquote.pull-right {
     padding-right: 15px;
     padding-left: 0;
-<<<<<<< HEAD
     border-right: 5px solid #eee;
-=======
-    border-right: 5px solid #53808a;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border-left: 0;
     text-align: right
 }
@@ -2050,6 +2022,7 @@ pre code {
 
 .container,
 .container-fluid {
+    padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px
 }
@@ -3171,11 +3144,7 @@ output {
     height: 36px;
     padding: 6px 12px;
     background-color: #fff;
-<<<<<<< HEAD
     border: 3px solid #ccd0d2;
-=======
-    border: 1px solid #ccd0d2;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     #border-radius: 4px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -3223,11 +3192,7 @@ output {
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #53808a;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     opacity: 1
 }
 
@@ -3846,11 +3811,7 @@ fieldset[disabled] .btn-default:hover {
 .btn-primary.focus,
 .btn-primary:focus {
     color: #fff;
-<<<<<<< HEAD
     background-color: #53808a;
-=======
-    background-color: #2579a9;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border-color: #133d55
 }
 
@@ -3859,11 +3820,7 @@ fieldset[disabled] .btn-default:hover {
 .btn-primary:hover,
 .open>.btn-primary.dropdown-toggle {
     color: #fff;
-<<<<<<< HEAD
     background-color: #53808a;
-=======
-    background-color: #2579a9;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border-color: #1f648b
 }
 
@@ -4184,7 +4141,7 @@ fieldset[disabled] .btn-link:hover {
 
 .btn-block {
     display: block;
-    width: 100%
+    width: inherit
 }
 
 .btn-block+.btn-block {
@@ -4623,11 +4580,7 @@ tbody.collapse.in {
     line-height: 1;
     color: #555;
     text-align: center;
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #53808a;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border: 1px solid #ccd0d2;
     ##border-radius: 4px
 }
@@ -4738,11 +4691,7 @@ tbody.collapse.in {
 .nav>li>a:focus,
 .nav>li>a:hover {
     text-decoration: none;
-<<<<<<< HEAD
     background-color: #eee
-=======
-    background-color: #53808a
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .nav>li.disabled>a {
@@ -4760,11 +4709,7 @@ tbody.collapse.in {
 .nav .open>a,
 .nav .open>a:focus,
 .nav .open>a:hover {
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #53808a;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border-color: #3097D1
 }
 
@@ -4831,11 +4776,7 @@ tbody.collapse.in {
 .nav-pills>li.active>a:focus,
 .nav-pills>li.active>a:hover {
     color: #fff;
-<<<<<<< HEAD
     background-color: #3097D1
-=======
-    background-color: #53808a
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .nav-stacked>li+li {
@@ -5283,8 +5224,8 @@ tbody.collapse.in {
 }
 
 .navbar-default {
-    #background-color: #fff;
-    #border-color: #d3e0e9
+    background-color: #fff;
+    border-color: #d3e0e9
 }
 
 .navbar-default .navbar-brand {
@@ -5312,11 +5253,7 @@ tbody.collapse.in {
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover {
     color: #555;
-<<<<<<< HEAD
     background-color: #eee
-=======
-    background-color: #53808a
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .navbar-default .navbar-nav>.disabled>a,
@@ -5347,11 +5284,7 @@ tbody.collapse.in {
 .navbar-default .navbar-nav>.open>a,
 .navbar-default .navbar-nav>.open>a:focus,
 .navbar-default .navbar-nav>.open>a:hover {
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #53808a;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     color: #555
 }
 
@@ -5368,11 +5301,7 @@ tbody.collapse.in {
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus,
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover {
         color: #555;
-<<<<<<< HEAD
         background-color: #eee
-=======
-        background-color: #53808a
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     }
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a,
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:focus,
@@ -5584,11 +5513,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 .pagination>li>span:hover {
     z-index: 2;
     color: #216a94;
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #53808a;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border-color: #ddd
 }
 
@@ -5692,11 +5617,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 .pager li>a:focus,
 .pager li>a:hover {
     text-decoration: none;
-<<<<<<< HEAD
     background-color: #eee
-=======
-    background-color: #53808a
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .pager .next>a,
@@ -5752,11 +5673,7 @@ a.label:hover {
 
 .label-primary[href]:focus,
 .label-primary[href]:hover {
-<<<<<<< HEAD
     background-color: #53808a
-=======
-    background-color: #2579a9
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .label-success {
@@ -5856,11 +5773,7 @@ a.badge:hover {
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 30px;
-<<<<<<< HEAD
     background-color: #eee
-=======
-    background-color: #53808a
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .jumbotron p {
@@ -6236,11 +6149,7 @@ button.list-group-item {
 .list-group-item.disabled,
 .list-group-item.disabled:focus,
 .list-group-item.disabled:hover {
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #53808a;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     color: #777;
     cursor: not-allowed
 }
@@ -6442,14 +6351,10 @@ button.list-group-item-danger.active:hover {
 
 .panel {
     margin-bottom: 22px;
-<<<<<<< HEAD
-    background-color: #fff;
-=======
     #background-color: #fff;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border: 1px solid transparent;
     #border-radius: 4px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+    #box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
 }
 
 .panel-title,
@@ -6462,16 +6367,7 @@ button.list-group-item-danger.active:hover {
 }
 
 .panel-body {
-<<<<<<< HEAD
-    padding: 15px;
-    background-image: url("../img/simbol.png");
-    background-position: right;
-    background-size: 280px 260px;
-    background-repeat: no-repeat
-=======
-    background-color: white;
     padding: 15px
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .panel-body:after,
@@ -6701,20 +6597,12 @@ button.list-group-item-danger.active:hover {
 
 .panel-default {
     border-color: #d3e0e9
-<<<<<<< HEAD
-=======
-    #border-color: #fff
-
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .panel-default>.panel-heading {
     text-align: center;
-<<<<<<< HEAD
+    #font-weight: bold;
     color: #333;
-=======
-    #color: #333;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     background-color: #fff;
     #border-color: #d3e0e9
 }

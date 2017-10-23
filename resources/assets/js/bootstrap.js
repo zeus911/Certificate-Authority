@@ -8,12 +8,7 @@ window._ = require('lodash');
  */
 
 window.$ = window.jQuery = require('jquery');
-<<<<<<< HEAD
 require('bootstrap-sass');
-=======
-//require('bootstrap-sass');
-require('Bootstrap');
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 
 /**
  * Vue is a modern JavaScript library for building interactive web interfaces

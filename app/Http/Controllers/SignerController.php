@@ -37,8 +37,8 @@ class SignerController extends Controller
     	}
 
         // Variables to exec jarsigner.
-		$keystore = "/opt/keystore/symantec_cs.jks";
-		$keystorealias = "grupotragsacs";
+		$keystore = "/opt/keystore/codesign.jks";
+		$keystorealias = "codesign";
 		$tsaurl = "http://sha256timestamp.ws.symantec.com/sha256/timestamp"; // Timestamp Server used by Symantec. 
 
         $jarsigner = shell_exec("jarsigner -tsa $tsaurl -keystore $keystore -storepass 13Safter -signedjar $storagePath/$jar_name.signed $jar_uploaded $keystorealias 2>&1");
@@ -86,8 +86,8 @@ class SignerController extends Controller
     	}
 
         // Variables to exec jarsigner.
-		$keystore = "/opt/keystore/symantec_cs.p12";
-		$keystorealias = "grupotragsacs";
+		$keystore = "/opt/keystore/codesign.p12";
+		$keystorealias = "codesign";
 		//$tsaurl = "http://sha256timestamp.ws.symantec.com/sha256/timestamp"; // Timestamp Server used by Symantec (Java). 
     $tsaurl = "http://timestamp.verisign.com/scripts/timstamp.dll"; // Timestamp Server used by Symantec (Authenticode).
 

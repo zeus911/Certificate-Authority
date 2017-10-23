@@ -8,7 +8,7 @@
       <h2>Self-Service</h2>
       <h3>Convert Certificates to P12/PFX</h3>
 
-    <p class="text-info">Generates a PFX(P12) archive from a certificate and his private key.</p>
+    <p class="text-info">Generates a PFX(P12) archive from a certificate and his private key. Neither certificate nor Private Key will be stored.</p>
     </br>
 <!--
     {{ Form::open(['url' => 'converter/getP12', 'method' => 'post']) }}

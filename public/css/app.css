@@ -324,12 +324,8 @@ th {
 
 .img-thumbnail,
 body {
-<<<<<<< HEAD
     #background-color: #d2d6de;
     background-color: #eee
-=======
-    ##background-color: #d2d6de
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 @font-face {
@@ -1390,11 +1386,7 @@ body {
 *,
 :after,
 :before {
-<<<<<<< HEAD
     #box-sizing: border-box
-=======
-    box-sizing: border-box
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 html {
@@ -1406,12 +1398,8 @@ body {
     font-family: Raleway, sans-serif;
     font-size: 14px;
     line-height: 1.6;
-<<<<<<< HEAD
     color: #636b6f;
-    padding-top: 70px
-=======
-    color: #636b6f
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
+    padding-top: 150px
 }
 
 button,
@@ -1466,11 +1454,7 @@ a:focus {
 hr {
     margin-top: 22px;
     margin-bottom: 22px;
-<<<<<<< HEAD
     border-top: 1px solid #eee
-=======
-    border-top: 1px solid #d2d6de
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .sr-only {
@@ -1708,11 +1692,7 @@ mark {
 
 a.text-primary:focus,
 a.text-primary:hover {
-<<<<<<< HEAD
     color: #53808a
-=======
-    color: #2579a9
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .text-success {
@@ -1758,11 +1738,7 @@ a.text-danger:hover {
 
 a.bg-primary:focus,
 a.bg-primary:hover {
-<<<<<<< HEAD
     background-color: #53808a
-=======
-    background-color: #2579a9
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .bg-success {
@@ -1809,11 +1785,7 @@ table {
 .page-header {
     padding-bottom: 10px;
     margin: 44px 0 22px;
-<<<<<<< HEAD
     border-bottom: 1px solid #eee
-=======
-    border-bottom: 1px solid #d2d6de
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 dl,
@@ -1921,11 +1893,7 @@ blockquote {
     padding: 11px 22px;
     margin: 0 0 22px;
     font-size: 17.5px;
-<<<<<<< HEAD
     border-left: 5px solid #538cc6
-=======
-    border-left: 5px solid #d2d6de
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 blockquote .small,
@@ -1952,11 +1920,7 @@ blockquote small:before {
 blockquote.pull-right {
     padding-right: 15px;
     padding-left: 0;
-<<<<<<< HEAD
     border-right: 5px solid #eee;
-=======
-    border-right: 5px solid #d2d6de;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border-left: 0;
     text-align: right
 }
@@ -2914,11 +2878,7 @@ caption {
 .table-bordered>tfoot>tr>th,
 .table-bordered>thead>tr>td,
 .table-bordered>thead>tr>th {
-<<<<<<< HEAD
     #border: 1px solid #ddd
-=======
-    border: 1px solid #ddd
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .table-bordered>thead>tr>td,
@@ -3185,11 +3145,7 @@ output {
     height: 36px;
     padding: 6px 12px;
     background-color: #fff;
-<<<<<<< HEAD
     border: 3px solid #ccd0d2;
-=======
-    border: 1px solid #ccd0d2;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     #border-radius: 4px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
     -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
@@ -3237,11 +3193,7 @@ output {
 .form-control[disabled],
 .form-control[readonly],
 fieldset[disabled] .form-control {
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #d2d6de;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     opacity: 1
 }
 
@@ -3860,11 +3812,7 @@ fieldset[disabled] .btn-default:hover {
 .btn-primary.focus,
 .btn-primary:focus {
     color: #fff;
-<<<<<<< HEAD
     background-color: #53808a;
-=======
-    background-color: #2579a9;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border-color: #133d55
 }
 
@@ -3873,11 +3821,7 @@ fieldset[disabled] .btn-default:hover {
 .btn-primary:hover,
 .open>.btn-primary.dropdown-toggle {
     color: #fff;
-<<<<<<< HEAD
     background-color: #53808a;
-=======
-    background-color: #2579a9;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border-color: #1f648b
 }
 
@@ -4637,11 +4581,7 @@ tbody.collapse.in {
     line-height: 1;
     color: #555;
     text-align: center;
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #d2d6de;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border: 1px solid #ccd0d2;
     ##border-radius: 4px
 }
@@ -4752,11 +4692,7 @@ tbody.collapse.in {
 .nav>li>a:focus,
 .nav>li>a:hover {
     text-decoration: none;
-<<<<<<< HEAD
     background-color: #eee
-=======
-    background-color: #d2d6de
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .nav>li.disabled>a {
@@ -4774,11 +4710,7 @@ tbody.collapse.in {
 .nav .open>a,
 .nav .open>a:focus,
 .nav .open>a:hover {
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #d2d6de;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border-color: #3097D1
 }
 
@@ -4845,12 +4777,7 @@ tbody.collapse.in {
 .nav-pills>li.active>a:focus,
 .nav-pills>li.active>a:hover {
     color: #fff;
-<<<<<<< HEAD
     background-color: #3097D1
-=======
-    background-color: #d2d6de
-
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .nav-stacked>li+li {
@@ -4920,17 +4847,7 @@ tbody.collapse.in {
 }
 
 .tab-content>.tab-pane {
-<<<<<<< HEAD
     display: none
-=======
-   display: none
-}
-
-.tab-content {
-   color : #636b6f;
-   background-color: #d2d6de;
-   padding : 5px 15px;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .tab-content>.active {
@@ -5039,22 +4956,10 @@ tbody.collapse.in {
 
 .navbar-fixed-bottom,
 .navbar-fixed-top {
-<<<<<<< HEAD
     position: fixed;
     right: 0;
     left: 0;
     z-index: 1030
-=======
-    position: sticky; # Default = fixed
-    right: 0;
-    left: 0;
-    z-index: 1030
-    # added for transparency
-    background:transparent;
-    background-image:none;
-    border-color:transparent;
-    box-shadow:none;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .navbar-fixed-top {
@@ -5349,11 +5254,7 @@ tbody.collapse.in {
 .navbar-default .navbar-nav>.active>a:focus,
 .navbar-default .navbar-nav>.active>a:hover {
     color: #555;
-<<<<<<< HEAD
     background-color: #eee
-=======
-    background-color: #d2d6de
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .navbar-default .navbar-nav>.disabled>a,
@@ -5384,11 +5285,7 @@ tbody.collapse.in {
 .navbar-default .navbar-nav>.open>a,
 .navbar-default .navbar-nav>.open>a:focus,
 .navbar-default .navbar-nav>.open>a:hover {
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #ccc;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     color: #555
 }
 
@@ -5405,11 +5302,7 @@ tbody.collapse.in {
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:focus,
     .navbar-default .navbar-nav .open .dropdown-menu>.active>a:hover {
         color: #555;
-<<<<<<< HEAD
         background-color: #eee
-=======
-        background-color: #ccc
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     }
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a,
     .navbar-default .navbar-nav .open .dropdown-menu>.disabled>a:focus,
@@ -5621,11 +5514,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 .pagination>li>span:hover {
     z-index: 2;
     color: #216a94;
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #ccc;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     border-color: #ddd
 }
 
@@ -5729,11 +5618,7 @@ fieldset[disabled] .navbar-inverse .btn-link:hover {
 .pager li>a:focus,
 .pager li>a:hover {
     text-decoration: none;
-<<<<<<< HEAD
     background-color: #eee
-=======
-    background-color: #ccc
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .pager .next>a,
@@ -5789,11 +5674,7 @@ a.label:hover {
 
 .label-primary[href]:focus,
 .label-primary[href]:hover {
-<<<<<<< HEAD
     background-color: #53808a
-=======
-    background-color: #2579a9
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .label-success {
@@ -5893,11 +5774,7 @@ a.badge:hover {
     padding-top: 30px;
     padding-bottom: 30px;
     margin-bottom: 30px;
-<<<<<<< HEAD
     background-color: #eee
-=======
-    background-color: #d2d6de
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 }
 
 .jumbotron p {
@@ -6273,11 +6150,7 @@ button.list-group-item {
 .list-group-item.disabled,
 .list-group-item.disabled:focus,
 .list-group-item.disabled:hover {
-<<<<<<< HEAD
     background-color: #eee;
-=======
-    background-color: #d2d6de;
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
     color: #777;
     cursor: not-allowed
 }
@@ -7823,143 +7696,7 @@ button.close {
 .visible-print-inline {
     display: none!important
 }
-<<<<<<< HEAD
 
-=======
-*,
-*:after,
-*:before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-.clearfix:after {
-    clear: both;
-}
-
-body {
-    font-family: sans-serif;
-    #background: #f6f9fa;
-}
-
-h1 {
-    color: #ccc;
-    text-align: center;
-}
-
-a {
-    text-decoration: none;
-    outline: none;
-}
-
-/*Fun begins*/
-.tab_container {
-    width: 90%;
-    margin: 0 auto;
-    padding-top: 70px;
-    position: relative;
-}
-
-input, section {
-  clear: both;
-  padding-top: 10px;
-  display: none;
-}
-
-label {
-  font-weight: 700;
-  font-size: 18px;
-  display: block;
-  float: left;
-  width: 20%;
-  padding: 1.5em;
-  color: #757575;
-  cursor: pointer;
-  text-decoration: none;
-  text-align: center;
-  background: #f0f0f0;
-}
-
-#tab1:checked ~ #content1,
-#tab2:checked ~ #content2,
-#tab3:checked ~ #content3,
-#tab4:checked ~ #content4,
-#tab5:checked ~ #content5 {
-  display: block;
-  padding: 20px;
-  background: #fff;
-  color: #999;
-  border-bottom: 2px solid #f0f0f0;
-}
-
-.tab_container .tab-content p,
-.tab_container .tab-content h3 {
-  -webkit-animation: fadeInScale 0.7s ease-in-out;
-  -moz-animation: fadeInScale 0.7s ease-in-out;
-  animation: fadeInScale 0.7s ease-in-out;
-}
-.tab_container .tab-content h3  {
-  text-align: center;
-}
-
-.tab_container [id^="tab"]:checked + label {
-  background: #fff;
-  box-shadow: inset 0 3px #0CE;
-}
-
-.tab_container [id^="tab"]:checked + label .fa {
-  color: #0CE;
-}
-
-label .fa {
-  font-size: 1.3em;
-  margin: 0 0.4em 0 0;
-}
-
-/*Media query*/
-@media only screen and (max-width: 930px) {
-  label span {
-    font-size: 14px;
-  }
-  label .fa {
-    font-size: 14px;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  label span {
-    display: none;
-  }
-
-  label .fa {
-    font-size: 16px;
-  }
-
-  .tab_container {
-    width: 98%;
-  }
-}
-
-/*Content Animation*/
-@keyframes fadeInScale {
-  0% {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
->>>>>>> cae4656c6a9ff00c25dfaaa2d9a011c70c3abcac
 @media print {
     .visible-print-inline {
         display: inline!important
