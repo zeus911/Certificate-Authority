@@ -3,13 +3,12 @@
 namespace App\Http\Controllers;
 
 use Request;
-use App\Csr; // Makes the model available to the Controller.
+use App\Csr;
 use App\Cert;
 use Input;
 use Zipper;
 use File;
 use Response;
-
 
 class RenewRevokeController extends Controller
 {
@@ -18,10 +17,9 @@ class RenewRevokeController extends Controller
         $this->middleware('auth');
     }
 
-
   	public function renew()
    	{
-       if (isset($_POST['cn']) && 
+       if (isset($_POST['cn']) &&
        		 isset($_POST['csrprint']) &&
      		
        		 !empty($_POST['cn']) &&
@@ -33,15 +31,14 @@ class RenewRevokeController extends Controller
             // Getting Collection from Certs.
             $certs = Cert::where('cn', $cn)->get()->first();
 
-			     // Return error if the certificate has already been revoked.
+			      // Return error if the certificate has already been revoked.
             if($cn == strpos($cn, '(R)'))
             {
-            	//dd($cn == strpos($cn, '(R)'));
             	return view('errors.alreadyRevoked');
             	die();
             }
             
-            // Check if CN already exists.
+            // Check if CN and CSR already exists.
             $cn_exists = Cert::where('cn', '=', Request::get('cn'))->first();
             $csr_exists = Cert::where('csrprint', '=', Request::get('csrprint'))->first();
 
@@ -80,9 +77,14 @@ class RenewRevokeController extends Controller
             !empty($_POST['password']))
         {	
      	    $cn = $_POST['cn'];
-     	    //$cn = openssl_csr_get_subject($csr, true);
+          // Separate CN and SANs.
+          $commonName = explode(" ", $cn);
+			    $cn = $commonName[0]; //separated cn
+          $san = explode(",", ("DNS:".implode(",DNS:", $commonName)));
+          $san = implode(",", $san); // separated sans
     	    $csr = $_POST['csrprint'];
         	$password = $_POST['password'];
+        	$config = '/etc/ssl/openssl_serv.cnf';
 
           // Getting Collection from Certs.
           $certs = Cert::where('cn', $cn)->get()->first();
@@ -91,7 +93,7 @@ class RenewRevokeController extends Controller
           $cert_parser = openssl_x509_parse($certprint);
           $extensions = $cert_parser['extensions'];
           $nsCertType = $extensions['nsCertType'];
-
+          $san = $extensions['subjectAltName'];
 
           // Rename nsCertType to fit openssl_code-signing.cnf.
           if($nsCertType == 'Object Signing')
@@ -100,20 +102,31 @@ class RenewRevokeController extends Controller
           }
           if($nsCertType == 'SSL Server')
           {
-            $nsCertType = 'WebserverTLS';
+            $nsCertType = 'SSL/TLS Server';
           }
           if($nsCertType == 'ClientID')
           {
             $nsCertType = 'ClientID';
           }
-          //dd($nsCertType);
 
-            $configArgs = array(
-                'config' => '/usr/lib/ssl/openssl.cnf',
-                'encrypt_key' => false,
-                'private_key_type' => OPENSSL_KEYTYPE_RSA,
-                'digest_alg' => 'sha256',
-                'x509_extensions' => $nsCertType);
+        // Open Config file.
+        $data = file_get_contents($config);
+
+        // Do replacements.
+        $data = str_replace("DNS:",$san, $data);
+ 
+        //Save it back.
+        file_put_contents($config, $data);
+        unset($data);
+
+        // Arguments to be passed to the CSR.
+        $configArgs = array(
+            'config' => $config,
+            'encrypt_key' => false,
+            'private_key_type' => OPENSSL_KEYTYPE_RSA,
+            'subjectAltName' => $san,
+            'digest_alg' => 'sha256',
+            'x509_extensions' => $nsCertType);
 
             $certificate_type = $nsCertType;
             $digest_alg = 'sha256';
@@ -127,7 +140,7 @@ class RenewRevokeController extends Controller
 
             if (isset($cn_exists))
             {
-                // Sign csr from DB.
+              // Sign csr from DB.
             	$cert = openssl_csr_sign($csr , $cacert, $pkeyid, 730, $configArgs, $serial);
 
             	// Export signed certificate to string variable.
@@ -141,6 +154,9 @@ class RenewRevokeController extends Controller
 	            $zip = glob(storage_path('cert.*'));
 	            Zipper::make(storage_path($cn . '.zip'))->add($zip);
 	            Zipper::close();
+
+	            // Clean DNS entries.
+        		  shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");
 
 	            // Delete *.cer files
 	            File::delete(storage_path('cert.csr'));
@@ -170,11 +186,9 @@ class RenewRevokeController extends Controller
             // Return error if the certificate has already been revoked.
             if($cn == strpos($cn, '(R)'))
             {
-            	//dd($cn == strpos($cn, '(R)'));
             	return view('errors.alreadyRevoked');
             	die();
             }
-
               return view('dashboard.revoke', array(
                 'cn' => $cn,
                 ));
@@ -192,20 +206,20 @@ class RenewRevokeController extends Controller
              isset($_POST['password']) &&
 
              !empty($_POST['cn']) &&
-             !empty($_POST['reason']) &&
+             //!empty($_POST['reason']) &&
              !empty($_POST['password']))
             {
 
             $cn = $_POST['cn'];
-            $reason = $_POST['reason'];
+            //$reason = $_POST['reason'];
             $password = $_POST['password'];
-
+            $config = '/etc/ssl/openssl_serv.cnf';
 
             // Getting Collection from Certs.//
             $certs = Cert::where('cn', $cn)->get()->first();
             $certprint = $certs->certprint;
             $serial = $certs->serial;
-            $configFile = '/usr/lib/ssl/openssl.cnf';
+            $configFile = $config;
             $updated_at = $certs->updated_at;
             $certfile = storage_path($serial . '.cer');
             $crlfile = storage_path('ca-g2.crl');
@@ -222,14 +236,14 @@ class RenewRevokeController extends Controller
             file_put_contents(storage_path($serial . '.cer'), $certprint);
 
             // Command to revoke certificate.
-            $revoke = shell_exec("sudo openssl ca -config /usr/lib/ssl/openssl.cnf -revoke $certfile -key $password -batch 2>&1");
+            $revoke = shell_exec("sudo openssl ca -config $config -revoke $certfile -key $password -batch 2>&1");
 
             // Search for status.
             $revoke_bad_password = substr($revoke, 50, 29);
             $revoke_already_revoked = substr($revoke, -38, 15);
             $revoke_ok = substr($revoke, -18, 17);
 
-            if($revoke_bad_password == 'unable to load CA private key'){
+            if($revoke_bad_password == 'Bad Password: Unable to load CA private key'){
 
             	$status = 'Bad Password';
             	return view('errors.notRevoked', array(
@@ -272,7 +286,7 @@ class RenewRevokeController extends Controller
             Cert::where('cn', $cn)->update(['cn' => '(R)' . $cn . ' ' . $updated_at]);
 
             // Update CRL.
-            $updateCRL = shell_exec('sudo openssl ca -gencrl -config /usr/lib/ssl/openssl.cnf -key $password -out /var/www/html/CA/storage/ca-g2.crl -batch 2>&1'); 
+            $updateCRL = shell_exec('sudo openssl ca -gencrl -config $config -key $password -out /var/www/html/CA/storage/ca-g2.crl -batch 2>&1');
 
             // Parsing x509 attributes.
             $parse_cert = openssl_x509_parse($certprint);
@@ -288,10 +302,10 @@ class RenewRevokeController extends Controller
       				'validFrom' => $validFrom,
       				'validTo' => $validTo,
       				'updated_at' => $updated_at,
-      				'reason' => $reason,
+      				//'reason' => $reason,
       				'password' => $password,
-              'status' => $status,
-              'status2' => $status2
+              		'status' => $status,
+              		'status2' => $status2
       				));
                     
               } else {

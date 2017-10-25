@@ -52,8 +52,16 @@ class ConverterController extends Controller
             $certprint = $cn_get_data->certprint;
             $keyprint = $cn_get_data->keyprint;
 
+            // Check if Cert/Key is available.
+            if($keyprint == 'We do not have the key becouse it has been generated in another device.' OR $certprint == 'Do not apply'){
+               return view('errors.ooops', array(
+               'cn' => $cn,
+               'error_details' => 'Can´t create P12 archive. No Certificate or PrivateKey available.'));
+            }
+
             // Certificate parser (SubjectName...)
             $subject = openssl_x509_parse($certprint, true);
+            //dd($subject['subject']['CN']);
             $cn = $subject['subject']['CN'];
 
             // P12 storage path.
@@ -61,34 +69,35 @@ class ConverterController extends Controller
 
             // CACert storage path.
             //$cacert = file(storage_path('cert.ca.cer'));
-
             $cacert = array('-----BEGIN CERTIFICATE-----
-MIID4TCCAsmgAwIBAgIJAPw5S5j3bdNfMA0GCSqGSIb3DQEBCwUAMF0xCzAJBgNV
-BAYTAkVTMQ8wDQYDVQQIDAZNYWRyaWQxETAPBgNVBAoMCExJUVVBQklUMRQwEgYD
-VQQLDAtMSVFVQUJJVCBDQTEUMBIGA1UEAwwLTElRVUFCSVQgQ0EwHhcNMTYxMTA4
-MTEyMTU4WhcNMTkxMTA4MTEyMTU4WjBdMQswCQYDVQQGEwJFUzEPMA0GA1UECAwG
-TWFkcmlkMREwDwYDVQQKDAhMSVFVQUJJVDEUMBIGA1UECwwLTElRVUFCSVQgQ0Ex
-FDASBgNVBAMMC0xJUVVBQklUIENBMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
-CgKCAQEAw+HG6DwQ5a7pfw2oou0AqaL9xg1W4Vg5uXt6uNJh9+1x3mfcIvXS0qXI
-/ijQ3Rq9HUNGvv6bml1XE3c1US3BYnXIy0qlHXJkIWJqLhCZB8rk9xC3ZwMOhe7q
-9ZRpb1K0UnSC1q4ADO+QnpGkE3xRIVNPKdADglLWFsBShU7paMwUNxHwG8DAEbh4
-0uEmAYNXjR/Q4YSlOUC0L8CI9NWg9bYCyy511ns9nJTmfdqv+uNy7r78qmfTVb+D
-V41aTsrUa5mane5SEeYWDM6tSdQZFBiW5CR74unN/qKXc/SQH8t8mTybSQLejVF5
-c97kpEoNUDijJsbTHGlQ3YWnsuwrewIDAQABo4GjMIGgMB0GA1UdDgQWBBT/EXQ7
-Rkq+AiNnJhyKNkSwYggbJTAfBgNVHSMEGDAWgBT/EXQ7Rkq+AiNnJhyKNkSwYggb
-JTAMBgNVHRMEBTADAQH/MAsGA1UdDwQEAwIBBjARBglghkgBhvhCAQEEBAMCAQYw
-MAYDVR0fBCkwJzAloCOgIYYfaHR0cHM6Ly93d3cubGlxdWFiaXQuY29tL2NhLmNy
-bDANBgkqhkiG9w0BAQsFAAOCAQEAaCw6BRPyfKC2uoc9xy/FpOYL2CjwMNIrYSWe
-PwwD/1Jx3E8EUyBCavFrcLo8cxtDUQ9HLkbGQNc0QcubkiD3N45zZjjf7tzlzp6/
-LzOhQw60OciwRAezERAPsEbCqII8gjBsISx6fWtAomR54AZpvz2L8r0TtE/S2rb2
-WdrIg7kmOfuEad/qVLMQaWipw3Oxx9JjqjvBRUqPmFejOszAVK5dMGRhc7UgTzQv
-mPHvs6+/Ewmt/a5CJu804ZOpVmU0o8hZ79l2+hfxOSt37VNsV5O8ZHWlEXmaDLNY
-5isPQFtPJDqgZCU6ofOc3ZCHwEi3UHCBIjUSjh7u/Es2TRiDVw==
------END CERTIFICATE-----');
+MIID+jCCAuKgAwIBAgIDAnEAMA0GCSqGSIb3DQEBCwUAMG0xCzAJBgNVBAYTAkVT
+MQ8wDQYDVQQIDAZNYWRyaWQxDzANBgNVBAcMBk1hZHJpZDEPMA0GA1UECgwGVFJB
+R1NBMRQwEgYDVQQLDAtUUkFHU0EgQ0EgMTEVMBMGA1UEAwwMVFJBR1NBIENBIEcy
+MB4XDTE2MDIwOTE1NTMxN1oXDTQxMDIwMjE1NTMxN1owbTELMAkGA1UEBhMCRVMx
+DzANBgNVBAgMBk1hZHJpZDEPMA0GA1UEBwwGTWFkcmlkMQ8wDQYDVQQKDAZUUkFH
+U0ExFDASBgNVBAsMC1RSQUdTQSBDQSAxMRUwEwYDVQQDDAxUUkFHU0EgQ0EgRzIw
+ggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQChNJLS56VTKsXuOriEe4m8
+2Wwc2PMZQ+tLlKbajZerqpXsziXZxsere18XqUEldeWyzZM68WWB0PbNPji5EgnL
+69leMpeCX5imB3Bsh/wVxdhQBJFUOlANGAkq5fG9MxzLBTAz/UjBMhMtr0XU00fd
+vSir3iWxl2v3ztW0/TZqR1S27Fivqp9ihq7XV4SXYOqyBsZtEuPSqtPQf8i0FP8j
+mzmGzO5tzsGsi5UFhrFPFFV537AuTFgzlylIQdWRMFSkrC3UEKsl5ubkcA3rv79G
+DYxzP/Brw84nFGzuS/LqGxOs+S45dsthW6wp7x11iLdtFbbmDBUqZFC/CqJdNjSJ
+AgMBAAGjgaIwgZ8wHQYDVR0OBBYEFK5n9AgxrpbXgOPNbQZfZbftBKH8MB8GA1Ud
+IwQYMBaAFK5n9AgxrpbXgOPNbQZfZbftBKH8MAwGA1UdEwQFMAMBAf8wCwYDVR0P
+BAQDAgEGMBEGCWCGSAGG+EIBAQQEAwIBBjAvBgNVHR8EKDAmMCSgIqAghh5odHRw
+Oi8vd3d3LnRyYWdzYS5lcy9jYS1nMi5jcmwwDQYJKoZIhvcNAQELBQADggEBACvi
+tBYsdkV9lWNygKOn1cCsg+KLjU7/BTszhZ6KvQLBmwOMc8mU/MpWtolCMxyPp4nu
+2B5qZfq1F8zVvs+j23XHE2a5HWZLob3msrbT0o4njh7oPk3i1iqwD4UVX7NQf7l9
+uyVtOECgjy0WypPGv7/LLcSDhyNvCCRd1lYC4HWemomQip4nwxmMFYVCyomqHotq
+XVAH0WcZMUGzQkYSCGlQUVJM8FcfDoZjB11jJPUIM+Kz0hwAaabUrPQVieJLAooc
+XlRXg40mdjehEK9dwNMnD2YGGP4vpeyY3/72FJ+RxWwr1yF3p5cmLdY1LIdGBiIf
+TXoKcfB8UFRI5KBGbyw=
+-----END CERTIFICATE-----
+');
             
             // Arguments to pass to the P12 archive.
             $p12args = array (
-              'extracerts' => $cacert,
+            	'extracerts' => $cacert,
               'friendly_name' => $cn
             );
 
@@ -96,7 +105,6 @@ mPHvs6+/Ewmt/a5CJu804ZOpVmU0o8hZ79l2+hfxOSt37VNsV5O8ZHWlEXmaDLNY
             $p12export = openssl_pkcs12_export($certprint, $p12string, $keyprint, $password, $p12args);
 
             $p12export_to_file = openssl_pkcs12_export_to_file($certprint, $p12, $keyprint, $password, $p12args);
-
 
             // Update field 'p12' in DB.
             Cert::where('cn', $cn)->update(['p12' => $p12string]);
@@ -165,11 +173,8 @@ mPHvs6+/Ewmt/a5CJu804ZOpVmU0o8hZ79l2+hfxOSt37VNsV5O8ZHWlEXmaDLNY
 
    		$srcstoretype = $request::input('srcstoretype');
    		$password = $request::input('password');
-   		$p12 = $request::file('p12');
-   		//$srcalias = shell_exec("keytool -v -list -storetype pkcs12 -keystore $p12 2>&1");
-   		//dd($srcalias);
    		$dstalias = $request::input('dstalias');
-   		//$dstalias = $srcalias;
+   		$p12 = $request::file('p12');
    		$p12storage = $p12->move($storagePath . '/tmp', $p12 . '.p12');
    	}
 

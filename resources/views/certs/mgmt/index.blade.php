@@ -35,7 +35,7 @@
 	        </thead>
 	        <tbody>
           @foreach ($certs as $cert)
-	            <tr>
+	            <tr class="text-info">
                   <td>{{ $cert->id }}</td>
 	              <td>{{ $cert->cn }}</td>
 	              <td>{{ $cert->certificate_type}}</td>

@@ -6,19 +6,17 @@
     <H1>You have successfully generated the Certificate.</H1>
     <p class='text-info'>Now, You should download the certificate &amp his Private Key archive.</p>
 
-    
-
     <div class="container">
         <h2>Certificate Details:</h2>       
         <table class="table">
             <thead>
             <tr>
-                <th>Common Name</th>
+                <th>Common Name / SAN</th>
                 <th>Certificate Type</th>
                 <th>Signature Algorithm</th>
                 <th>Key Length</th>
                 <th>Serial</th>
-                <th>Certificate &amp Private Key</th>
+                <th>Certificate &amp Private Key</th> 
                 
             </tr>
             </thead>
@@ -34,7 +32,6 @@
                 <input type="hidden" name="cn" value="{{ $cn }}">
                 <input type="hidden" name="certificate_type" value="{{ $certificate_type }}">
                 <input type="hidden" name="digest_alg" value="{{ $digest_alg }}">
-                <input type="hidden" name="key_length" value="{{ $key_length }}">
                 <input type="hidden" name="serial" value="{{ $serial }}">
                 <input type="hidden" name="csrprint" value="{{ $csrprint }}">
                 <input type="hidden" name="certprint" value="{{ $certprint }}">
@@ -66,7 +63,7 @@
         @endif     
         <br />
         {{ form::token() }}
-        {{ Form::submit('Convert to PFX (P12)', ['class' =>'btn btn-primary btn-lg']) }}
+        {{ Form::submit('Convert to PFX (P12)', ['class' =>'btn btn-primary btn-md']) }}
         {{ Form::close() }}
         </div>
 

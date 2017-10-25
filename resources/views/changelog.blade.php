@@ -3,53 +3,22 @@
 	@section('content')
 <div class="container">
 
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning...</blockquote>
-    
-      <h2>ChangeLog</h2>
-<div class="content">
+	<h2><i class="fa fa-bullhorn" aria-hidden="true"></i> ChangeLog</h2>
+	<div class="content">
 
-<h2>Version 2.1.0</h2>
-<p>Release Date: 19/10/2017</p>
+	<h3>Version 2.0.0</h3>
+	<p><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Release Date: 27/4/2017</p>
 
-<ul>
-	<li>Added subjectAltNames in certificates, CSR and signing CSR.</li>
-	<li>Added SSL decoder tool (beta) - ssldecoder.liquabit.com</li>
-	<li>Added Root CA certificates from Symantec and Firmaprofesional.</li>
-</ul>
+	<ul class="text-info">
+		<li>Number of subjectAltName limit removed. Now you can type as much DNS Names as needed.
 
-<h2>Version 2.0.0</h2>
-<p>Release Date: 27/4/2017</p>
+		<li>SubjectAltName available when generating certs and csr. Now the CN is copied into the subjectAltName. Use: type all the DNS Names needed in the certificate in the "CN" field separated by <kbd>SPACE</kbd>.
 
-<ul>
-	<li>... <kbd>$this->template->foo = 'bar';</kbd> ...</li>
-	<li>... <a href="">...</a>.</li>
-	<li>... <kbd><a href="
-		">...</a></kbd> ...</li>
-</ul>
+		<li>Created a script <dfn>/opt/subjectAltNameRemove.sh</dfn> to clean DNS Names from config file ones it is generated.
+	</ul>
 
-<h2>Version 2.0.0</h2>
-<p>Release Date: 27/4/2017</p>
+	<!-- END CONTENT -->
 
-<ul>
-	<li>... <kbd>$this->template->set_metadata('keywords', 'foo');</kbd> ...</li>
-	<li>...</li>
-	<li>.. <kbd><a href="">...</a></kbd>, ...</li>
-</ul>
-
-<h2>Version 2.0.0</h2>
-<p>Release Date: 27/4/2017</p>
-
-<ul>
-	<li>...</li>
-	<li>...</li>
-	<li>...</li>
-	<li>... <a href="">...</a> ... <dfn>...<dfn> ... <dfn>...<dfn> ...</li>
-</ul>
-
-</div>
-<!-- END CONTENT -->
-
-      </div>
-    </div>
+	</div>
 </div>
 @endsection

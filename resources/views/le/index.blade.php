@@ -5,8 +5,8 @@
 <div class="container">
 
       <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-      <h2>Self-Service</h2>
-	  <h3 class="text-info">Let´s Encrypt WebApp</h3>      
+      <h2></h2>
+	  <h3 class="text-info">Let´s Encrypt CSR Signer</h3>      
       <h3 class="text-danger">Work in progress</h3>      
 		
 	 <p class="text-info">This will return a certificate signed by Let´s Encrypt.</p>

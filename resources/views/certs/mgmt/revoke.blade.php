@@ -6,7 +6,7 @@
     <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
     <H1>You are about to revoke this certificate: <strong>{{ $cn }}</strong>.</H1>
     <div class="container">
-        <h2>Reason:</h2>
+        <h2>Reason (Optional):</h2> 
                 {{ Form::open(['url' => 'dashboard/revoked', 'method' => 'post']) }}
                 <input type="hidden" name="cn" value="{{ $cn }}">
                   @if($errors->has('cn'))

@@ -13,15 +13,15 @@
 		</div>
 		<div class="form-group">
 			{{ Form::label('Archive Type: ', 'Archive Type: ', ['class' => '']) }}
-        	{{ Form::select('archive_type', ['.msi' => 'MSI', '.exe' => 'EXE', '.dll' => 'DLL', '.cab' => 'CAB'], null, ['placeholder' => 'Microsoft Archive Type', 'class' => 'dropbox' ]) }}
+        	{{ Form::select('archive_type', ['.msi' => 'MSI', '.exe' => 'EXE', '.dll' => 'DLL', '.cab' => 'CAB'], null, ['placeholder' => 'Microsoft Archive Type', 'class' => 'form-control' ]) }}
         	@if($errors->has('archive_type'))
             {{ $errors->first('archive_type') }} 
         	@endif
         <div>
         <div class="form-group">
-		    {{ Form::label('Keystore Passphrase') }}
-		    {{ Form::password('password', null, ['placeholder' => 'Keystore passphrase', 'class' => 'form-control' ]) }}
-		</div>
+            {{ Form::label('Password') }}
+            {{ Form::password('password', ['placeholder' => 'Keystore Password', 'class' => 'form-control' ]) }}
+        </div>
 
 		<div class="form-group">
 	        {{ Form::token() }}

@@ -3,11 +3,12 @@
 @section('content')
 
 <div class="container">
-
-    <H2>Certificate Renewal for: <strong>{{ $cn }}</strong> </H2>
+    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
+    <H1>Certificate Renewal for: <strong>{{ $cn }}</strong> </H1>
+  
 
     <div class="container">
-    {{ Form::open(['url' => 'certs/mgmt/getRenewed', 'files' => 'true', 'method' => 'post']) }}
+    {{ Form::open(['url' => 'dashboard/getRenewed', 'files' => 'true', 'method' => 'post']) }}
     <input type="hidden" name="cn" value="{{ $cn }}">
     <input type="hidden" name="csrprint" value="{{ $csrprint }}">
     {{ Form::label('password', 'Password', ['class' => '']) }}
@@ -18,8 +19,9 @@
     <br />
     </br>
     {{ Form::token() }}
-    {{ Form::submit('Submit Data', ['class' => 'btn btn-primary btn-md']) }}
-    {{ Form::close() }}
-
+    {{ Form::submit('Submit Data', ['class' => 'btn btn-primary btn-lg']) }}
+    {{ Form::close() }}    
+           
+        
     </div>
 @endsection

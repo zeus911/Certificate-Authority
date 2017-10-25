@@ -29,7 +29,7 @@
                   <td>{{ $validFrom }}</td>
                   <td>{{ $validTo }}</td>
                   <td>{{ $updated_at }}</td>
-                  <td class="text-success">{{ $status }}</td>
+                  <td class="text-success"><strong>{{ $status }}</strong></td>
                   <td>{{ $reason }}</td>
             	</tr>
             </tbody>
