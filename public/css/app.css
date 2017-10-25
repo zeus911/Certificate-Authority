@@ -325,7 +325,8 @@ th {
 .img-thumbnail,
 body {
     #background-color: #d2d6de;
-    background-color: #eee
+    #background-color: #eee;
+    background-image: url("../img/lab1.jpg");
 }
 
 @font-face {
