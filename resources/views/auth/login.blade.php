@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-sign-in" aria-hidden="true"></i>
-                                    Login to CA Demo
+                                    Login to CA Demo 
                                 </button>
 
                                 <!-- <a class="btn btn-link" href="{{ url('/password/reset') }}">
