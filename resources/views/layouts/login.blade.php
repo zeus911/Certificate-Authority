@@ -12,7 +12,7 @@
     <title>{{ config('app.name', '') }}</title>
 
     <!-- .ico -->
-    <link rel="icon" href="{{URL::asset('tragsa.ico') }}"/>
+    <link rel="icon" href="{{URL::asset('favicon.ico') }}"/>
 
     <!-- Styles -->
     <link href="/css/login.css" rel="stylesheet">
@@ -53,7 +53,7 @@
     </div>
     <br />
     <!-- footer -->
-    <div class="text-info"><center>TRAGSA &#128128; 2016 - {{ date('F Y') }}.</center></div>
+    <div class="text-info"><center>LIQUABIT  &#128128; Prototypes 2016 - {{ date('F Y') }}.</center></div>
     <br />
     <!-- Scripts -->
     <script src="/js/app.js"></script>
