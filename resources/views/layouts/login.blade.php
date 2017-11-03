@@ -53,7 +53,7 @@
     </div>
     <br />
     <!-- footer -->
-    <div class="text-info"><center>LIQUABIT  &#128128; Prototypes 2016 - {{ date('F Y') }}.</center></div>
+    <div class="text-info"><center><strong>LIQUABIT  &#128128; Prototypes {{ date('F Y') }}.</strong></center></div>
     <br />
     <!-- Scripts -->
     <script src="/js/app.js"></script>
