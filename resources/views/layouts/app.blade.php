@@ -12,7 +12,7 @@
     <title>{{ config('app.name', '') }}</title>
 
     <!-- .ico -->
-    <link rel="icon" href="{{URL::asset('tragsa.ico') }}"/>
+    <link rel="icon" href="{{URL::asset('favicon.ico') }}"/>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -83,7 +83,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav navbar">
                         <li class="active"><a href="{{ url('certs/mgmt/') }}">
-						<img src="{{URL::asset('/img/tragsa_logo.gif')}}" alt="TRAGSA CA - Home"></a>
+						<img src="{{URL::asset('/img/logo.gif')}}" alt="Prototypes CA - Home"></a>
 						</li>
                         <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -233,7 +233,7 @@
     </div>
     <br />
     <!-- footer -->
-    <div class="text-info"><center><strong>TRAGSA &#128128; 2016 - {{ date('F Y') }}.</strong></center></div>
+    <div class="text-info"><center><strong>LIQUABIT &#128128; Prototypes - {{ date('F Y') }}.</strong></center></div>
     <div class="text-muted"><center><strong><i class="fa fa-quote-left" aria-hidden="true"></i> Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning...<i class="fa fa-quote-right" aria-hidden="true"></i></strong></center></div>
 
     <br />
