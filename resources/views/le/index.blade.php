@@ -4,9 +4,7 @@
 
 <div class="container">
 
-      <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-      <h2></h2>
-	  <h3 class="text-info">Let´s Encrypt CSR Signer</h3>      
+	  <h2 class="text-info">Let´s Encrypt CSR Signer</h2>      
       <h3 class="text-danger">Work in progress</h3>      
 		
 	 <p class="text-info">This will return a certificate signed by Let´s Encrypt.</p>
@@ -46,7 +44,7 @@ MIICxDCCAawCAQAwYzELMAkGA1UEBhMCRVMxDzANBgNVBAgTBk1hZHJpZDEPMA0G
     <br />
     </br>
     {{ Form::token() }}
-    {{ Form::submit('Submit Data', ['class' => 'btn btn-success btn-lg']) }}
+    {{ Form::submit('Submit Data', ['class' => 'btn btn-success btn-md']) }}
     {{ Form::close() }}
 <br />
 </div>

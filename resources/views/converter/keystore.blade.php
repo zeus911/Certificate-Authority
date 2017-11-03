@@ -3,10 +3,9 @@
 @section('content')
 
 <div class="container">
-    <H1>You are going to create a Java Keystore (JKS).</H1>
-    <H3 class="text-inf">Creating a Keystore requires a PFX(P12) archive. 
+    <H2>You are going to create a Java Keystore (JKS).</H2>
+    <H3 class="text-info">Creating a Keystore requires a PFX(P12) archive. 
     <a href="p12" class="btn btn-success btn-md">Create PFX(P12)</a>
-
     </H3>
 
     <div class="container">
@@ -34,7 +33,7 @@
         <br />
         </br>
         <!-- {{ Form::label('Keystore Alias: ', 'Keystore Alias: ', ['class' => '']) }} -->
-        <input type="text" class="form-control input-md" name="dstalias" value="{{ (isset($input['dstalias'])) ? e($input['dstalias']) : '' }}" placeholder="  Keystore Name (example: TragsaKeystore)">
+        <input type="text" class="form-control input-md" name="dstalias" value="{{ (isset($input['dstalias'])) ? e($input['dstalias']) : '' }}" placeholder="  Keystore Name (example: keystore)">
         @if($errors->has('dstalias'))
             {{ $errors->first('dstalias') }} 
         @endif

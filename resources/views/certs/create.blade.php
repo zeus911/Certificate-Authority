@@ -4,9 +4,8 @@
 
 <div class="container">
 
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
     <h2></h2>
-    <h3>Request New Certificate</h3>
+    <h2>Request New Certificate</h2>
 
     <p class="text-default">Generates a new CSR/Certificate/Private Key with the data provided in the form.</p>
     <p class="text-info">Separate domain names with <span class="badge badge-dark">Spaces</span>. <strong><a target="_blank" href="https://datatracker.ietf.org/wg/pkix/charter/"/> [PKIX guidelines compatibility]</strong></a></p>

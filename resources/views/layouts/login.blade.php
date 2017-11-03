@@ -1,16 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5052264-7"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments)};
-      gtag('js', new Date());
-
-      gtag('config', 'UA-5052264-7');
-    </script>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,15 +12,13 @@
     <title>{{ config('app.name', '') }}</title>
 
     <!-- .ico -->
-    <link rel="icon" href="{{URL::asset('favicon.ico') }}"/>
+    <link rel="icon" href="{{URL::asset('tragsa.ico') }}"/>
 
     <!-- Styles -->
     <link href="/css/login.css" rel="stylesheet">
 
     <!-- Fonts -->
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
-
-    
 
     <!-- Scripts -->
     <script>
@@ -40,33 +28,35 @@
     </script>
 </head>
 <body>
-    <?php include_once("analyticstracking.blade.php") ?>
     <div id="app">
-
-{{--         <nav class="navbar navbar-default navbar-static-top">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+         <nav class="navbar navbar-default navbar-static-top">
+                <div class="navbar-header"> 
+        
+                            <!-- Collapsed Hamburger -->
+        <!--           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
                         <span class="sr-only">Toggle Navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
+        -->
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('#') }}">
-                    <!-- <div class="container"><img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT - Home"> -->
+        <!--            <a class="navbar-brand" href="{{ url('dashboard/index') }}">
+                    <div class="container"><img src="{{URL::asset('/img/logo_tragsa.gif')}}" alt="TRAGSA CA - Home"></div>
                         {{ config('app.name', 'Certificate Authority') }}
                     </a>
+        -->
                 </div>
         </nav>
- --}}
-        @yield('content')
+        
+         @yield('content')
     </div>
-    
-
+    <br />
+    <!-- footer -->
+    <div class="text-info"><center>TRAGSA &#128128; 2016 - {{ date('F Y') }}.</center></div>
+    <br />
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+
 </body>
 </html>

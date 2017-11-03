@@ -2,9 +2,7 @@
 @section('content') 
 <div class="container">
 
-        <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-    
-      	<H1>You have successfully generated the CSR.</H1>
+      	<H2>You have successfully generated the CSR.</H2>
     	<p class='text-info'>Now, You can download the CSR &amp his Private Key archive for: <strong> {{ $cn }} </strong>. </p>
 
     <div class="container">

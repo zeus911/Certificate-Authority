@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <H1>You are going to sign a Microsoft Archive.</H1>
+    <H2>You are going to sign a Microsoft Archive.</H2>
     <div class="container">
 
     {{ Form::open(['url' => 'signer/signAuthenticode', 'method' => 'POST', 'class' => 'form', 'files' => true]) }}

@@ -4,9 +4,7 @@
 
 <div class="container">
 
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-      <h2>Self-Service</h2>
-	  <h3>Request New CSR</h3>      
+	  <h2>Request New CSR</h2>      
 		
 	<p class="text-default">Generate a new CSR/Private Key. This is used for signing certificates with an external CA.</p>
     <p class="text-info">Separate domain names with <span class="badge badge-dark">Spaces</span>. <strong><a target="_blank" href="https://datatracker.ietf.org/wg/pkix/charter/"/> [PKIX guidelines compatibility]</strong></a></p>

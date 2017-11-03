@@ -4,9 +4,7 @@
 
 <div class="container">
 
-      <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-      <h2>Self-Service</h2>
-	  <h3>You are about to generate a new certificate for: {{ $cn }}.</h3>      
+	  <h2>You are about to generate a new certificate for: {{ $cn }}.</h2>      
       <p class"text-info">This is used for signing CSR files generated externally.</p>
     </br>
 

@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="container">
-    <H1>You have created a Java Keystore ({{ $dstalias }}).</H1>
-    <H4 class="text-info">{{ $result }}</H4>
+    <H2>You have created a Java Keystore ({{ $dstalias }}).</H2>
+    <H3 class="text-info">{{ $result }}</H3>
     <div class="container">
         {{ Form::open(['url' => 'converter/getKeystore', 'method' => 'post']) }}
         <input type="hidden" name="dstalias" value="{{ $dstalias }}">

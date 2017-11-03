@@ -13,7 +13,7 @@
     
     <div class="container">
         
-        <table class="table">
+		<table width="100%" class="table table-striped dt-responsive nowrap" id="" cellspacing="0">
             <thead>
             <tr>
                   <th>Signature</th>

@@ -17,9 +17,8 @@
     {{ Form::close() }}
  -->
     </br>
-
-    
-	    <table id="dashboard" class="table table-bordered table-condensed table-responsive" cellspacing="0" width="100%">
+<table width="100%" class="table dt-responsive nowrap" id="dashboard" cellspacing="0">
+	    <!--<table id="dashboard" class="table table-bordered table-condensed table-responsive" cellspacing="0" width="100%"> -->
 	        <thead>
 	            <tr>
                   <th>ID</th>
@@ -55,7 +54,7 @@
                     {{ Form::token() }}
                     {{ Form::submit('More Details', ['class' => 'btn btn-primary btn-outline btn-md']) }}
                     {{ Form::close() }}
-                  </td>
+                </td>
 	                
               </tr>
 	        @endforeach
@@ -64,12 +63,11 @@
 	    </table>
 
     <br />
-    {{ Form::token() }}
+<!--     {{ Form::token() }}
     {{ Form::submit('Export to Excel', ['class' => 'btn btn-primary btn-md .disabled']) }}
     {{ Form::close() }}
-
+ -->
     </br>
-                    </div>
-
+   </div>
 </div>
 @endsection

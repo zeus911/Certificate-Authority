@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <H1>CRL Updated. {{ $result }}</H1>
+    <H2>CRL Updated. {{ $result }}</H2>
 </div>
 <div class="container">
     {{ Form::open(['url' => 'rootcrl/getCRL', 'method' => 'POST', 'class' => 'form']) }}

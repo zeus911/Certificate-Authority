@@ -3,10 +3,7 @@
 
 <div class="container">
 
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-    
-    <h2>Self-Service</h2>
-	  <h3>Search</h3>      		
+	  <h2>Search</h2>      		
     {{ Form::open(['url' => 'signer/results/', 'method' => 'post']) }}
     {{csrf_field()}}
     <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->

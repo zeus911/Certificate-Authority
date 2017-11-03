@@ -3,11 +3,11 @@
 @section('content')
 
 <div class="container">
-    <H1>You have successfully generated the Certificate.</H1>
+    <H2>You have successfully generated the Certificate.</H2>
     <p class='text-info'>Now, You should download the certificate &amp his Private Key archive.</p>
 
     <div class="container">
-        <h2>Certificate Details:</h2>       
+        <h3>Certificate Details:</h3>       
         <table class="table">
             <thead>
             <tr>
@@ -21,7 +21,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr class="text-info">
                 <td>{{ $cn }}</td>
                 <td>{{ $certificate_type }}</td>
                 <td>{{ $digest_alg }}</td>
@@ -46,7 +46,7 @@
 
             </tbody>
         </table>
-        <H2>Convert to PFX (P12)</H2>
+        <H3>Convert to PFX (P12)</H3>
         <p class='text-danger'>To convert it to PFX (P12), click <strong>Create & Get Keypair</strong> button first and then type the passphrase and click <strong>Convert to PFX (P12)</strong> button.</p>
         {{ Form::open(['url' => 'certs/getP12', 'method' => 'post']) }}
         <input type="hidden" name="cn" value="{{ $cn }}">

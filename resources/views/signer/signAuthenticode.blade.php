@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <H1>Signature for {{ $archive_name }} has {{ $result }}.</H1>
+    <H2>Signature for {{ $archive_name }} has {{ $result }}.</H2>
     <div class="container">
         {{ Form::open(['url' => 'signer/getAuthenticode', 'method' => 'post']) }}
         <input type="hidden" name="archive_name" value="{{ $archive_name }}">

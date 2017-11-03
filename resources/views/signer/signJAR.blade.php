@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <H1>Your archive {{ $jar_name }} has been:</H1>
+    <H2>Your archive {{ $jar_name }} has been:</H2>
     <H3 class="text-info">{{ $result }}</H3>
     <div class="container">
         {{ Form::open(['url' => 'signer/getJAR', 'method' => 'post']) }}
