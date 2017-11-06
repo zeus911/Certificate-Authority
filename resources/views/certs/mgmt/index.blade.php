@@ -3,7 +3,7 @@
 
 <div class="container">
 
-	<h2>Certificates Management</h2>      		
+	<h1 Class="text-info">Certificates > Certificates Management</h1>      		
 <!--     {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post']) }}
     {{csrf_field()}}
     {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
