@@ -23,8 +23,8 @@
 	        <tbody>
           @foreach ($certs as $cert)
 	            <tr class="text-info">
-                <td><a href="">{{ $cert->id }}</a></td>
-	              <td>{{ $cert->cn }}</td>
+                <td>{{ $cert->id }}</td>
+	              <td><a href="">{{ $cert->cn }}</a></td>
 	              <td>{{ $cert->certificate_type}}</td>
 	              <td>{{ $cert->digest_alg}}</td>
                 <td>2048</td>
