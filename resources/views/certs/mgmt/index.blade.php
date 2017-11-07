@@ -24,7 +24,7 @@
           @foreach ($certs as $cert)
 	            <tr class="text-info">
                 <td>{{ $cert->id }}</td>
-	              <td><a href="">{{ $cert->cn }}</a></td>
+	              <td><a href="dashboard/search"><strong>{{ $cert->cn }}</strong></a></td>
 	              <td>{{ $cert->certificate_type}}</td>
 	              <td>{{ $cert->digest_alg}}</td>
                 <td>2048</td>
