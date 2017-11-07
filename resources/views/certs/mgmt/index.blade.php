@@ -4,42 +4,30 @@
 <div class="container">
 
 	<h1 Class="text-info">Certificates > Certificates Management</h1>      		
-<!--     {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post']) }}
-    {{csrf_field()}}
-    {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
-    <input class="form-control" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CommonName">
-    @if($errors->has('cn'))
-        {{ $errors->first('cn') }} 
-    @endif
-    <br />
-    {{ Form::token() }}
-    {{ Form::submit('Search for details', ['class' => 'btn btn-primary btn-md']) }}
-    {{ Form::close() }}
- -->
     </br>
 <table width="100%" class="table dt-responsive nowrap" id="dashboard" cellspacing="0">
 	    <!--<table id="dashboard" class="table table-bordered table-condensed table-responsive" cellspacing="0" width="100%"> -->
 	        <thead>
 	            <tr>
-                  <th>ID</th>
+                <th>ID</th>
 	              <th>Common Name</th>
 	              <th>Type</th>
-                  <th>Signature</th>
-                  <th>Key Length</th>
-                  <!-- <th>Serial</th> -->
+                <th>Signature</th>
+                <th>Key Length</th>
+                <!-- <th>Serial</th> -->
 	              <th>Created on</th>
 	              <th>Updated</th>
-                  <th></th>
+                <th></th>
 	            </tr>
 	        </thead>
 	        <tbody>
           @foreach ($certs as $cert)
 	            <tr class="text-info">
-                  <td>{{ $cert->id }}</td>
+                <td><a href="">{{ $cert->id }}</a></td>
 	              <td>{{ $cert->cn }}</td>
 	              <td>{{ $cert->certificate_type}}</td>
 	              <td>{{ $cert->digest_alg}}</td>
-                  <td>2048</td>
+                <td>2048</td>
 	              <!-- <td>{{ $cert->serial }} ( $serialNumberHex )</td> -->
 	              <td>{{ $cert->created_at }}</td>
 	              <td>{{ $cert->updated_at }}</td>
