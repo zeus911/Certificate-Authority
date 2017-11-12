@@ -23,10 +23,10 @@
 	        <tbody>
           @foreach ($certs as $cert)
 	            <tr class="text-info">
-                <td>{{route('mgmt/search', ['id' => $cert->id]) }}</td>
+                <td>{{ $cert->id }}</td>
 	              <td><a href="dashboard/search"><strong>{{ $cert->cn }}</strong></a></td> 
-	              <td>{{ $cert->certificate_type}}</td>
-	              <td>{{ $cert->digest_alg}}</td>
+	              <td>{{ $cert->certificate_type }}</td>
+	              <td>{{ $cert->digest_alg }}</td>
                 <td>2048</td>
 	              <!-- <td>{{ $cert->serial }} ( $serialNumberHex )</td> -->
 	              <td>{{ $cert->created_at }}</td>
