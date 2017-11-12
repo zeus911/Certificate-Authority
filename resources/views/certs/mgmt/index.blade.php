@@ -51,10 +51,6 @@
 	    </table>
 
     <br />
-<!--     {{ Form::token() }}
-    {{ Form::submit('Export to Excel', ['class' => 'btn btn-primary btn-md .disabled']) }}
-    {{ Form::close() }}
- -->
     </br>
    </div>
 </div>
