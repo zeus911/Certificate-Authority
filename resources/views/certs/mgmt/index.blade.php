@@ -19,7 +19,7 @@
 	              <th>Updated</th>
                 <th></th>
 	            </tr>
-	        </thead> 
+	        </thead>  
 	        <tbody>
           @foreach ($certs as $cert)
 	            <tr class="text-info">
