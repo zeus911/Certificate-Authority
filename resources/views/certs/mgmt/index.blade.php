@@ -22,7 +22,7 @@
 	        </thead>  
 	        <tbody>
           @foreach ($certs as $cert)
-	            <tr class="text-info">
+	            <tr class="text-info"> 
                 <td>{{ $cert->id }}</td>
 	              <td><a href="dashboard/search"><strong>{{ $cert->cn }}</strong></a></td> 
 	              <td>{{ $cert->certificate_type }}</td>
