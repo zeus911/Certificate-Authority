@@ -3,10 +3,9 @@
 @section('content')
 
 <div class="container">
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-    <H1 class="text-info">Certificate {{ $cn }} has been succesfully {{ $status2 }}.</H1>
-    <H2 class="text-info">Issuer: {{ $issuerCN }}</H2>
-    <H2 class="text-success">Status: {{ $status2 }}</H2>
+    <H2 class="text-info">Certificate {{ $cn }} has been succesfully {{ $status2 }}.</H2>
+    <H3 class="text-info">Issuer: {{ $issuerCN }}</H3>
+    <H4 class="text-success">Status: {{ $status2 }}</H4>
 
         <div class="container">
         
@@ -30,7 +29,7 @@
                   <td>{{ $validTo }}</td>
                   <td>{{ $updated_at }}</td>
                   <td class="text-success"><strong>{{ $status }}</strong></td>
-                  <td>{{ $reason }}</td>
+                  <td>$reason</td>
             	</tr>
             </tbody>
         </table>

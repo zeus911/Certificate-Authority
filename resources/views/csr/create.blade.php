@@ -44,7 +44,7 @@
     </br>
     {{ Form::token() }}
 
-    {{ Form::submit('Generate CSR', ['class' => 'btn btn-success btn-lg']) }}
+    {{ Form::submit('Generate CSR', ['class' => 'btn btn-success btn-md']) }}
 
     {{ Form::close() }}
 

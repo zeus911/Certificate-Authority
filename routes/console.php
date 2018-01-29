@@ -15,4 +15,4 @@ use Illuminate\Foundation\Inspiring;
 
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
-})->describe('Display an inspiring quote');
+})->describe('Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning...');

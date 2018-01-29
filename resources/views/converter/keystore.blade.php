@@ -5,7 +5,7 @@
 <div class="container">
     <H2>You are going to create a Java Keystore (JKS).</H2>
     <H3 class="text-info">Creating a Keystore requires a PFX(P12) archive. 
-    <a href="p12" class="btn btn-success btn-md">Create PFX(P12)</a>
+    <a href="p12" class="btn btn-default btn-md">Create PFX(P12)</a>
     </H3>
 
     <div class="container">
@@ -39,7 +39,7 @@
         @endif
         <br />
         </br>
-        {{ Form::submit('Submit Data', ['class' => 'btn btn-primary btn-lg']) }}
+        {{ Form::submit('Create Keystore', ['class' => 'btn btn-success btn-md']) }}
         {{ Form::close() }}
             
     </div>

@@ -12,11 +12,12 @@
     <title>{{ config('app.name', '') }}</title>
 
     <!-- .ico -->
-    <link rel="icon" href="{{URL::asset('favicon.ico') }}"/>
+    <link rel="icon" href="{{URL::asset('tragsa.ico') }}"/>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-
+<!--     <link href="/css/bootstrap.css" rel="stylesheet">
+ -->
  
     <!-- Styles 2 -->
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -62,6 +63,9 @@
         <nav class="navbar navbar-default navbar-fixed-top"> <!-- opt: default, static, fixed -->
             <div class="container">
                 <div class="navbar-header">
+					<a href="{{ url('certs/mgmt/') }}">
+						<img src="{{URL::asset('/img/tragsa_logo.gif')}}" alt="TRAGSA CA - Home">
+					</a>
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -72,20 +76,21 @@
                     </button>
 
                     <!-- Branding Image -->
-<!--                     <a class="navbar-brand nav" href="{{ url('dashboard/index') }}"
-                    <div class="container">
+<!--                     <a class="navbar-brand nav" href="{{ url('certs/mgmt') }}">
+                    	<div class="container">
                           <img src="{{URL::asset('/img/logo_tragsa.gif')}}" alt="TRAGSA CA - Home"></div>
- -->                         <!-- {{ config('app.name', 'Certificate Authority') }} -->
-                    </a>
+                         {{ config('app.name', 'Certificate Authority') }}
+ 						</div>
+                    </a> -->
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav navbar">
-                        <li class="active"><a href="{{ url('certs/mgmt/') }}">
-						<img src="{{URL::asset('/img/logo.gif')}}" alt="Prototypes CA - Home"></a>
+<!--                    <i class="fa fa-certificate" aria-hidden="true"></i></a>
+                        <li class=""><a href="{{ url('certs/mgmt/') }}">
 						</li>
-                        <li class="dropdown">
+ -->                        <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         		<i class="fa fa-certificate" aria-hidden="true"></i>
                                 <strong>Certificates</strong><span class="caret"></span>
@@ -140,9 +145,13 @@
                                 <ul class="dropdown-menu" role="menu">
                                 	<li class="dropdown-header"><strong>SSL DECODER</strong></li>
                                     <li><a target="_blank" href="{{ url('https://gestion6.tragsa.es/ssldecoder/') }}">
-                                    <i class="fa fa-certificate" aria-hidden="true"></i> SSL Decoder</a></li>
+                                    <i class="fa fa-certificate" aria-hidden="true"></i> SSL Decoder (Test)</a></li>
                                     <li><a target="_blank" href="{{ url('https://cryptoreport.websecurity.symantec.com/checker/views/csrCheck.jsp') }}">
                                     <i class="fa fa-external-link" aria-hidden="true"></i> Symantec CryptoReport</a></li>
+                                    <li class="divider"></li>
+                                   	<li class="dropdown-header"><strong>CERTIFICATE MONITOR</strong></li>
+                                    <li><a target="_blank" href="{{ url('https://gestion6.tragsa.es/certmon/') }}">
+                                    <i class="fa fa-certificate" aria-hidden="true"></i> SSL Monitor (Test)</a></li>
                                     <li class="divider"></li>
                                     <li class="dropdown-header"><strong>LET´S ENCRYPT</strong></li>
                                     <li><a href="{{ url('le/index') }}">
@@ -151,20 +160,7 @@
                         </li>
                         &nbsp;
                     </ul>
-	               <!-- Search form
-                    <div>
-                        {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
-                        {{csrf_field()}}
-                        <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
-                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
-                        @if($errors->has('cn'))
-                            {{ $errors->first('cn') }} 
-                        @endif
-                        <br />
-                        {{ Form::token() }}
-                        {{ Form::close() }}    
-                    </div>
--->
+
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -181,6 +177,20 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+
+                                	<li>
+                                        <a href="{{ url('/todo') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('todo').submit();">
+                                            <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                            <strong>To Do</strong>
+                                        </a>
+
+                                        <form id="todo" action="{{ url('/todo') }}" method="GET" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+
                                 	<li>
                                         <a href="{{ url('/changelog') }}"
                                             onclick="event.preventDefault();
@@ -210,21 +220,7 @@
                             </li>
                         @endif
                     </ul>
-                    <!-- Search form -->
-<!--                     <div>
-                        {{ Form::open(['url' => 'dashboard/search/', 'method' => 'post', 'class' => 'navbar-form navbar-left']) }}
-                        {{csrf_field()}}
-                        {{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}
-                        <input class="form-control input-sm" type="text" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="Search by CN">
-                        @if($errors->has('cn'))
-                            {{ $errors->first('cn') }} 
-                        @endif
-                        <br />
-                        {{ Form::token() }}
-                        {{ Form::close() }}    
-                    </div>
-
- -->                </div>
+                </div>
             </div>
         </nav>
 
@@ -233,7 +229,7 @@
     </div>
     <br />
     <!-- footer -->
-    <div class="text-info"><center><strong>LIQUABIT &#128128; Prototypes - {{ date('F Y') }}.</strong></center></div>
+    <div class="text-info"><center><strong>LOPEAA: 2016 - {{ date('F Y') }}.</strong></center></div>
     <div class="text-muted"><center><strong><i class="fa fa-quote-left" aria-hidden="true"></i> Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning...<i class="fa fa-quote-right" aria-hidden="true"></i></strong></center></div>
 
     <br />

@@ -3,7 +3,6 @@
 @section('content')
 
 <div class="container">
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
     <H2>Certificate details for: <strong>{{ $cn }}</strong></H2>
     <H3> Issued by: <strong>{{ $issuerCN }}</strong></H3>
     <p class="text-info"><strong><i class="fa fa-calendar-o" aria-hidden="true"></i> Valid from: {{ $validFrom }}</strong></p>
@@ -50,7 +49,7 @@
                           <div class="modal-footer">
   
                               <!-- // Button to Update CSR in DB. // -->
-                            	{{ Form::open(['url' => 'dashboard/update', 'method' => 'post']) }}
+                            	{{ Form::open(['url' => 'certs/mgmt/update', 'method' => 'post']) }}
     			                    {{csrf_field()}}
     			                    <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
     			                    @if($errors->has('cn'))
@@ -63,7 +62,7 @@
                             	<!-- // End Button to Update in DB. // -->
   
                              	<!-- // Button to download CSR to a file. // -->
-                            	{{ Form::open(['url' => 'dashboard/getCSR', 'method' => 'post']) }}
+                            	{{ Form::open(['url' => 'certs/mgmt/getCSR', 'method' => 'post']) }}
     			                    {{csrf_field()}}
     			                    <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
     			                    @if($errors->has('cn'))
@@ -98,7 +97,7 @@
                           </div>
                           <div class="modal-footer">
                               <!-- // Button to Update CSR in DB. // -->
-                              {{ Form::open(['url' => 'dashboard/update', 'method' => 'post']) }}
+                              {{ Form::open(['url' => 'certs/mgmt/update', 'method' => 'post']) }}
                               {{csrf_field()}}
                               <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
                               @if($errors->has('cn'))
@@ -111,7 +110,7 @@
                               <!-- // End Button to Update in DB. // -->
   
                               <!-- // Button to download CSR to a file. // -->
-                              {{ Form::open(['url' => 'dashboard/getPublicKey', 'method' => 'post']) }}
+                              {{ Form::open(['url' => 'certs/mgmt/getPublicKey', 'method' => 'post']) }}
                               {{csrf_field()}}
                               <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
                               @if($errors->has('cn'))
@@ -147,7 +146,7 @@
                           </div>
                           <div class="modal-footer">
                               <!-- // Button to Update CSR in DB. // -->
-                              {{ Form::open(['url' => 'dashboard/update', 'method' => 'post']) }}
+                              {{ Form::open(['url' => 'certs/mgmt/update', 'method' => 'post']) }}
                               {{csrf_field()}}
                               <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
                               @if($errors->has('cn'))
@@ -160,7 +159,7 @@
                               <!-- // End Button to Update in DB. // -->
   
                               <!-- // Button to download CSR to a file. // -->
-                              {{ Form::open(['url' => 'dashboard/getPrivateKey', 'method' => 'post']) }}
+                              {{ Form::open(['url' => 'certs/mgmt/getPrivateKey', 'method' => 'post']) }}
                               {{csrf_field()}}
                               <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
                               @if($errors->has('cn'))
@@ -209,7 +208,7 @@
                               <!-- // End Button to Update in DB. // -->
   
                               <!-- // Button to download PFX to a file. // -->
-                              {{ Form::open(['url' => 'dashboard/getP12', 'method' => 'post']) }}
+                              {{ Form::open(['url' => 'certs/mgmt/getP12', 'method' => 'post']) }}
                               {{csrf_field()}}
                               <input class="hidden" type="text" name="cn" value="{{ $cn }}"> 
                               @if($errors->has('cn'))
@@ -248,7 +247,7 @@
             <tr>
 
                 <td><!-- Get Archive PFX(P12) -->
-                  {{ Form::open(['url' => 'dashboard/getP12', 'method' => 'post']) }}
+                  {{ Form::open(['url' => 'certs/mgmt/getP12', 'method' => 'post']) }}
                   {{csrf_field()}}
                   <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
                   <input type="hidden" name="cn" value="{{ $cn }}">
@@ -273,7 +272,7 @@
                 </td>
 
                 <td><!-- Renew Certificate -->
-                  {{ Form::open(['url' => 'dashboard/renew', 'method' => 'post']) }}
+                  {{ Form::open(['url' => 'certs/mgmt/renew', 'method' => 'post']) }}
                   {{csrf_field()}}
                   <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
                   <input type="hidden" name="cn" value="{{ $cn }}">
@@ -286,7 +285,7 @@
                   {{ Form::close() }}
 				</td>
                 <td><!-- Revoke Certificate -->
-                  {{ Form::open(['url' => 'dashboard/revoke', 'method' => 'post']) }}
+                  {{ Form::open(['url' => 'certs/mgmt/revoke', 'method' => 'post']) }}
                   {{csrf_field()}}
                   <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
                   <input type="hidden" name="cn" value="{{ $cn }}">

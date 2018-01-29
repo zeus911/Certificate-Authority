@@ -79,8 +79,8 @@ class RootCRLController extends Controller
     	}
 
         // Variables to exec jarsigner.
-		$keystore = "/opt/keystore/symantec_cs.p12";
-		$keystorealias = "grupotragsacs";
+		$keystore = "/opt/keystore/liquabit_cs.p12";
+		$keystorealias = "liquabitcs";
 		$tsaurl = "http://sha256timestamp.ws.symantec.com/sha256/timestamp"; // Timestamp Server used by Symantec. 
 
         $osslsigncode = shell_exec("osslsigncode sign -pkcs12 $keystore -pass $password -h sha2 -in $archive_uploaded -out $storagePath/$archive_name.signed 2>&1");

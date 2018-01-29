@@ -31,11 +31,12 @@ class RenewRevokeController extends Controller
             // Getting Collection from Certs.
             $certs = Cert::where('cn', $cn)->get()->first();
 
-			      // Return error if the certificate has already been revoked.
+			// Return error if the certificate has already been revoked.
             if($cn == strpos($cn, '(R)'))
             {
-            	return view('errors.alreadyRevoked');
-            	die();
+            	return view('errors.ooops', array(
+                'cn' => $cn,
+                'status' => 'Certificate exist and it is already revoked.'));
             }
             
             // Check if CN and CSR already exists.
@@ -45,18 +46,22 @@ class RenewRevokeController extends Controller
             // return error page if there is no certificate in DB.
             if ($certs->certprint == 'Do not apply')
             {
-              return view ('errors.noCertFound');
+              return view ('errors.ooops', array(
+                'cn' => $cn,
+                'status' => 'Certificate not found.'));
             }
 
             if (!isset($cn_exists) && !isset($csr_exists))
             {
               $csrprint = file_put_contents($cn . '.csr', $cn_exists->csrprint);
 
-              return view('dashboard.DoNotExist');
+              return view('errors.ooops', array(
+              	'cn' => $cn,
+              	'status' => 'Either CN not CSR exist in DB.'));
 
              } else {
 
-              return view ('dashboard.renewed', array(
+              return view ('certs.mgmt.renewed', array(
                 'cn' => $cn,
                 'csrprint' => $csrprint
                 ));
@@ -79,12 +84,12 @@ class RenewRevokeController extends Controller
      	    $cn = $_POST['cn'];
           // Separate CN and SANs.
           $commonName = explode(" ", $cn);
-			    $cn = $commonName[0]; //separated cn
+		  $cn = $commonName[0]; // Separate CN from SANs.
           $san = explode(",", ("DNS:".implode(",DNS:", $commonName)));
-          $san = implode(",", $san); // separated sans
-    	    $csr = $_POST['csrprint'];
-        	$password = $_POST['password'];
-        	$config = '/etc/ssl/openssl_serv.cnf';
+          $san = implode(",", $san); // Separated SANs
+    	  $csr = $_POST['csrprint'];
+          $password = $_POST['password'];
+          $config = '/etc/ssl/openssl_serv.cnf';
 
           // Getting Collection from Certs.
           $certs = Cert::where('cn', $cn)->get()->first();
@@ -108,6 +113,8 @@ class RenewRevokeController extends Controller
           {
             $nsCertType = 'ClientID';
           }
+	    // Clean previous DNS entries in case of error.
+        shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");          
 
         // Open Config file.
         $data = file_get_contents($config);
@@ -115,7 +122,7 @@ class RenewRevokeController extends Controller
         // Do replacements.
         $data = str_replace("DNS:",$san, $data);
  
-        //Save it back.
+        // Save it back.
         file_put_contents($config, $data);
         unset($data);
 
@@ -124,7 +131,7 @@ class RenewRevokeController extends Controller
             'config' => $config,
             'encrypt_key' => false,
             'private_key_type' => OPENSSL_KEYTYPE_RSA,
-            'subjectAltName' => $san,
+            //'subjectAltName' => $san, // Not needed since it is hardcoded (above) in config file.
             'digest_alg' => 'sha256',
             'x509_extensions' => $nsCertType);
 
@@ -135,12 +142,14 @@ class RenewRevokeController extends Controller
             $cacert = file_get_contents('/opt/CA/cacert.pem');
             $pkeyid = array(file_get_contents('/opt/CA/private/cakey.pem'), $password );
 
-            // Check if CN already exists. // Posible Error: field 'cn' does not exists.
+            // Check if CN already exists.
             $cn_exists = Cert::where('cn', '=', Request::get('cn'))->first();
 
             if (isset($cn_exists))
             {
-              // Sign csr from DB.
+            	$cert = openssl_csr_sign($csr , $cacert, $pkeyid, 730, $configArgs, $serial);
+
+              	// Sign csr from DB.
             	$cert = openssl_csr_sign($csr , $cacert, $pkeyid, 730, $configArgs, $serial);
 
             	// Export signed certificate to string variable.
@@ -152,11 +161,11 @@ class RenewRevokeController extends Controller
 
 	            // ZIP the certificate, key and CA. Saved in storage folder.
 	            $zip = glob(storage_path('cert.*'));
-	            Zipper::make(storage_path($cn . '.zip'))->add($zip);
+	            Zipper::make(storage_path($cn . '.zip'))->add($zip); 
 	            Zipper::close();
 
 	            // Clean DNS entries.
-        		  shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");
+        		shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");
 
 	            // Delete *.cer files
 	            File::delete(storage_path('cert.csr'));
@@ -182,24 +191,29 @@ class RenewRevokeController extends Controller
        if  (isset($_POST['cn']) && !empty($_POST['cn'])) 
        {
             $cn = $_POST['cn'];
-
-            // Return error if the certificate has already been revoked.
+            $certs = Cert::where('cn', $cn)->get()->first();
+	        // Return error if the certificate has already been revoked.
             if($cn == strpos($cn, '(R)'))
             {
-            	return view('errors.alreadyRevoked');
-            	die();
-            }
-              return view('dashboard.revoke', array(
+            	return view('errors.ooops', array(
+                'cn' => $cn,
+                'status' => 'Certificate exists and it is already revoked'));
+            
+            } elseif ($certs->certprint == 'Do not apply') {
+
+              return view ('errors.ooops', array(
+                'cn' => $cn,
+                'status' => 'Certificate not found'));
+          } else {
+              	return view('certs.mgmt.revoke', array(
                 'cn' => $cn,
                 ));
+   			}
+   		}
+   	}
 
-        } else {
 
-              return view ('errors.notRevoked');
-          }
-    }
-
-    public function revoked()
+    public function revoked() 
     {
        if  (isset($_POST['cn']) &&
              isset($_POST['reason']) &&
@@ -227,7 +241,9 @@ class RenewRevokeController extends Controller
             // Return error if there is no certificate in DB.
             if ($certs->certprint == 'Do not apply')
             {
-              return view ('errors.noCertFound');
+              return view ('errors.ooops', array(
+                'cn' => $cn,
+                'status' => 'Certificate not found.'));
 
             } 
             if ($certs->certprint !== 'Do not apply'){
@@ -239,34 +255,30 @@ class RenewRevokeController extends Controller
             $revoke = shell_exec("sudo openssl ca -config $config -revoke $certfile -key $password -batch 2>&1");
 
             // Search for status.
-            $revoke_bad_password = substr($revoke, 50, 29);
+            $revoke_bad_password = substr($revoke, 50, 30);
+			//dd($revoke_bad_password);
             $revoke_already_revoked = substr($revoke, -38, 15);
             $revoke_ok = substr($revoke, -18, 17);
+			//dd($revoke_ok);
+            if($revoke_bad_password == 'unable to load CA private key'){
 
-            if($revoke_bad_password == 'Bad Password: Unable to load CA private key'){
-
-            	$status = 'Bad Password';
-            	return view('errors.notRevoked', array(
+            	return view('errors.ooops', array(
             		'cn' => $cn,
-                'status' => $status
+                'status' => 'Bad Password'
             		));
 
             } elseif ($revoke_already_revoked == 'Already Revoked'){
 
-              $status = 'Already Revoked';
-              //dd($revoke_already_revoked);
-              return view('errors.notRevoked', array(
+              return view('errors.ooops', array(
                 'cn' => $cn,
-                'status' => $status
+                'status' => 'Already Revoked.'
                 ));
 
             } elseif ($revoke_ok != 'Data Base Updated') {
 
-              $status = 'Data Base NOT Updated.';
-              //dd($revoke_ok);
-              return view('errors.notRevoked', array(
+              return view('errors.ooops', array(
                 'cn' => $cn,
-                'status' => $status
+                'status' => 'Error updating the DB. Check your password and try again.'
                 ));
 
             } elseif ($revoke_ok == 'Data Base Updated') {
@@ -295,21 +307,23 @@ class RenewRevokeController extends Controller
             $validFrom = date_create( '@' .  $parse_cert['validFrom_time_t'])->format('c');
           	$validTo = date_create( '@' .  $parse_cert['validTo_time_t'])->format('c');
 	
-      			return view ('dashboard.revoked', array(
+      			return view ('certs.mgmt.revoked', array(
       				'cn' => $cn,
-              		'serial' => $serial,
+              'serial' => $serial,
       				'issuerCN' => $issuerCN,
       				'validFrom' => $validFrom,
       				'validTo' => $validTo,
       				'updated_at' => $updated_at,
       				//'reason' => $reason,
       				'password' => $password,
-              		'status' => $status,
-              		'status2' => $status2
+              'status' => $status,
+              'status2' => $status2
       				));
                     
               } else {
-              return view ('errors.notRevoked');
+              return view ('errors.ooops', array(
+                'cn' => $cn,
+                'status' => 'At the end there has been an error.'));
             }
                
         }

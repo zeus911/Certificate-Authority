@@ -30,13 +30,13 @@
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
           <i class="fa fa-chevron-down" aria-hidden="true"></i>
-			TRAGSA CA G2</a>
+			LIQUABIT CA TEST</a>
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse">
         <div class="panel-body">{{ Form::open(['url' => 'rootcrl/getRoot', 'method' => 'POST', 'class' => 'form']) }}
     	<div class="form-group">
-       	{{ Form::submit('Download TRAGSA CA G2 Root certificate', ['class' => 'btn btn-primary btn-md']) }}
+       	{{ Form::submit('Download LIQUABIT CA TEST Root certificate', ['class' => 'btn btn-primary btn-md']) }}
         </div>
         {{ Form::close() }}</div>
       </div>

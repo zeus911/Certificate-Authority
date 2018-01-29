@@ -28,7 +28,7 @@ MIICxDCCAawCAQAwYzELMAkGA1UEBhMCRVMxDzANBgNVBAgTBk1hZHJpZDEPMA0G
     <br />
     </br>
     {{ Form::token() }}
-    {{ Form::submit('Submit Data', ['class' => 'btn btn-danger btn-lg']) }}
+    {{ Form::submit('Sign CSR', ['class' => 'btn btn-success btn-md']) }}
     {{ Form::close() }}
 
 </div>

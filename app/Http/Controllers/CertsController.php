@@ -53,9 +53,9 @@ class CertsController extends Controller
             // Check if CN already exists.
             $cn_exists = Cert::where('cn', '=', Request::get('cn'))->first();
             if (isset($cn_exists)){
-                   return view ('errors.cnExists', array(
+                   return view ('errors.ooops', array(
                        'cn' => $cn,
-                       'error_details' => 'already exist in DB'
+                       'status' => 'CN already exist in DB'
                        ));
                }
 
@@ -64,11 +64,14 @@ class CertsController extends Controller
         "countryName" => 'ES',
         "stateOrProvinceName" => 'Madrid',
         "localityName" => 'Madrid',
-        "organizationName" => 'TRAGSA',
-        "organizationalUnitName" => 'TRAGSA CA 1',
+        "organizationName" => 'LIQUABIT CA TEST',
+        "organizationalUnitName" => 'LIQUABIT PoC',
         "commonName" => $cn,
         //"emailAddress" => 'test'
-        );   
+        );  
+
+        // Clean DNS entries.
+        shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1"); 
         
 		// Open config file.
 		$data = file_get_contents($config);

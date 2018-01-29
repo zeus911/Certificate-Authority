@@ -46,7 +46,7 @@ MIICxDCCAawCAQAwYzELMAkGA1UEBhMCRVMxDzANBgNVBAgTBk1hZHJpZDEPMA0G
     @endif     
     <br />
     {{ Form::token() }}
-    {{ Form::submit('Submit Data & Get PFX(P12)', ['class' => 'btn btn-danger btn-lg']) }}
+    {{ Form::submit('Convert & Get PFX(P12)', ['class' => 'btn btn-success btn-md']) }}
     {{ Form::close() }}
 	<br />
 </div>

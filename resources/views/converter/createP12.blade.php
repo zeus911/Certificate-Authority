@@ -15,7 +15,7 @@
     @endif     
     <br />
     {{ Form::token() }}
-    {{ Form::submit('Submit Data & Get PFX(P12)', ['class' => 'btn btn-primary btn-lg']) }}
+    {{ Form::submit('Submit Data & Get PFX(P12)', ['class' => 'btn btn-primary btn-md']) }}
     {{ Form::close() }}
 
 

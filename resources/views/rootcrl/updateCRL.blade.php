@@ -8,7 +8,7 @@
 <div class="container">
     {{ Form::open(['url' => 'rootcrl/getCRL', 'method' => 'POST', 'class' => 'form']) }}
         <div class="form-group">
-            {{ Form::submit('Get TRAGSA CA G2 CRL', ['class' => 'btn btn-primary btn-lg']) }}
+            {{ Form::submit('Get LIQUABIT CA TEST CRL', ['class' => 'btn btn-primary btn-md']) }}
         </div>
         {{ Form::close() }}
     </div>

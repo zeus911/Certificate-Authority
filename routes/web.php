@@ -9,8 +9,10 @@ Route::get('/', function () {
 // Self-Service
 Route::get('home', 'HomeController@index');
 
-// Changelog
+// Changelog and To Do´s
 Route::get('changelog', 'HomeController@changelog');
+Route::get('todo', 'HomeController@todo');
+
 
 // Certs
 Route::get('certs/create', 'CertsController@create');

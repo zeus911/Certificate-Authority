@@ -20,7 +20,7 @@
 
         
         {{ form::token() }}
-        {{ Form::submit('Download CSR', ['class' =>'btn btn-primary btn-lg']) }}
+        {{ Form::submit('Download CSR', ['class' =>'btn btn-primary btn-md']) }}
         {{ Form::close() }}
         </br>
         <a class='text-success' href="https://gestion6.tragsa.es/ssldecoder/" target="_blank"><strong> Check your CSR (SSL Decoder Tools) </strong></a>

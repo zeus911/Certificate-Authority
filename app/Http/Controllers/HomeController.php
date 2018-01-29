@@ -25,8 +25,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
     public function changelog()
     {
         return view('changelog');
+    }
+
+    public function todo()
+    {
+        return view('todo');
     }
 }

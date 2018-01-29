@@ -16,7 +16,7 @@ class DashboardController extends Controller
 
         $certs =  Cert::where('cn','like','%'.$searchCerts.'%')
         ->orderBy('id')
-        ->paginate('100');
+        ->paginate('200');
 
         foreach ($certs as $cert) {
          $id = $cert->id;
@@ -32,14 +32,15 @@ class DashboardController extends Controller
     }
 
 
-    public function search()
+    public function search() // renanme to details o get o...
  
     {
       if(isset($_POST['cn']) && !empty($_POST['cn'])) {
 
-    	$cn = $_POST['cn'];
+      $cn = $_POST['cn'];
       // Getting Collection from Certs.
       $certs = Cert::where('cn', $cn)->get()->first();
+
       // Getting data from Collection (DB). 
       $id = $certs->id;
       $csrprint = $certs->csrprint;
@@ -77,7 +78,7 @@ class DashboardController extends Controller
       if($certprint == 'Do not apply'){
       		return view('dashboard.search', array(
             'cn' => $cn,
-            'issuerCN' => 'TRAGSA CA G2 (Only CSR/Key available. Certificate signed by an external CA)',
+            'issuerCN' => 'LIQUABIT CA TEST (Only CSR/Key available. Certificate signed by an external CA)',
             //'nsCertType' => $certs->certificate_type,
             'signatureTypeSN' => $certs->digest_alg,
             //'key_length' => $cert->key_length,

@@ -8,7 +8,7 @@
         {{ Form::open(['url' => 'signer/getAuthenticode', 'method' => 'post']) }}
         <input type="hidden" name="archive_name" value="{{ $archive_name }}">
         {{ Form::token() }}
-        {{ Form::submit('Get Signed Archive', ['class' => 'btn btn-primary btn-lg']) }}
+        {{ Form::submit('Get Signed Archive', ['class' => 'btn btn-primary btn-md']) }}
         {{ Form::close() }}
             
     </div>

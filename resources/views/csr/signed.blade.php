@@ -19,7 +19,7 @@
     <input type="hidden" name="p12" value="{{ $p12 }}">
     <input type="hidden" name="password" value="{{ $password }}">
     {{ Form::token() }}
-    {{ Form::submit('Sign & Get Certificate', ['class' => 'btn btn-danger btn-lg']) }}
+    {{ Form::submit('Sign & Get Certificate', ['class' => 'btn btn-danger btn-md']) }}
     {{ Form::close() }}
 
 </div>

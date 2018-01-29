@@ -57,7 +57,7 @@ class CsrController extends Controller
                 {
                     return view ('errors.ooops', array(
                         'cn' => $cn,
-                        'error_details' => 'already exist in DB'
+                        'status' => 'Already signed and not revoked'
                         ));
                 }
   
@@ -66,8 +66,8 @@ class CsrController extends Controller
         "countryName" => 'ES',
         "stateOrProvinceName" => 'Madrid',
         "localityName" => 'Madrid',
-        "organizationName" => 'TRAGSA',
-        "organizationalUnitName" => 'TRAGSA CA 1',
+        "organizationName" => 'LIQUABIT CA TEST',
+        "organizationalUnitName" => 'LIQUABIT PoC',
         "commonName" => $cn,
         //"emailAddress" => $EMailAdress
         );
@@ -117,7 +117,9 @@ class CsrController extends Controller
             'p12' => $p12 ));
         } else {
 
-            return view('errors.csrError');
+            return view('errors.ooops', array(
+            	'cn' => $cn,
+            	'status' => 'Error in CSR'));
         }
         
     }
@@ -159,7 +161,7 @@ class CsrController extends Controller
             {
             	return view ('errors.ooops', array(
             		'cn' => $cn,
-                    'error_details' => 'already exist in DB'
+                    'status' => 'Already signed and not revoked.'
             		));
             }
             
@@ -186,7 +188,9 @@ class CsrController extends Controller
 
        } else {
 
-           return view ('errors.getCSR');
+           return view ('errors.ooops', array(
+           	'cn' => $cn,
+           	'status' => 'Last error getCSR'));
        }
         
     }
@@ -223,7 +227,7 @@ class CsrController extends Controller
             {
             	return view ('errors.ooops', array(
             		'cn' => $cn['CN'],
-                    'error_details' => 'already exist in DB'
+                    'statuss' => 'Already signed and not revoked.'
             	));
          
             } elseif ($cn_exists = 'null') {    
@@ -275,6 +279,9 @@ class CsrController extends Controller
             $pkeyid = array(file_get_contents('/opt/CA/private/cakey.pem'), $password );
             //$serial = random_int(260001, 270001); // serial for external CSR
 
+            // Clear SAN DNS entries if previous error.
+            shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");
+            
             // Extracting SAN fron CSR.
 			  $random_blurp = rand(1000,99999); 
 			  //openssl_csr_get_subject doesn't support SAN names.
@@ -285,8 +292,12 @@ class CsrController extends Controller
 			  }
 			  unlink($filename); // Completely deletes the file.
 
-
-            // replace subjectAltName in openssl_serv.conf with $san.
+            // In case the CSR file doesn´t include SAN.
+              if($san == ""){
+                $san = 'DNS:' . $cn;
+              }
+            
+            // Include subjectAltName in conf. file.
             $data = file_get_contents("/etc/ssl/openssl_serv.cnf");
 
             // do replacements.
@@ -302,22 +313,27 @@ class CsrController extends Controller
                 'encrypt_key' => false,
                 'private_key_type' => OPENSSL_KEYTYPE_RSA,
                 'digest_alg' => $digest_alg,
-                'subjectAltName' => $san,
+                //'subjectAltName' => $san,
                 'x509_extensions' => $certificate_type );
 
-            // Check if CN already exists. // Posible Error: field 'cn' does not exists.
+            // Check if CN already exists.
             $cn_exists = Cert::where('cn', '=', Request::get('cn'))->first();
 
             if (isset($cn_exists)){
+            	
+            	// Clean SAN DNS entries.
+            	shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");
+                
                 return view ('errors.ooops', array(
                     'cn' => $cn,
-                    'error_details' => 'already in DB'
+                    'status' => 'Already signed and not revoked.'
                 ));
             } elseif ($cn_exists = 'null') {
 
 
             // Sign certificate function.
             $cert = openssl_csr_sign($csr , $cacert, $pkeyid, 730, $configArgs, $serial);
+
 
             // Export signed certificate to string variable.
             openssl_x509_export($cert, $certprint);

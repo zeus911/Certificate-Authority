@@ -16,7 +16,7 @@ class MgmtController extends Controller
 
         $certs =  Cert::where('cn','like','%'.$searchCerts.'%')
         ->orderBy('id')
-        ->paginate('100');
+        ->paginate('200');
 
 
 
@@ -103,7 +103,7 @@ class MgmtController extends Controller
       if($certprint == 'Do not apply'){
       		return view('certs.mgmt.search', array(
             'cn' => $cn,
-            'issuerCN' => 'TRAGSA CA G2 (Only CSR/Key available. Certificate signed by an external CA)',
+            'issuerCN' => 'LIQUABIT TEST CA (Only CSR/Key available. Certificate signed by an external CA)',
             //'nsCertType' => $certs->certificate_type,
             'signatureTypeSN' => $certs->digest_alg,
             //'key_length' => $cert->key_length,

@@ -3,13 +3,11 @@
 @section('content')
 
 <div class="container">
-
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-      <h2>Self-Service</h2>
-      <h3>Update DB for {{ $cn }}</h3>
+      
+      <h2>Update DB for {{ $cn }}</h2>
     </br>
     <p><strong>Copy &amp Paste your CSR content.</strong></p>
-    {{ Form::open(['url' => 'dashboard/updated', 'files' => 'true', 'method' => 'post']) }}
+    {{ Form::open(['url' => 'certs/mgmt/updated', 'files' => 'true', 'method' => 'post']) }}
     <input class="hidden" type="text" name="cn" value="{{ $cn }}">
     {{ Form::textarea('csrprint', null, array('placeholder' => '------BEGIN CERTIFICATE REQUEST------
 A1UEBxMGTWFkcmlkMRUwEwYDVQQKEwxHUlVQTyBUUkFHU0ExGzAZBgNVBAMTEmVm
@@ -22,7 +20,7 @@ YWN0dXJhLnRyYWdzYS5lczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
     </br>
     <br />
     <p><strong>Copy &amp Paste your certificate content.</strong></p>
-    {{ Form::open(['url' => 'dashboard/updated', 'files' => 'true', 'method' => 'post']) }}
+    {{ Form::open(['url' => 'certs/mgmt/updated', 'files' => 'true', 'method' => 'post']) }}
     {{ Form::textarea('certprint', null, array('placeholder' => '-----BEGIN CERTIFICATE-----
 A1UEBxMGTWFkcmlkMRUwEwYDVQQKEwxHUlVQTyBUUkFHU0ExGzAZBgNVBAMTEmVm
 YWN0dXJhLnRyYWdzYS5lczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
@@ -34,7 +32,7 @@ YWN0dXJhLnRyYWdzYS5lczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
     </br>
     <br />
     <p><strong>Copy &amp Paste your Private Key content.</strong></p>
-    {{ Form::open(['url' => 'dashboard/updated', 'files' => 'true', 'method' => 'post']) }}
+    {{ Form::open(['url' => 'certs/mgmt/updated', 'files' => 'true', 'method' => 'post']) }}
     {{ Form::textarea('keyprint', null, array('placeholder' => '-----BEGIN PRIVATE KEY-----
 MIICxDCCAawCAQAwYzELMAkGA1UEBhMCRVMxDzANBgNVBAgTBk1hZHJpZDEPMA0G
 A1UEBxMGTWFkcmlkMRUwEwYDVQQKEwxHUlVQTyBUUkFHU0ExGzAZBgNVBAMTEmVm
@@ -47,7 +45,7 @@ YWN0dXJhLnRyYWdzYS5lczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
     </br>
     <br />
     {{ Form::token() }}
-    {{ Form::submit('Update DB', ['class' => 'btn btn-danger btn-lg']) }}
+    {{ Form::submit('Update DB', ['class' => 'btn btn-danger btn-md']) }}
     {{ Form::close() }}
     </div>
     <br />

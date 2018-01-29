@@ -58,13 +58,15 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title"><strong> {{ $cn }}</div>
+                <div class="title"><i class="fa fa-frown-o" aria-hidden="true"></i>  Ooops!</div>
                 <div class='data'>
-                <p>What´s wrong?:</p>
-                
-                <p class='text-info'>{{ $error_details }}.</p>
-                <p>{{ link_to(URL::previous(), 'Go Back', ['class' => 'btn btn-primary btn-lg']) }} </p>         
-                </div>
+                <p class="text-primary">What´s wrong?:</p>
+
+                <p class='text-info'>Name: {{ $cn }}.</p>             
+                <p class='text-danger'><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>{{ $status }}.</p>
+                <p class="btn btn-outline-secondary"><a href='{{ URL('certs/mgmt') }}'><i class="fa fa-chevron-left" aria-hidden="true"></i><strong> Go to Management</strong></a></p>
+<!--                 <p>{{ link_to(URL::previous(), 'Previous', ['class' => 'btn btn-primary btn-lg']) }} </p>         
+ -->                </div>
             </div>
         </div>
     </body>

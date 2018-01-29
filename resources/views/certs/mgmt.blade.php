@@ -2,9 +2,7 @@
 @section('content') 
 
 <div class="container">
-
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote> 
-    
+   
 		<h2>Certificates Management</h2>      		
     </br>   
 	    <table id="dashboard" class="table table-bordered table-condensed table-responsive" cellspacing="0" width="100%">

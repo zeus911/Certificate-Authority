@@ -3,11 +3,10 @@
 @section('content')
 
 <div class="container">
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-    <H1>You are about to revoke this certificate: <strong>{{ $cn }}</strong>.</H1>
+    <H2>You are about to revoke this certificate: <strong>{{ $cn }}</strong>.</H2>
     <div class="container">
-        <h2>Reason (Optional):</h2> 
-                {{ Form::open(['url' => 'dashboard/revoked', 'method' => 'post']) }}
+        <h3>Reason (Optional):</h3> 
+                {{ Form::open(['url' => 'certs/mgmt/revoked', 'method' => 'post']) }}
                 <input type="hidden" name="cn" value="{{ $cn }}">
                   @if($errors->has('cn'))
                   {{ $errors->first('cn') }} 
@@ -23,7 +22,7 @@
                   @endif 
                   <br />
                 {{ Form::token() }}
-                {{ Form::submit('Are you sure?', ['class' => 'btn btn-danger btn-lg']) }}
+                {{ Form::submit('Are you sure?', ['class' => 'btn btn-danger btn-md']) }}
                 {{ Form::close() }}
     </div>            
 </div>

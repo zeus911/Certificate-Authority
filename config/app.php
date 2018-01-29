@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'Certificate Authority',
+    'name' => 'Certificate Authority PoC',
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -24,7 +24,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'production'),
+    'env' => env('APP_ENV', 'Test'),
 
     /*
     |--------------------------------------------------------------------------
@@ -121,7 +121,7 @@ return [
 
     'log' => env('APP_LOG', 'daily'),
 
-    'log_level' => env('APP_LOG_LEVEL', 'debug'),
+    'log_level' => env('APP_LOG_LEVEL', 'errorlog'),
 
     /*
     |--------------------------------------------------------------------------

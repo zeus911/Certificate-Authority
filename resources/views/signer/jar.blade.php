@@ -20,7 +20,7 @@
 
         <div class="form-group">
             {{ Form::token() }}
-            {{ Form::submit('Submit Data', ['class' => 'btn btn-primary btn-lg']) }}
+            {{ Form::submit('Submit Data', ['class' => 'btn btn-primary btn-md']) }}
         </div>
         {{ Form::close() }}
         </div>

@@ -4,9 +4,7 @@
 
 <div class="container">
 
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
-      <h2>Self-Service</h2>
-      <h3>Update DB for {{ $cn }}</h3>
+      <h2>Update DB for {{ $cn }}</h2>
     </br>
     <p><strong>Copy &amp Paste your CSR content.</strong></p>
     {{ Form::open(['url' => 'dashboard/updated', 'files' => 'true', 'method' => 'post']) }}
@@ -47,7 +45,7 @@ YWN0dXJhLnRyYWdzYS5lczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
     </br>
     <br />
     {{ Form::token() }}
-    {{ Form::submit('Update DB', ['class' => 'btn btn-danger btn-lg']) }}
+    {{ Form::submit('Update DB', ['class' => 'btn btn-danger btn-MD']) }}
     {{ Form::close() }}
     </div>
     <br />

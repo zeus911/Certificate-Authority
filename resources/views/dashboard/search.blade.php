@@ -3,7 +3,6 @@
 @section('content')
 
 <div class="container">
-    <blockquote>Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning..</blockquote>
     <H2>Certificate details for: <strong>{{ $cn }}</strong></H2>
     <H3> Issued by: <strong>{{ $issuerCN }}</strong></H3>
     <p class="text-info"><strong><i class="fa fa-calendar-o" aria-hidden="true"></i> Valid from: {{ $validFrom }}</strong></p>

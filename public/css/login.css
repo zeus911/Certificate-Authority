@@ -1891,7 +1891,7 @@ blockquote {
     padding: 11px 22px;
     margin: 0 0 22px;
     font-size: 17.5px;
-    border-left: 5px solid #999
+    border-left: 5px solid #eee
 }
 
 blockquote .small,
@@ -2022,7 +2022,6 @@ pre code {
 
 .container,
 .container-fluid {
-    padding-top: 15px;
     padding-left: 15px;
     padding-right: 15px
 }
@@ -4141,7 +4140,7 @@ fieldset[disabled] .btn-link:hover {
 
 .btn-block {
     display: block;
-    width: inherit
+    width: 100%
 }
 
 .btn-block+.btn-block {
@@ -5224,8 +5223,8 @@ tbody.collapse.in {
 }
 
 .navbar-default {
-    background-color: #fff;
-    border-color: #d3e0e9
+    #background-color: #fff;
+    #border-color: #d3e0e9
 }
 
 .navbar-default .navbar-brand {
@@ -6351,10 +6350,10 @@ button.list-group-item-danger.active:hover {
 
 .panel {
     margin-bottom: 22px;
-    #background-color: #fff;
+    background-color: #fff;
     border: 1px solid transparent;
     #border-radius: 4px;
-    #box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05)
 }
 
 .panel-title,
@@ -6367,7 +6366,11 @@ button.list-group-item-danger.active:hover {
 }
 
 .panel-body {
-    padding: 15px
+    padding: 15px;
+    background-image: url("../img/simbol.png");
+    background-position: right;
+    background-size: 280px 260px;
+    background-repeat: no-repeat
 }
 
 .panel-body:after,
@@ -6601,7 +6604,6 @@ button.list-group-item-danger.active:hover {
 
 .panel-default>.panel-heading {
     text-align: center;
-    #font-weight: bold;
     color: #333;
     background-color: #fff;
     #border-color: #d3e0e9
