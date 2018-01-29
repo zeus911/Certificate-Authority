@@ -78,8 +78,8 @@
                     <!-- Branding Image -->
                      <a class="navbar-brand nav" href="{{ url('certs/mgmt') }}">
                     	<div class="container">
-                          <img src="{{URL::asset('/img/logo.png')}}" alt="LIQUABIT CA PoC - Home"></div>
-                         <!-- {{ config('app.name', 'Certificate Authority PoC') }} -->
+                          <!-- <img src="{{URL::asset('/img/logo.png')}}" alt="LIQUABIT CA PoC - Home"></div> -->
+                         {{ config('app.name', 'LIQUABIT CA PoC') }}
  						</div>
                     </a>
                 </div>
