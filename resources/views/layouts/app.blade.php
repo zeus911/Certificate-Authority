@@ -76,12 +76,12 @@
                     </button>
 
                     <!-- Branding Image -->
-<!--                     <a class="navbar-brand nav" href="{{ url('certs/mgmt') }}">
+                     <a class="navbar-brand nav" href="{{ url('certs/mgmt') }}">
                     	<div class="container">
-                          <img src="{{URL::asset('/img/logo_tragsa.gif')}}" alt="TRAGSA CA - Home"></div>
-                         {{ config('app.name', 'Certificate Authority') }}
+                          <img src="{{URL::asset('/img/logo.gif')}}" alt="TRAGSA CA - Home"></div>
+                         {{ config('app.name', 'Certificate Authority PoC') }}
  						</div>
-                    </a> -->
+                    </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
