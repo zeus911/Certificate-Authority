@@ -12,7 +12,7 @@
     <title>{{ config('app.name', '') }}</title>
 
     <!-- .ico -->
-    <link rel="icon" href="{{URL::asset('tragsa.ico') }}"/>
+    <link rel="icon" href="{{URL::asset('favicon.ico') }}"/>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -64,7 +64,7 @@
             <div class="container">
                 <div class="navbar-header">
 					<a href="{{ url('certs/mgmt/') }}">
-						<img src="{{URL::asset('/img/tragsa_logo.gif')}}" alt="TRAGSA CA - Home">
+						<img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT CA PoC - Home">
 					</a>
 
                     <!-- Collapsed Hamburger -->
