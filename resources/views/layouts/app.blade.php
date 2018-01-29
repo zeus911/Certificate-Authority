@@ -76,12 +76,12 @@
                     </button>
 
                     <!-- Branding Image -->
-                     <a class="navbar-brand nav" href="{{ url('certs/mgmt') }}">
+                     <!-- <a class="navbar-brand nav" href="{{ url('certs/mgmt') }}">
                     	<div class="container">
-                          <!-- <img src="{{URL::asset('/img/logo.png')}}" alt="LIQUABIT CA PoC - Home"></div> -->
-                         <!-- {{ config('app.name', 'LIQUABIT CA PoC') }} -->
+                          <img src="{{URL::asset('/img/logo.png')}}" alt="LIQUABIT CA PoC - Home"></div>
+                          {{ config('app.name', 'LIQUABIT CA PoC') }}
  						</div>
-                    </a>
+                    </a> -->
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
