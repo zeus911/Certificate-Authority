@@ -89,7 +89,7 @@ class RenewRevokeController extends Controller
           $san = implode(",", $san); // Separated SANs
     	  $csr = $_POST['csrprint'];
           $password = $_POST['password'];
-          $config = '/etc/ssl/openssl_serv.cnf';
+          $config = '/etc/ssl/openssl.cnf';
 
           // Getting Collection from Certs.
           $certs = Cert::where('cn', $cn)->get()->first();
@@ -227,7 +227,7 @@ class RenewRevokeController extends Controller
             $cn = $_POST['cn'];
             //$reason = $_POST['reason'];
             $password = $_POST['password'];
-            $config = '/etc/ssl/openssl_serv.cnf';
+            $config = '/etc/ssl/openssl.cnf';
 
             // Getting Collection from Certs.//
             $certs = Cert::where('cn', $cn)->get()->first();

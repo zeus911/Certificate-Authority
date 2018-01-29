@@ -48,7 +48,7 @@ class CsrController extends Controller
             $certprint = 'Do not apply';
             $keyprint = 'Do not apply';
             $p12 = 'PFX archive not generated. You have to re-generate it again if you renewed the certificate.';
-            $config = '/etc/ssl/openssl_serv.cnf';
+            $config = '/etc/ssl/openssl.cnf';
 
 
             // Check if CN already exists.
@@ -298,18 +298,18 @@ class CsrController extends Controller
               }
             
             // Include subjectAltName in conf. file.
-            $data = file_get_contents("/etc/ssl/openssl_serv.cnf");
+            $data = file_get_contents("/etc/ssl/openssl.cnf");
 
             // do replacements.
             $data = str_replace("DNS:",$san, $data);
 
             //save it back.
-            file_put_contents("/etc/ssl/openssl_serv.cnf", $data);
+            file_put_contents("/etc/ssl/openssl.cnf", $data);
             unset($data); // Clears the content of the file.
 
             $configArgs = array(
                 //'config' => '/usr/lib/ssl/openssl.cnf',
-                'config' => '/etc/ssl/openssl_serv.cnf',
+                'config' => '/etc/ssl/openssl.cnf',
                 'encrypt_key' => false,
                 'private_key_type' => OPENSSL_KEYTYPE_RSA,
                 'digest_alg' => $digest_alg,

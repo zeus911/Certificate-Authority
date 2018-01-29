@@ -48,7 +48,7 @@ class CertsController extends Controller
             $digest_alg = $_POST['digest_alg'];
             $key_length = $_POST['key_length'];
             $password = $_POST['password'];
-            $config = '/etc/ssl/openssl_serv.cnf';
+            $config = '/etc/ssl/openssl.cnf';
 
             // Check if CN already exists.
             $cn_exists = Cert::where('cn', '=', Request::get('cn'))->first();
