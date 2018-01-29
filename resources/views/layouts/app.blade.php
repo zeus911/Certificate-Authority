@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 
-    <title>{{ config('app.name', '') }}</title>
+    <title>{{ config('app.name', 'Certificate Authoriry PoC') }}</title>
 
     <!-- .ico -->
     <link rel="icon" href="{{URL::asset('favicon.ico') }}"/>
@@ -63,9 +63,9 @@
         <nav class="navbar navbar-default navbar-fixed-top"> <!-- opt: default, static, fixed -->
             <div class="container">
                 <div class="navbar-header">
-					<a href="{{ url('certs/mgmt/') }}">
+					<!-- <a href="{{ url('certs/mgmt/') }}">
 						<img src="{{URL::asset('/img/logo.gif')}}" alt="LIQUABIT CA PoC - Home">
-					</a>
+					</a> -->
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
