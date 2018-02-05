@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5052264-7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments) };
+        gtag('js', new Date());
+
+        gtag('config', 'UA-5052264-7');
+    </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Description" content="Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.">
+
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
 
     <title>{{ config('app.name', '') }}</title>
 
@@ -16,8 +27,6 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
-<!--     <link href="/css/bootstrap.css" rel="stylesheet">
- -->
  
     <!-- Styles 2 -->
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -35,8 +44,6 @@
     </script>
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.0/js/responsive.bootstrap.min.js">
     </script>
-
-
 
     <!-- Fonts -->
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
@@ -59,6 +66,7 @@
 
 </head>
 <body>
+    <?php include_once("analyticstracking.blade.php") ?>
     <div id="app">
         <nav class="navbar navbar-default navbar-fixed-top"> <!-- opt: default, static, fixed -->
             <div class="container">
