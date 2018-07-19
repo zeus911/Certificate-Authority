@@ -1,4 +1,5 @@
-# Certificate Authority
+# Certificate Authority Webapp
+This is a webapp for OpenSSL CA.
 
 Installation:
 1. git clone https://github.com/lopeaa/certificate-authority
