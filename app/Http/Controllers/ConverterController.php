@@ -111,7 +111,7 @@ TXoKcfB8UFRI5KBGbyw=
 
             $headers = array('Content_Type: application/x-download',);
           
-           return Response::download(storage_path($cn . '.p12'), $cn . '.p12', $headers);
+           return Response::download(storage_path($cn . '.p12'), $cn . '.p12', $headers)->deleteFileAfterSend(true);
       	}  
 
     }
@@ -155,7 +155,7 @@ TXoKcfB8UFRI5KBGbyw=
 
             $headers = array('Content_Type: application/x-download',);
           
-           return Response::download(storage_path($cn . '.p12'), $cn . '.p12', $headers);
+           return Response::download(storage_path($cn . '.p12'), $cn . '.p12', $headers)->deleteFileAfterSend(true); 
       	}  
    }
 
