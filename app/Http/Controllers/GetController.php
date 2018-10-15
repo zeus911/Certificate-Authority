@@ -13,7 +13,7 @@ use Response;
 
 class GetController extends Controller
 {
-	public function __construct()
+	  public function __construct()
     {
         $this->middleware('auth');
     }
@@ -33,11 +33,13 @@ class GetController extends Controller
               file_put_contents($cn . '.csr', $cn_exists->csrprint);
 
               $headers = array('Content_Type: application/x-download');
-              return Response::download($cn . '.csr', $cn . '.csr', $headers);
+              return Response::download($cn . '.csr', $cn . '.csr', $headers)->deleteFileAfterSend(true);
 
              } else {
 
-              return view ('errors.getCSR');
+              return view('errors.ooops', array(
+              	'cn' => $cn,
+              	'status' => 'Can´t download CSR.'));
            }
         
         }
@@ -60,7 +62,9 @@ class GetController extends Controller
             // return error page if there is no certificate in DB.
             if ($certs->certprint == 'Do not apply')
             {
-              return view ('errors.noCertFound');
+              return view('errors.ooops', array(
+              	'cn' => $cn,
+              	'status' => 'Can´t find PublicKey. Do not apply'));
             }
 
             if (isset($cn_exists))
@@ -68,11 +72,13 @@ class GetController extends Controller
               file_put_contents($cn . '.cer', $cn_exists->certprint);
 
               $headers = array('Content_Type: application/x-download');
-              return Response::download($cn . '.cer', $cn . '.cer', $headers);
+              return Response::download($cn . '.cer', $cn . '.cer', $headers)->deleteFileAfterSend(true);
 
              } else {
 
-              return view ('errors.getCert');
+              return view('errors.ooops', array(
+              	'cn' => $cn,
+              	'status' => 'Can´t download PublicKey.'));
            }
         
         }
@@ -95,7 +101,9 @@ class GetController extends Controller
             // return error page if there is no certificate in DB.
             if ($certs->keyprint == 'We do not have the key becouse it has been generated in another device.')
             {
-              return view ('errors.noKeyFound');
+              return view('errors.ooops', array(
+              	'cn' => $cn,
+              	'status' => 'Can´t find PrivateKey becouse it has been generated in another device.'));
             }
 
             if (isset($cn_exists))
@@ -103,11 +111,13 @@ class GetController extends Controller
               file_put_contents($cn . '.key', $cn_exists->keyprint);
 
               $headers = array('Content_Type: application/x-download');
-              return Response::download($cn . '.key', $cn . '.key', $headers);
+              return Response::download($cn . '.key', $cn . '.key', $headers)->deleteFileAfterSend(true);
 
              } else {
 
-              return view ('errors.getPrivateKey');
+              return view('errors.ooops', array(
+              	'cn' => $cn,
+              	'status' => 'Can´t download PrivateKey.'));
            }
         
         }
@@ -115,7 +125,7 @@ class GetController extends Controller
 
     public function getP12()
    	{
-  		if  (isset($_POST['cn']) && !empty($_POST['cn'])) 
+  		  if  (isset($_POST['cn']) && !empty($_POST['cn'])) 
        	{
 
             $cn = $_POST['cn'];
@@ -125,19 +135,22 @@ class GetController extends Controller
             $p12 = $cn_exists->p12;
             if($p12 == 'PFX archive not generated. You have to re-generate it again if you renewed the certificate.')
             {
-              //return view ('error.noP12Found');
-              return view('errors.noP12Found')->withMessage("Thanks, message has been sent");
+              return view('errors.ooops', array(
+              	'cn' => $cn,
+              	'status' => 'Can´t find PFX archive.'));
 
             } elseif (isset($cn_exists)) {
 
               file_put_contents($cn . '.p12', $cn_exists->p12);
 
               $headers = array('Content_Type: application/x-download');
-              return Response::download($cn . '.p12', $cn . '.p12', $headers);
+              return Response::download($cn . '.p12', $cn . '.p12', $headers)->deleteFileAfterSend(true);
 
              } else {
 
-              return view ('errors.getP12');
+              return view('errors.ooops', array(
+              	'cn' => $cn,
+              	'status' => 'Buffff, No idea what happent now!.'));
            }
         
         }

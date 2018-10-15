@@ -18,8 +18,8 @@
 	<h3><i class="fa fa-cogs" aria-hidden="true"></i> Backend:</h3>
 
 	<ul class="text-info">
-		<li class="text-danger">In all Controller: When password incorrect (Ex. Renew, Revoked...), doesn´t clean SAN from config file".
-		<li class="text-danger">Reestructured Custom and framework error pages.
+		<li class="text-success">In all Controller: When password incorrect (Ex. Renew, Revoked...), doesn´t clean SAN from config file".
+		<li class="text-success">Reestructured custom and framework error pages.
 		<li class="text-danger">Use Cards for templates.
 		<li class="text-danger">Automate Database backup.
 	</ul>

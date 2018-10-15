@@ -17,6 +17,7 @@
     <input type="hidden" name="certprint" value="{{ $certprint }}">
     <input type="hidden" name="keyprint" value="{{ $keyprint }}">
     <input type="hidden" name="p12" value="{{ $p12 }}">
+    <input type="hidden" name="status" value="Valid">
     <input type="hidden" name="password" value="{{ $password }}">
     {{ Form::token() }}
     {{ Form::submit('Sign & Get Certificate', ['class' => 'btn btn-danger btn-md']) }}

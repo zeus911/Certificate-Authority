@@ -39,7 +39,7 @@
         @endif
         <br />
         </br>
-        {{ Form::submit('Create Keystore', ['class' => 'btn btn-success btn-md']) }}
+        {{ Form::submit('Create Keystore', ['class' => 'btn btn-success btn-lg']) }}
         {{ Form::close() }}
             
     </div>

@@ -9,7 +9,7 @@
         {{ Form::open(['url' => 'converter/getKeystore', 'method' => 'post']) }}
         <input type="hidden" name="dstalias" value="{{ $dstalias }}">
         {{ Form::token() }}
-        {{ Form::submit('Get Keystore', ['class' => 'btn btn-primary btn-md']) }}
+        {{ Form::submit('Get Keystore', ['class' => 'btn btn-primary btn-lg']) }}
         {{ Form::close() }}
             
     </div>

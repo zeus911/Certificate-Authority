@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'LIQUABIT CA PoC',
+    'name' => 'Certificate Authority',
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -24,7 +24,7 @@ return [
     |
     */
 
-    'env' => env('APP_ENV', 'Test'),
+    'env' => env('APP_ENV', 'production'),
 
     /*
     |--------------------------------------------------------------------------
@@ -50,7 +50,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://ca.liquabit.com/'),
+    'url' => env('APP_URL', 'https://labs.tragsa.es/'),
 
     /*
     |--------------------------------------------------------------------------
@@ -163,8 +163,9 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Arcanedev\LogViewer\LogViewerServiceProvider::class,
-        'Chumper\Zipper\ZipperServiceProvider',
-
+        Chumper\Zipper\ZipperServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
+        
         /*
          * Package Service Providers...
          */
@@ -229,7 +230,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
-        'Zipper' => 'Chumper\Zipper\Zipper'
+        'Zipper' => Chumper\Zipper\Zipper::class,
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
 
     ],
 

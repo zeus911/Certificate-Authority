@@ -12,18 +12,18 @@ use Response;
 
 class RenewRevokeController extends Controller
 {
-	public function __construct()
+  public function __construct()
     {
         $this->middleware('auth');
     }
 
-  	public function renew()
-   	{
+    public function renew()
+    {
        if (isset($_POST['cn']) &&
-       		 isset($_POST['csrprint']) &&
-     		
-       		 !empty($_POST['cn']) &&
-       		 !empty($_POST['csrprint']))
+           isset($_POST['csrprint']) &&
+        
+           !empty($_POST['cn']) &&
+           !empty($_POST['csrprint']))
        {
             $cn = $_POST['cn'];
             $csrprint = $_POST['csrprint'];
@@ -31,12 +31,12 @@ class RenewRevokeController extends Controller
             // Getting Collection from Certs.
             $certs = Cert::where('cn', $cn)->get()->first();
 
-			// Return error if the certificate has already been revoked.
+            // Return error if the certificate has already been revoked.
             if($cn == strpos($cn, '(R)'))
             {
-            	return view('errors.ooops', array(
+              return view('errors.ooops', array(
                 'cn' => $cn,
-                'status' => 'Certificate exist and it is already revoked.'));
+                'status' => 'Certificate exist but it is already revoked.'));
             }
             
             // Check if CN and CSR already exists.
@@ -51,13 +51,24 @@ class RenewRevokeController extends Controller
                 'status' => 'Certificate not found.'));
             }
 
+            // Check if certificate has been signed by this CA. Otherwise, can´t be renewed.
+            $certprint = $certs->certprint;
+            $parse_cert = openssl_x509_parse($certprint);
+            $issuer = $parse_cert['issuer'];
+            $issuerCN = $issuer['CN'];
+            if($issuerCN != 'TRAGSA CA G2'){
+              return view ('errors.ooops', array(
+                'cn' => $cn,
+                'status' => 'Certificate is issued by: ' . $issuerCN . ' .Can´t renew it.'));
+            }
+
             if (!isset($cn_exists) && !isset($csr_exists))
             {
               $csrprint = file_put_contents($cn . '.csr', $cn_exists->csrprint);
 
               return view('errors.ooops', array(
-              	'cn' => $cn,
-              	'status' => 'Either CN not CSR exist in DB.'));
+                'cn' => $cn,
+                'status' => 'Either CN not CSR exist in DB.'));
 
              } else {
 
@@ -66,6 +77,7 @@ class RenewRevokeController extends Controller
                 'csrprint' => $csrprint
                 ));
            }
+
         
         }
 
@@ -80,27 +92,25 @@ class RenewRevokeController extends Controller
             !empty($_POST['cn'])&&
             !empty($_POST['csrprint']) &&
             !empty($_POST['password']))
-        {	
-     	    $cn = $_POST['cn'];
+        { 
+          $cn = $_POST['cn'];
           // Separate CN and SANs.
           $commonName = explode(" ", $cn);
-		  $cn = $commonName[0]; // Separate CN from SANs.
+          $cn = $commonName[0]; // Separate CN from SANs.
           $san = explode(",", ("DNS:".implode(",DNS:", $commonName)));
           $san = implode(",", $san); // Separated SANs
-    	  $csr = $_POST['csrprint'];
+          $csr = $_POST['csrprint'];
           $password = $_POST['password'];
-          $config = '/etc/ssl/openssl.cnf';
+          $config = '/etc/ssl/openssl_serv.cnf';
 
           // Getting Collection from Certs.
           $certs = Cert::where('cn', $cn)->get()->first();
-
           $certprint = $certs->certprint;
           $cert_parser = openssl_x509_parse($certprint);
           $extensions = $cert_parser['extensions'];
           $nsCertType = $extensions['nsCertType'];
-          $san = $extensions['subjectAltName'];
 
-          // Rename nsCertType to fit openssl_code-signing.cnf.
+          // Rename nsCertType to fit openssl conf.
           if($nsCertType == 'Object Signing')
           {
             $nsCertType = 'CodeSigning';
@@ -113,7 +123,12 @@ class RenewRevokeController extends Controller
           {
             $nsCertType = 'ClientID';
           }
-	    // Clean previous DNS entries in case of error.
+          if($nsCertType == 'SSL Client' OR $nsCertType == 'SSL Client, S/MIME')
+          {
+            $nsCertType = 'ClientID';
+          }
+
+        // Clean DNS entries.
         shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");          
 
         // Open Config file.
@@ -147,57 +162,65 @@ class RenewRevokeController extends Controller
 
             if (isset($cn_exists))
             {
-            	$cert = openssl_csr_sign($csr , $cacert, $pkeyid, 730, $configArgs, $serial);
+              $cert = openssl_csr_sign($csr , $cacert, $pkeyid, 730, $configArgs, $serial);
 
-              	// Sign csr from DB.
-            	$cert = openssl_csr_sign($csr , $cacert, $pkeyid, 730, $configArgs, $serial);
+                // Sign csr from DB.
+              $cert = openssl_csr_sign($csr , $cacert, $pkeyid, 730, $configArgs, $serial);
 
-            	// Export signed certificate to string variable.
-            	openssl_x509_export($cert, $certprint);
+              // Export signed certificate to string variable.
+              openssl_x509_export($cert, $certprint);
 
-	          	// Put CSR and Cert in Files //
-	            file_put_contents(storage_path('cert.csr'), $csr);
-	            file_put_contents(storage_path('cert.cer'), $certprint);
+              // Put CSR and Cert in Files //
+              file_put_contents(storage_path('cert.csr'), $csr);
+              file_put_contents(storage_path('cert.cer'), $certprint);
 
-	            // ZIP the certificate, key and CA. Saved in storage folder.
-	            $zip = glob(storage_path('cert.*'));
-	            Zipper::make(storage_path($cn . '.zip'))->add($zip); 
-	            Zipper::close();
+              // ZIP the certificate, key and CA. Saved in storage folder.
+              $zip = glob(storage_path('cert.*'));
+              Zipper::make(storage_path('archives/' . $cn . '.zip'))->add($zip); 
+              Zipper::close();
 
-	            // Clean DNS entries.
-        		shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");
+              // Clean DNS entries.
+              shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");
 
-	            // Delete *.cer files
-	            File::delete(storage_path('cert.csr'));
-	            File::delete(storage_path('cert.cer'));
+              // Delete *.cer files
+              File::delete(storage_path('cert.csr'));
+              File::delete(storage_path('cert.cer'));
 
-	            // DB Updates.
-	            //Cert::where('cn', $cn)->update(['cn' => $cn . '-Renewed']);
-	            Cert::where('cn', $cn)->update(['certificate_type' => $certificate_type]);
-	            Cert::where('cn', $cn)->update(['digest_alg' => $digest_alg]);
-	            Cert::where('cn', $cn)->update(['serial' => $serial]);
-            	Cert::where('cn', $cn)->update(['certprint' => $certprint]);
-            	Cert::where('cn', $cn)->update(['p12' => 'PFX archive not generated. You have to re-generate it again if you renewed the certificate.']);
+              // After renewing, delete the .cer from storage and monitoring. *.crt exstension gets updated
+              File::delete(storage_path('public-keys/' . $cn . '.cer')); // In case it existed with .cer extension.
 
-            	$headers = array('Content_Type: application/x-download',);
-              	return Response::download(storage_path($cn . '.zip'), $cn . '.zip', $headers);
+
+              // Save renewed certificate public key for expiry monitoring.
+              openssl_x509_export_to_file($certprint, storage_path('public-keys/' . $cn . '.crt'));
+
+
+              // DB Updates.
+              //Cert::where('cn', $cn)->update(['cn' => $cn . '-Renewed']);
+              Cert::where('cn', $cn)->update(['certificate_type' => $certificate_type]);
+              Cert::where('cn', $cn)->update(['digest_alg' => $digest_alg]);
+              Cert::where('cn', $cn)->update(['serial' => $serial]);
+              Cert::where('cn', $cn)->update(['certprint' => $certprint]);
+              Cert::where('cn', $cn)->update(['p12' => 'PFX archive not generated. You have to re-generate it again if you renewed the certificate.']);
+
+              $headers = array('Content_Type: application/x-download',);
+                return Response::download(storage_path('archives/' . $cn . '.zip'), $cn . '.zip', $headers)->deleteFileAfterSend(true);
 
             } 
         }   
     } 
 
     public function revoke()
-   	{
+    {
        if  (isset($_POST['cn']) && !empty($_POST['cn'])) 
        {
             $cn = $_POST['cn'];
             $certs = Cert::where('cn', $cn)->get()->first();
-	        // Return error if the certificate has already been revoked.
+          // Return error if the certificate has already been revoked.
             if($cn == strpos($cn, '(R)'))
             {
-            	return view('errors.ooops', array(
+              return view('errors.ooops', array(
                 'cn' => $cn,
-                'status' => 'Certificate exists and it is already revoked'));
+                'status' => 'Certificate exists and it is already revoked')); 
             
             } elseif ($certs->certprint == 'Do not apply') {
 
@@ -205,12 +228,12 @@ class RenewRevokeController extends Controller
                 'cn' => $cn,
                 'status' => 'Certificate not found'));
           } else {
-              	return view('certs.mgmt.revoke', array(
+                return view('certs.mgmt.revoke', array(
                 'cn' => $cn,
                 ));
-   			}
-   		}
-   	}
+        }
+      }
+    }
 
 
     public function revoked() 
@@ -227,7 +250,7 @@ class RenewRevokeController extends Controller
             $cn = $_POST['cn'];
             //$reason = $_POST['reason'];
             $password = $_POST['password'];
-            $config = '/etc/ssl/openssl.cnf';
+            $config = '/etc/ssl/openssl_serv.cnf';
 
             // Getting Collection from Certs.//
             $certs = Cert::where('cn', $cn)->get()->first();
@@ -256,16 +279,16 @@ class RenewRevokeController extends Controller
 
             // Search for status.
             $revoke_bad_password = substr($revoke, 50, 30);
-			//dd($revoke_bad_password);
+      //dd($revoke_bad_password);
             $revoke_already_revoked = substr($revoke, -38, 15);
             $revoke_ok = substr($revoke, -18, 17);
-			//dd($revoke_ok);
+      //dd($revoke_ok);
             if($revoke_bad_password == 'unable to load CA private key'){
 
-            	return view('errors.ooops', array(
-            		'cn' => $cn,
+              return view('errors.ooops', array(
+                'cn' => $cn,
                 'status' => 'Bad Password'
-            		));
+                ));
 
             } elseif ($revoke_already_revoked == 'Already Revoked'){
 
@@ -289,10 +312,10 @@ class RenewRevokeController extends Controller
                 $status2 = 'Revoked';
               }
  
-            // After revocation, delete the .cer from storage.
+            // After revocation, delete the .cer from storage and monitoring.
             File::delete(storage_path($serial . '.cer'));
-
-
+            File::delete(storage_path('public-keys/' . $cn . '.crt'));
+            File::delete(storage_path('public-keys/' . $cn . '.cer')); // In case it existed with .cer extension.
 
             // Update DB. It includes the update date.
             Cert::where('cn', $cn)->update(['cn' => '(R)' . $cn . ' ' . $updated_at]);
@@ -305,20 +328,20 @@ class RenewRevokeController extends Controller
             $issuer = $parse_cert['issuer'];
             $issuerCN = $issuer['CN'];
             $validFrom = date_create( '@' .  $parse_cert['validFrom_time_t'])->format('c');
-          	$validTo = date_create( '@' .  $parse_cert['validTo_time_t'])->format('c');
-	
-      			return view ('certs.mgmt.revoked', array(
-      				'cn' => $cn,
+            $validTo = date_create( '@' .  $parse_cert['validTo_time_t'])->format('c');
+  
+            return view ('certs.mgmt.revoked', array(
+              'cn' => $cn,
               'serial' => $serial,
-      				'issuerCN' => $issuerCN,
-      				'validFrom' => $validFrom,
-      				'validTo' => $validTo,
-      				'updated_at' => $updated_at,
-      				//'reason' => $reason,
-      				'password' => $password,
+              'issuerCN' => $issuerCN,
+              'validFrom' => $validFrom,
+              'validTo' => $validTo,
+              'updated_at' => $updated_at,
+              //'reason' => $reason,
+              'password' => $password,
               'status' => $status,
               'status2' => $status2
-      				));
+              ));
                     
               } else {
               return view ('errors.ooops', array(

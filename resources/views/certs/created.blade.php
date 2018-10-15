@@ -37,6 +37,7 @@
                 <input type="hidden" name="certprint" value="{{ $certprint }}">
                 <input type="hidden" name="keyprint" value="{{ $keyprint }}">
                 <input type="hidden" name="p12" value="PFX archive not generated. You have to re-generate it again if you renewed the certificate.">
+                <input type="hidden" name="status" value="N/A"> <!-- // This is to populate the columm 'status' in DB. // -->
                 {{ form::token() }}
                 {{ Form::submit('Create & Get Keypair ', ['class' =>'btn btn-primary btn-md']) }}
                 {{ Form::close() }}

@@ -53,7 +53,7 @@
     </div>
     <br />
     <!-- footer -->
-    <div class="text-info"><center><strong>LOPEAA: 2016 - {{ date('F Y') }}.</strong></center></div>
+    <div class="text-info"><center><strong><img src="{{URL::asset('/img/tragsa_icon_xs.png')}}">TRAGSA, 2016 - {{ date('F Y') }}.</strong></center></div>
     <br />
     <!-- Scripts -->
     <script src="/js/app.js"></script>

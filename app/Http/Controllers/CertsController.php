@@ -48,7 +48,7 @@ class CertsController extends Controller
             $digest_alg = $_POST['digest_alg'];
             $key_length = $_POST['key_length'];
             $password = $_POST['password'];
-            $config = '/etc/ssl/openssl.cnf';
+            $config = '/etc/ssl/openssl_serv.cnf';
 
             // Check if CN already exists.
             $cn_exists = Cert::where('cn', '=', Request::get('cn'))->first();
@@ -64,8 +64,8 @@ class CertsController extends Controller
         "countryName" => 'ES',
         "stateOrProvinceName" => 'Madrid',
         "localityName" => 'Madrid',
-        "organizationName" => 'LIQUABIT CA TEST',
-        "organizationalUnitName" => 'LIQUABIT PoC',
+        "organizationName" => 'TRAGSA',
+        "organizationalUnitName" => 'TRAGSA CA 1',
         "commonName" => $cn,
         //"emailAddress" => 'test'
         );  
@@ -125,7 +125,7 @@ class CertsController extends Controller
 
         // Export signed certificate to string variable.
         openssl_x509_export($certgen, $certprint);
-        //openssl_x509_export_to_file($certprint, $cn . 'crt' );
+        //openssl_x509_export_to_file($certprint, storage_path('public-keys/' . $cn . '.crt'));
 
         // Clean SAN DNS entries.
         shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");
@@ -139,7 +139,7 @@ class CertsController extends Controller
                 'csrprint' => $csrprint,
                 'certprint' => $certprint,
                 'keyprint' => $keyprint
-                //'msg' => $msg   
+                //'msg' => $msg
                 ));
 
         } else {
@@ -171,26 +171,31 @@ class CertsController extends Controller
             $csrprint = $_POST['csrprint'];
             $certprint = $_POST['certprint'];
             $keyprint = $_POST['keyprint'];
+            $status = 'Valid';
+            //$msg = $msg;
 
             // Make CSR and Cert File to include Blob in DB//
             file_put_contents(storage_path('cert.cer'), $certprint);
             file_put_contents(storage_path('cert.key'), $keyprint);
 
-           Cert::create(Request::only('cn','certificate_type', 'digest_alg', 'serial', 'csrprint', 'certprint', 'keyprint', 'p12'));
+           Cert::create(Request::only('cn','certificate_type', 'digest_alg', 'serial', 'csrprint', 'certprint', 'keyprint', 'p12', 'status'));
 
            // ZIP the certificate, key and CA. Saved in storage folder.
            $zip = glob(storage_path('cert.*'));
-           Zipper::make(storage_path($cn . '.zip'))->add($zip);
+           Zipper::make(storage_path('archives/' . $cn . '.zip'))->add($zip);
            Zipper::close();
 
            // Delete *.cer files
            File::delete(storage_path('cert.cer'));
            File::delete(storage_path('cert.key'));
 
+           // Save certificate public key for expiry monitoring.
+           openssl_x509_export_to_file($certprint, storage_path('public-keys/' . $cn . '.crt'));
+
 
            $headers = array('Content_Type: application/x-download',);
           
-           return Response::download(storage_path($cn . '.zip'), $cn . '.zip', $headers)->deleteFileAfterSend(true);
+           return Response::download(storage_path('archives/' . $cn . '.zip'), $cn . '.zip', $headers)->deleteFileAfterSend(true);
 
        } else {
 

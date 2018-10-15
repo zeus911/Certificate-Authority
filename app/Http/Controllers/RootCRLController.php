@@ -24,12 +24,20 @@ class RootCRLController extends Controller
         return view ('rootcrl.root');     
     }
 
-    public function getRoot()
+    public function getRootTRAGSA()
     {
       $headers = array('Content_Type: application/x-download',);
-      return Response::download(storage_path('cert.ca.cer'), 'cert.ca.cer', $headers);
+      return Response::download(storage_path('cert.ca.cer'), 'cert.ca.cer', $headers)->deleteFileAfterSend(true);
 
     }
+
+    public function getRootLE()
+    {
+      $headers = array('Content_Type: application/x-download',);
+      return Response::download(storage_path('le.ca.cer'), 'le.ca.cer', $headers)->deleteFileAfterSend(true);
+
+    }
+
 
     public function crl()
     {
@@ -56,7 +64,7 @@ class RootCRLController extends Controller
     public function getCRL()
     {
       $headers = array('Content_Type: application/x-download',);
-      return Response::download(storage_path('ca-g2.crl'), 'ca-g2.crl', $headers);
+      return Response::download(storage_path('ca-g2.crl'), 'ca-g2.crl', $headers)->deleteFileAfterSend(true);
 
     }
 
@@ -79,8 +87,8 @@ class RootCRLController extends Controller
     	}
 
         // Variables to exec jarsigner.
-		$keystore = "/opt/keystore/liquabit_cs.p12";
-		$keystorealias = "liquabitcs";
+		$keystore = "/opt/keystore/symantec_cs.p12";
+		$keystorealias = "grupotragsacs";
 		$tsaurl = "http://sha256timestamp.ws.symantec.com/sha256/timestamp"; // Timestamp Server used by Symantec. 
 
         $osslsigncode = shell_exec("osslsigncode sign -pkcs12 $keystore -pass $password -h sha2 -in $archive_uploaded -out $storagePath/$archive_name.signed 2>&1");
@@ -106,7 +114,7 @@ class RootCRLController extends Controller
 
           $headers = array('Content_Type: application/x-download',);
           
-        return Response::download(storage_path($archive_name . '.signed'), $archive_name . $archive_type, $headers);
+        return Response::download(storage_path($archive_name . '.signed'), $archive_name . $archive_type, $headers)->deleteFileAfterSend(true);
 
    }
 }

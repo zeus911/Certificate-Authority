@@ -30,13 +30,13 @@
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
           <i class="fa fa-chevron-down" aria-hidden="true"></i>
-			LIQUABIT CA TEST</a>
+			TRAGSA CA G2</a>
         </h4>
       </div>
       <div id="collapse1" class="panel-collapse collapse">
-        <div class="panel-body">{{ Form::open(['url' => 'rootcrl/getRoot', 'method' => 'POST', 'class' => 'form']) }}
+        <div class="panel-body">{{ Form::open(['url' => 'rootcrl/getRootTRAGSA', 'method' => 'POST', 'class' => 'form']) }}
     	<div class="form-group">
-       	{{ Form::submit('Download LIQUABIT CA TEST Root certificate', ['class' => 'btn btn-primary btn-md']) }}
+       	{{ Form::submit('Download TRAGSA CA G2 Root certificate', ['class' => 'btn btn-primary btn-md']) }}
         </div>
         {{ Form::close() }}</div>
       </div>
@@ -46,10 +46,24 @@
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
           <i class="fa fa-chevron-down" aria-hidden="true"></i>
-			SYMANTEC</a>
+			DIGICERT / SYMANTEC</a>
         </h4>
       </div>
       <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body"><H3 class="">DigiCert Trusted Root Authority Certificates</H3>
+        	<p class=""><i class="fa fa-info-circle" aria-hidden="true"></i> Download DigiCert Root and Intermediate Certificate</p>
+
+        	<H4>Root Certificates</H4>
+           	<p><a href="https://www.digicert.com/digicert-root-certificates.htm#roots"><i class="fa fa-link" aria-hidden="true"></i> Go to Download Site</a></p>
+
+        	<H4>Intermediate Certificates</H4>
+           	<p><a href="https://www.digicert.com/digicert-root-certificates.htm#intermediates"><i class="fa fa-link" aria-hidden="true"></i> Go to Download Site</a></p>
+
+        	<H4>Cross Signed Certificates</H4>
+           	<p><a href="https://www.digicert.com/digicert-root-certificates.htm#cross-signed"><i class="fa fa-link" aria-hidden="true"></i> Go to Download Site</a></p>
+
+        </div>
+
         <div class="panel-body"><H3 class="">SSL for Symantec Trust Center - RSA SHA-2</H3>
         	<p class=""><i class="fa fa-info-circle" aria-hidden="true"></i> Use if you have purchased an SSL certificate directly from a Symantec Trust Center (STC or STCE) account or from our retail web site at Symantec.com</p>
 
@@ -129,6 +143,22 @@
 
     </div>
   </div> 
+</div>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">
+      <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+      <i class="fa fa-chevron-down" aria-hidden="true"></i>
+  LET´S ENCRYPT</a>
+    </h4>
+  </div>
+  <div id="collapse4" class="panel-collapse collapse">
+    <div class="panel-body">{{ Form::open(['url' => 'rootcrl/getRootLE', 'method' => 'POST', 'class' => 'form']) }}
+  <div class="form-group">
+    {{ Form::submit('Download Let´s Encrypt Root / Intermediate certificates', ['class' => 'btn btn-primary btn-md']) }}
+    </div>
+    {{ Form::close() }}</div>
+  </div>
 </div>
 
 @endsection

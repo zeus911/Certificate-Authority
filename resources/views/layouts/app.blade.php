@@ -1,32 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-5052264-7"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments) };
-        gtag('js', new Date());
-
-        gtag('config', 'UA-5052264-7');
-    </script>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Description" content="Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning.">
-
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+
     <title>{{ config('app.name', '') }}</title>
 
     <!-- .ico -->
-    <link rel="icon" href="{{URL::asset('favicon.ico') }}"/>
+    <link rel="icon" href="{{URL::asset('tragsa.ico') }}"/>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <!-- <link href="/css/bootstrap.css" rel="stylesheet"> -->
+
  
     <!-- Styles 2 -->
     <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -44,6 +35,8 @@
     </script>
     <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/responsive/2.2.0/js/responsive.bootstrap.min.js">
     </script>
+
+
 
     <!-- Fonts -->
     <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet"> 
@@ -66,14 +59,13 @@
 
 </head>
 <body>
-    <?php include_once("analyticstracking.blade.php") ?>
     <div id="app">
         <nav class="navbar navbar-default navbar-fixed-top"> <!-- opt: default, static, fixed -->
             <div class="container">
                 <div class="navbar-header">
-					<!-- <a href="{{ url('certs/mgmt/') }}">
-						<img src="{{URL::asset('/img/logo.png')}}" alt="LIQUABIT CA PoC - Home">
-					</a> -->
+					<a href="{{ url('certs/mgmt/') }}">
+						<img src="{{URL::asset('/img/tragsa_logo.gif')}}" alt="TRAGSA CA - Home">
+					</a>
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -84,10 +76,10 @@
                     </button>
 
                     <!-- Branding Image -->
-                     <!-- <a class="navbar-brand nav" href="{{ url('certs/mgmt') }}">
+<!--                     <a class="navbar-brand nav" href="{{ url('certs/mgmt') }}">
                     	<div class="container">
-                          <img src="{{URL::asset('/img/logo.png')}}" alt="LIQUABIT CA PoC - Home"></div>
-                          {{ config('app.name', 'LIQUABIT CA PoC') }}
+                          <img src="{{URL::asset('/img/logo_tragsa.gif')}}" alt="TRAGSA CA - Home"></div>
+                         {{ config('app.name', 'Certificate Authority') }}
  						</div>
                     </a> -->
                 </div>
@@ -103,14 +95,17 @@
                         		<i class="fa fa-certificate" aria-hidden="true"></i>
                                 <strong>Certificates</strong><span class="caret"></span>
                                 <ul class="dropdown-menu" role="menu">
+ 	                                <li class="dropdown-header"><strong><a href="{{ url('dashboard/') }}"><i class="fa fa-pie-chart" aria-hidden="true"></i> DASHBOARDS (Lab)</a></strong></li>
                                 	<li class="dropdown-header"><strong>CERTIFICATES</strong></li>
                                     <li><a href="{{ url('certs/mgmt') }}">Certificate Management</a></li>
                                     <li><a href="{{ url('certs/create') }}">Request New Certificate</a></li>
                                     <li><a href="{{ url('csr/create') }}">Request New CSR & Key</a></li>
                                     <li><a href="{{ url('csr/sign') }}">Sign Certificate Request</a></li>
                                     <li class="divider"></li>
-                                    <li class="dropdown-header"><strong>PFX/P12 ARCHIVES</strong></li> 
+                                    <li class="dropdown-header"><strong>CONVERTER</strong></li> 
                                     <li><a href="{{ url('converter/p12') }}">Convert to PFX/P12</a></li>
+                                    <li><a href="{{ url('converter/pem2der') }}">Convert PEM to DER</a></li>
+                                    <li><a href="{{ url('converter/der2pem') }}">Convert DER to PEM</a></li>
                                     <li class="divider"></li>
                                     <li class="dropdown-header"><strong>JAVA KEYSTORE</strong></li>
                                     <li><a href="{{ url('converter/keystore') }}">Create Keystore</a></li>
@@ -159,7 +154,7 @@
                                     <li class="divider"></li>
                                    	<li class="dropdown-header"><strong>CERTIFICATE MONITOR</strong></li>
                                     <li><a target="_blank" href="{{ url('https://gestion6.tragsa.es/certmon/') }}">
-                                    <i class="fa fa-certificate" aria-hidden="true"></i> SSL Monitor (Test)</a></li>
+                                    <i class="fa fa-certificate" aria-hidden="true"></i> Online Certificate Monitor</a></li>
                                     <li class="divider"></li>
                                     <li class="dropdown-header"><strong>LET´S ENCRYPT</strong></li>
                                     <li><a href="{{ url('le/index') }}">
@@ -212,6 +207,19 @@
                                         </form>
                                     </li>
 
+                                	<li>
+                                        <a href="{{ url('/kb') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('kb').submit();">
+                                            <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                                            <strong>KnowledgeBase</strong>
+                                        </a>
+
+                                        <form id="kb" action="{{ url('/kb') }}" method="GET" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
@@ -237,9 +245,8 @@
     </div>
     <br />
     <!-- footer -->
-    <div class="text-info"><center><strong>LOPEAA: 2016 - {{ date('F Y') }}.</strong></center></div>
-    <div class="text-muted"><center><strong><i class="fa fa-quote-left" aria-hidden="true"></i> Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning...<i class="fa fa-quote-right" aria-hidden="true"></i></strong></center></div>
-
+    <div class="text-info"><center><strong><img src="{{URL::asset('/img/tragsa_icon_xs.png')}}">TRAGSA, 2016 - {{ date('F Y') }}.</strong></center></div>
+    <div class="text-nuted"><center><strong><i class="fa fa-quote-left" aria-hidden="true"></i> Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning...<i class="fa fa-quote-right" aria-hidden="true"></i></strong></center></div>
     <br />
 
     <!-- Scripts --> 

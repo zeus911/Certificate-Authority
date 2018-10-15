@@ -28,20 +28,20 @@ class SignerController extends Controller
     public function signJAR(Request $request)
     {
         if ($request::hasFile('jar')) 
-    	{
+      {
         $storagePath = storage_path();
         $jar = $request::file('jar');
-        $storepass = $request::input('password');
+        $password = $request::input('password');
         $jar_name = $request::file('jar')->getClientOriginalName();
         $jar_uploaded = $jar->move($storagePath . '/tmp', $jar . '.jar');
-    	}
+      }
 
         // Variables to exec jarsigner.
-		$keystore = "/opt/keystore/liquabit_cs.jks";
-		$keystorealias = "liquabit";
+		$keystore = "/opt/keystore/symantec_cs.jks";
+		$keystorealias = "tragsa";
 		$tsaurl = "http://sha256timestamp.ws.symantec.com/sha256/timestamp"; // Timestamp Server used by Symantec. 
 
-        $jarsigner = shell_exec("jarsigner -tsa $tsaurl -keystore $keystore -storepass 13Safter -signedjar $storagePath/$jar_name.signed $jar_uploaded $keystorealias 2>&1");
+        $jarsigner = shell_exec("jarsigner -tsa $tsaurl -keystore $keystore -storepass $password -signedjar $storagePath/$jar_name.signed $jar_uploaded $keystorealias 2>&1");
 
         File::delete($jar_uploaded);
 
@@ -63,7 +63,7 @@ class SignerController extends Controller
 
           $headers = array('Content_Type: application/x-download',);
           
-        return Response::download(storage_path($jar_name . '.signed'), $jar_name . '.signed', $headers);
+        return Response::download(storage_path($jar_name . '.signed'), $jar_name . '.signed', $headers)->deleteFileAfterSend(true);
 
    }
 
@@ -76,20 +76,20 @@ class SignerController extends Controller
         public function signAuthenticode(Request $request)
     {
         if ($request::hasFile('archive')) 
-    	{
+      {
         $storagePath = storage_path();
         $archive = $request::file('archive');
         $archive_type = $request::input('archive_type');
         $password = $request::input('password');
         $archive_name = $request::file('archive')->getClientOriginalName();
         $archive_uploaded = $archive->move($storagePath . '/tmp', $archive . $archive_type);
-    	}
+      }
 
         // Variables to exec jarsigner.
-		$keystore = "/opt/keystore/liquabit_cs.p12";
-		$keystorealias = "liquabit";
+		$keystore = "/opt/keystore/symantec_cs.p12";
+		$keystorealias = "tragsa";
 		//$tsaurl = "http://sha256timestamp.ws.symantec.com/sha256/timestamp"; // Timestamp Server used by Symantec (Java). 
-    $tsaurl = "http://timestamp.verisign.com/scripts/timstamp.dll"; // Timestamp Server used by Symantec (Authenticode).
+    	$tsaurl = "http://timestamp.verisign.com/scripts/timstamp.dll"; // Timestamp Server used by Symantec (Authenticode).
 
         $osslsigncode = shell_exec("osslsigncode sign -pkcs12 $keystore -pass $password -h sha2 -t $tsaurl -in $archive_uploaded -out $storagePath/$archive_name.signed 2>&1");
 
@@ -114,7 +114,7 @@ class SignerController extends Controller
 
           $headers = array('Content_Type: application/x-download',);
           
-        return Response::download(storage_path($archive_name . '.signed'), $archive_name . $archive_type, $headers);
+        return Response::download(storage_path($archive_name . '.signed'), $archive_name . $archive_type, $headers)->deleteFileAfterSend(true);
 
    }
 

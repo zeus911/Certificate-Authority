@@ -3,11 +3,14 @@
 @section('content')
 
 <div class="container">
-    <H2>Certificate details for: <strong>{{ $cn }}</strong></H2>
+    <H2>Certificate Details for: <strong>{{ $cn }}</strong></H2>
+    <H4 class="text-info"><strong>Subject Alternative Name(s): {{ $san }}</strong></H4>
+
     <H3> Issued by: <strong>{{ $issuerCN }}</strong></H3>
-    <p class="text-info"><strong><i class="fa fa-calendar-o" aria-hidden="true"></i> Valid from: {{ $validFrom }}</strong></p>
-    <p class="text-info"><strong><i class="fa fa-calendar-o" aria-hidden="true"></i> Expires on: {{ $validTo }}</strong>
-    <p class="text-info"><strong><i class="fa fa-calendar-o" aria-hidden="true"></i> Updated on: {{ $updated_at }}</strong></p>
+    <p class="text-info"><strong><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Valid from: {{ $validFrom }}</strong></p>
+    <p class="text-info"><strong><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Expires on: {{ $validTo }}</strong>
+    <p class="text-info"><strong><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Updated on: {{ $updated_at }}</strong></p>
+    <p class="text-info"><strong><i class="fa fa-check" aria-hidden="true"></i> Status: {{ $status }}</strong></p>
 
     
     <div class="container">
@@ -271,6 +274,24 @@
                   {{ Form::close() }}
                 </td>
 
+                <td><!-- Key Matcher -->
+                  {{ Form::open(['url' => 'certs/mgmt/keymatcher', 'method' => 'post']) }}
+                  {{csrf_field()}}
+                  <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
+                  <input type="hidden" name="cn" value="{{ $cn }}">
+                  <input type="hidden" name="csrprint" value="{{ $csrprint }}">
+                  <input type="hidden" name="certprint" value="{{ $certprint }}">
+                  <input type="hidden" name="keyprint" value="{{ $keyprint }}">
+
+                  @if($errors->has('cn'))
+                      {{ $errors->first('cn') }} 
+                  @endif
+                  {{ Form::token() }}
+                  {{ Form::submit('Key Matcher', ['class' => 'btn btn-primary btn-md']) }}
+                  {{ Form::close() }}
+                </td>
+
+
                 <td><!-- Renew Certificate -->
                   {{ Form::open(['url' => 'certs/mgmt/renew', 'method' => 'post']) }}
                   {{csrf_field()}}
@@ -283,7 +304,7 @@
                   {{ Form::token() }}
                   {{ Form::submit('Renew Certificate', ['class' => 'btn btn-success btn-md']) }}
                   {{ Form::close() }}
-				</td>
+				        </td>
                 <td><!-- Revoke Certificate -->
                   {{ Form::open(['url' => 'certs/mgmt/revoke', 'method' => 'post']) }}
                   {{csrf_field()}}
@@ -295,7 +316,32 @@
                   {{ Form::token() }}
                   {{ Form::submit('Revoke Certificate', ['class' => 'btn btn-danger btn-md']) }}
                   {{ Form::close() }}
-				</td>
+				        </td>
+                <td><!-- Update table -->
+                  {{ Form::open(['url' => 'certs/mgmt/update', 'method' => 'post']) }}
+                  {{csrf_field()}}
+                  <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
+                  <input type="hidden" name="cn" value="{{ $cn }}">
+                  @if($errors->has('cn'))
+                      {{ $errors->first('cn') }} 
+                  @endif
+                  {{ Form::token() }}
+                  {{ Form::submit('Update CSR/Cert/Key', ['class' => 'btn btn-success btn-md']) }}
+                  {{ Form::close() }}
+                </td>
+                <td><!-- Delete table -->
+                  {{ Form::open(['url' => 'certs/mgmt/delete', 'method' => 'post']) }}
+                  {{csrf_field()}}
+                  <!--{{ Form::label('Common Name: ', 'Common Name: ', ['class' => '']) }}-->
+                  <input type="hidden" name="cn" value="{{ $cn }}">
+                  @if($errors->has('cn'))
+                      {{ $errors->first('cn') }} 
+                  @endif
+                  {{ Form::token() }}
+                  {{ Form::submit('Delete Certificate', ['class' => 'btn btn-danger btn-md']) }}
+                  {{ Form::close() }}
+                </td>
+
 
               </tr>
              </tbody>

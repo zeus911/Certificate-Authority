@@ -12,7 +12,7 @@ Route::get('home', 'HomeController@index');
 // Changelog and To Do´s
 Route::get('changelog', 'HomeController@changelog');
 Route::get('todo', 'HomeController@todo');
-
+Route::get('kb', 'HomeController@kb');
 
 // Certs
 Route::get('certs/create', 'CertsController@create');
@@ -28,6 +28,9 @@ Route::post('certs/mgmt/search/', 'MgmtController@search');
 Route::post('certs/mgmt/viewCSR', [ 'as' => 'viewCSR', 'uses' => 'MgmtController@viewCSR']);
 Route::post('certs/mgmt/update', 'MgmtController@update');
 Route::post('certs/mgmt/updated', 'MgmtController@updated');
+Route::post('certs/mgmt/delete', 'MgmtController@delete');
+Route::post('certs/mgmt/deleted', 'MgmtController@deleted');
+Route::post('certs/mgmt/keymatcher', 'MgmtController@keymatcher');
 // 
 Route::post('certs/mgmt/getCSR', 'GetController@getCSR');
 Route::post('certs/mgmt/getPublicKey', 'GetController@getPublicKey');
@@ -57,27 +60,34 @@ Route::post('converter/getP12', 'ConverterController@getP12');
 Route::get('converter/keystore', 'ConverterController@keystore');
 Route::post('converter/createKeystore', 'ConverterController@createKeystore');
 Route::post('converter/getKeystore', 'ConverterController@getKeystore');
+Route::get('converter/pem2der', 'ConverterController@pem2der');
+Route::get('converter/der2pem', 'ConverterController@der2pem');
+Route::post('converter/derCert', 'ConverterController@derCert');
+Route::post('converter/pemCert', 'ConverterController@pemCert');
+Route::post('converter/getDer', 'ConverterController@getDer');
+
 
 // Dashboard - Search ---- Delete when mgmt is done!..
-Route::get('dashboard/index', 'DashboardController@index');
-Route::post('dashboard/results', 'DashboardController@results');
-Route::post('dashboard/search/', 'DashboardController@search');
-Route::post('dashboard/viewCSR', [ 'as' => 'viewCSR', 'uses' => 'DashboardController@viewCSR']);
-Route::post('dashboard/update', 'DashboardController@update');
-Route::post('dashboard/updated', 'DashboardController@updated');
+Route::get('dashboard', 'DashboardController@index');
+// Route::post('dashboard/results', 'DashboardController@results');
+// Route::post('dashboard/search/', 'DashboardController@search');
+// Route::post('dashboard/viewCSR', [ 'as' => 'viewCSR', 'uses' => 'DashboardController@viewCSR']);
+// Route::post('dashboard/update', 'DashboardController@update');
+// Route::post('dashboard/updated', 'DashboardController@updated');
+
+// // GetController - CSR/Cert/Key/P12. ---- Delete when mgmt is done!..
+// Route::post('dashboard/getCSR', 'GetController@getCSR');
+// Route::post('dashboard/getPublicKey', 'GetController@getPublicKey');
+// Route::post('dashboard/getPrivateKey', 'GetController@getPrivateKey');
+// Route::post('dashboard/getP12', 'GetController@getP12');
 
 
-// GetController - CSR/Cert/Key/P12. ---- Delete when mgmt is done!..
-Route::post('dashboard/getCSR', 'GetController@getCSR');
-Route::post('dashboard/getPublicKey', 'GetController@getPublicKey');
-Route::post('dashboard/getPrivateKey', 'GetController@getPrivateKey');
-Route::post('dashboard/getP12', 'GetController@getP12');
 
-// Renew and Revoke Certificates. ---- Delete when mgmt is done!..
-Route::post('dashboard/renew', 'RenewRevokeController@renew');
-Route::post('dashboard/getRenewed', 'RenewRevokeController@getRenewed');
-Route::post('dashboard/revoke', 'RenewRevokeController@revoke');
-Route::post('dashboard/revoked', 'RenewRevokeController@revoked');
+// // Renew and Revoke Certificates. ---- Delete when mgmt is done!..
+// Route::post('dashboard/renew', 'RenewRevokeController@renew');
+// Route::post('dashboard/getRenewed', 'RenewRevokeController@getRenewed');
+// Route::post('dashboard/revoke', 'RenewRevokeController@revoke');
+// Route::post('dashboard/revoked', 'RenewRevokeController@revoked');
 
 // JavaARchive signer.
 Route::get('signer/jar','SignerController@jar');
@@ -96,7 +106,8 @@ Route::post('signer/results','SignerController@results');
 
 // Donwload Roots and Update/download CRLs.
 Route::get('rootcrl/root','RootCRLController@root');
-Route::post('rootcrl/getRoot','RootCRLController@getRoot');
+Route::post('rootcrl/getRootTRAGSA','RootCRLController@getRootTRAGSA');
+Route::post('rootcrl/getRootLE','RootCRLController@getRootLE');
 Route::get('rootcrl/crl','RootCRLController@crl');
 Route::post('rootcrl/updateCRL','RootCRLController@updateCRL');
 Route::post('rootcrl/getCRL','RootCRLController@getCRL');
@@ -108,6 +119,5 @@ Route::post('le/getCert','LEController@getCert');
 // SSL Decoder.
 Route::get('ssldecoder/','SSLDecoderController@index');
 
-// [Admin] - Update previously generated CSR with the Certificate signed by an external CA.
-Route::get('admin/csr/update', 'AdminCsrController@update');
-Route::post('admin/csr/updateCSRWithCertificate', 'AdminCsrController@updateCSRWithCertificate');
+// Certmon
+//Route::any('certmon', 'CertmonController@index');

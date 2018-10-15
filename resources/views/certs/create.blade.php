@@ -56,7 +56,7 @@
     <br />
     </br>
     {{ Form::token() }}
-    {{ Form::submit('Submit Data', ['class' => 'btn btn-success btn-md']) }}
+    {{ Form::submit('Submit Data', ['class' => 'btn btn-success btn-lg']) }}
     {{ Form::close() }}
     <br />
 </div>

@@ -10,7 +10,7 @@
     <p class="text-info">Separate domain names with <span class="badge badge-dark">Spaces</span>. <strong><a target="_blank" href="https://datatracker.ietf.org/wg/pkix/charter/"/> [PKIX guidelines compatibility]</strong></a></p>
 
     {{ Form::open(['url' => 'csr/created', 'method' => 'post']) }}
-    {{ Form::label('certificate CN: ', 'Certificate CN(s): ', ['class' => '']) }}
+    {{ Form::label('certificate CN: ', 'Certificate CN[+]SANs: ', ['class' => '']) }}
     <input type="text" class="form-control input-md" name="cn" value="{{ (isset($input['cn'])) ? e($input['cn']) : '' }}" placeholder="  Example: cn.domain.com cn2domain.com cn3.domain.com.....">
     @if($errors->has('cn'))
         {{ $errors->first('cn') }} 

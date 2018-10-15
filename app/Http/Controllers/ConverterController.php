@@ -56,7 +56,7 @@ class ConverterController extends Controller
             if($keyprint == 'We do not have the key becouse it has been generated in another device.' OR $certprint == 'Do not apply'){
                return view('errors.ooops', array(
                'cn' => $cn,
-               'error_details' => 'Can´t create P12 archive. No Certificate or PrivateKey available.'));
+               'status' => 'Can´t create P12 archive. No Certificate or PrivateKey available.'));
             }
 
             // Certificate parser (SubjectName...)
@@ -97,7 +97,7 @@ TXoKcfB8UFRI5KBGbyw=
             
             // Arguments to pass to the P12 archive.
             $p12args = array (
-            	'extracerts' => $cacert,
+              'extracerts' => $cacert,
               'friendly_name' => $cn
             );
 
@@ -111,7 +111,7 @@ TXoKcfB8UFRI5KBGbyw=
 
             $headers = array('Content_Type: application/x-download',);
           
-           return Response::download(storage_path($cn . '.p12'), $cn . '.p12', $headers)->deleteFileAfterSend(true);
+           return Response::download(storage_path($cn . '.p12'), $cn . '.p12', $headers);
       	}  
 
     }
@@ -155,7 +155,7 @@ TXoKcfB8UFRI5KBGbyw=
 
             $headers = array('Content_Type: application/x-download',);
           
-           return Response::download(storage_path($cn . '.p12'), $cn . '.p12', $headers)->deleteFileAfterSend(true); 
+           return Response::download(storage_path($cn . '.p12'), $cn . '.p12', $headers)->deleteFileAfterSend(true);
       	}  
    }
 
@@ -204,8 +204,73 @@ TXoKcfB8UFRI5KBGbyw=
 
           $headers = array('Content_Type: application/x-download',);
           
-        return Response::download(storage_path($dstalias . '.jks'), $dstalias . '.jks', $headers);
+        return Response::download(storage_path($dstalias . '.jks'), $dstalias . '.jks', $headers)->deleteFileAfterSend(true);
 
+   }
+
+   public function pem2der()
+   {
+       return view ('converter.pem2der');
+   }
+
+   public function derCert()
+   {
+   	if(isset($_POST['pemCert']) && !empty($_POST['pemCert']) );
+   		$pemCert = $_POST['pemCert'];
+
+   		// Put PEM certificate in file for openssl command.
+        $tmp_storage = '/tmp/';
+        $pemCert = file_put_contents($tmp_storage . 'pemCert.pem', $pemCert);
+
+   		$derCert = shell_exec('openssl x509 -inform PEM -outform DER -text -in /tmp/pemCert.pem -out certificate.crt');
+      File::delete('/tmp/pemCert.pem');
+   		$derCert = 'certificate.crt';
+
+      return view('converter.derCert', array(
+          'derCert' => $derCert ));
+
+      // $headers = array('Content_Type: application/x-download');
+      // return Response::download($derCert, $derCert, $headers)->deleteFileAfterSend(true);
+   }
+
+   public function getDer()
+   {
+    $derCert = 'certificate.crt';
+      $headers = array('Content_Type: application/x-download');
+      return Response::download($derCert, $derCert, $headers)->deleteFileAfterSend(true);
+   }
+
+   public function der2pem()
+   {
+       return view ('converter.der2pem'); 
+   }
+
+   public function pemCert()
+   {
+    if(isset($_POST['derCert']) && !empty($_POST['derCert']) );
+      $derCert = $_POST['derCert'];
+
+      // Put DER certificate in file for openssl command.
+        $tmp_storage = '/tmp/';
+        $derCert = file_put_contents($tmp_storage . 'derCert.crt', $derCert);
+
+      $pemCert = shell_exec('openssl x509 -inform der -in /tmp/derCert.crt -outform pem -out /tmp/certificate.pem');
+dd($pemCert);
+      File::delete('/tmp/derCert.crt');
+      $pemCert = 'certificate.pem';
+dd($pemCert);
+      return view('converter.pemCert', array(
+          'pemCert' => $pemCert ));
+
+      // $headers = array('Content_Type: application/x-download');
+      // return Response::download($derCert, $derCert, $headers)->deleteFileAfterSend(true);
+   }
+
+   public function getPEM()
+   {
+    $pemCert = 'certificate.pem';
+      $headers = array('Content_Type: application/x-download');
+      return Response::download($pemCert, $pemCert, $headers)->deleteFileAfterSend(true);
    }
 
 }

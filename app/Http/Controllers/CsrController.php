@@ -48,7 +48,7 @@ class CsrController extends Controller
             $certprint = 'Do not apply';
             $keyprint = 'Do not apply';
             $p12 = 'PFX archive not generated. You have to re-generate it again if you renewed the certificate.';
-            $config = '/etc/ssl/openssl.cnf';
+            $config = '/etc/ssl/openssl_serv.cnf';
 
 
             // Check if CN already exists.
@@ -66,11 +66,14 @@ class CsrController extends Controller
         "countryName" => 'ES',
         "stateOrProvinceName" => 'Madrid',
         "localityName" => 'Madrid',
-        "organizationName" => 'LIQUABIT CA TEST',
-        "organizationalUnitName" => 'LIQUABIT PoC',
+        "organizationName" => 'TRAGSA',
+        "organizationalUnitName" => 'TRAGSA CA 1',
         "commonName" => $cn,
         //"emailAddress" => $EMailAdress
         );
+
+        // Clean DNS entries.
+        shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1"); 
 
         // Open Config file.
         $data = file_get_contents($config);
@@ -153,6 +156,7 @@ class CsrController extends Controller
             $cert = $_POST['certprint'];
             $key = $_POST['keyprint'];
             $p12 = $_POST['p12'];
+            $status = 'N/A';
 
             // Check if CN already exists.
             $cn_exists = Cert::where('cn', '=', Request::get('cn'))->first();
@@ -180,7 +184,7 @@ class CsrController extends Controller
            
 
            //Csr::create(Request::only('cn', 'certificate_type', 'digest_alg','csr', 'cert', 'key'));
-           Cert::create(Request::only('cn', 'certificate_type', 'digest_alg', 'serial', 'csrprint', 'certprint', 'keyprint', 'p12'));
+           Cert::create(Request::only('cn', 'certificate_type', 'digest_alg', 'serial', 'csrprint', 'certprint', 'keyprint', 'p12', 'status'));
 
            $headers = array('Content_Type: application/x-download',);
           
@@ -227,9 +231,9 @@ class CsrController extends Controller
             {
             	return view ('errors.ooops', array(
             		'cn' => $cn['CN'],
-                    'statuss' => 'Already signed and not revoked.'
+                    'status' => 'Already signed and not revoked.'
             	));
-         
+        
             } elseif ($cn_exists = 'null') {    
 
                 return view ('csr.signed', array(
@@ -274,6 +278,7 @@ class CsrController extends Controller
             $cert = $_POST['certprint'];
             $key = $_POST['keyprint'];
             $p12 = $_POST['p12'];
+            $status = 'Valid'; // but no key
             $password = $_POST['password'];
             $cacert = file_get_contents('/opt/CA/cacert.pem');
             $pkeyid = array(file_get_contents('/opt/CA/private/cakey.pem'), $password );
@@ -292,24 +297,24 @@ class CsrController extends Controller
 			  }
 			  unlink($filename); // Completely deletes the file.
 
-            // In case the CSR file doesn´t include SAN.
-              if($san == ""){
-                $san = 'DNS:' . $cn;
-              }
-            
-            // Include subjectAltName in conf. file.
-            $data = file_get_contents("/etc/ssl/openssl.cnf");
+			  // In case the CSR file doesn´t include SAN.
+			  if($san == ""){
+			  	$san = 'DNS:' . $cn;
+			  }
+
+            // Include subjectAltName in conf.
+            $data = file_get_contents("/etc/ssl/openssl_serv.cnf");
 
             // do replacements.
             $data = str_replace("DNS:",$san, $data);
 
             //save it back.
-            file_put_contents("/etc/ssl/openssl.cnf", $data);
+            file_put_contents("/etc/ssl/openssl_serv.cnf", $data);
             unset($data); // Clears the content of the file.
 
             $configArgs = array(
                 //'config' => '/usr/lib/ssl/openssl.cnf',
-                'config' => '/etc/ssl/openssl.cnf',
+                'config' => '/etc/ssl/openssl_serv.cnf',
                 'encrypt_key' => false,
                 'private_key_type' => OPENSSL_KEYTYPE_RSA,
                 'digest_alg' => $digest_alg,
@@ -355,7 +360,7 @@ class CsrController extends Controller
             shell_exec("sudo /opt/subjectAltNameRemoval.sh 2>&1");
 
             // Creates records for the giving $CN.
-            Cert::create(Request::only('cn', 'certificate_type', 'digest_alg', 'serial', 'csrprint', 'certprint', 'keyprint', 'p12'));
+            Cert::create(Request::only('cn', 'certificate_type', 'digest_alg', 'serial', 'csrprint', 'certprint', 'keyprint', 'p12', 'status'));
 
             // Updates de table with the 'cert' generated above.
             Cert::where('cn', $cn)->update(['certprint' => $certprint]);

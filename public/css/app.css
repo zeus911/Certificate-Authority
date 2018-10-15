@@ -133,7 +133,8 @@ sub {
 }
 
 img {
-    vertical-align: middle
+    vertical-align: middle;
+    padding-top: 12px
 }
 
 svg:not(:root) {
@@ -5086,8 +5087,8 @@ tbody.collapse.in {
         float: left
     }
     .navbar-nav>li>a {
-        padding-top: 14px;
-        padding-bottom: 14px
+        padding-top: 20px;
+        padding-bottom: 20px
     }
 }
 
@@ -5240,7 +5241,9 @@ tbody.collapse.in {
 
 .navbar-default .navbar-nav>li>a,
 .navbar-default .navbar-text {
-    color: #777
+    color: #777;
+    padding-top: 20px;
+    padding-bottom: 20px
 }
 
 .navbar-default .navbar-nav>li>a:focus,
