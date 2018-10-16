@@ -1,6 +1,5 @@
 # Private Certificate Authority Front-End for OpenSSL
 
-<h3>Download <a href="https://liquabit.com/get/cavm">Virtual Machive</h3></a>
 
 <h3>Description:</h3> 
 1. Certificate Server Requests (CSR/REQ).<br />
@@ -11,6 +10,11 @@
 6. Update, Renew, Revoke, Delete certificates.<br />
 7. Check if CSR/Certificate/PrivateKey matches.<br />
 8. More TLS tools...
+
+<h3>Download <a href="https://liquabit.com/get/cav2vm">Virtual Machine</h3></a>
+<p>This VM is build with Oracle Virtual Box 5.2.</p>
+
+If you prefer to install everythging fron scratch
 
 <h3>Installation:</h3>
 1. git clone https://github.com/lopeaa/certificate-authority.<br />
