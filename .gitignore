@@ -10,7 +10,6 @@ app/storage/
 public/storage
 public/hot
 storage/*.key
-storage/*.cer
 storage/*.crt
 storage/*.p12
 storage/public-keys
