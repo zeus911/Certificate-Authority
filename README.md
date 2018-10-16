@@ -1,4 +1,4 @@
-# Private Certificate Authority Front-End for OpenSSL
+# Certificate Authority Front-End for OpenSSL
 
 
 <h3>Description:</h3> 
