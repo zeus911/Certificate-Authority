@@ -37,7 +37,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -50,7 +50,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://labs.tragsa.es/'),
+    'url' => env('APP_URL', 'https://ca.liquabit.com/'),
 
     /*
     |--------------------------------------------------------------------------
