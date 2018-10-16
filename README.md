@@ -14,8 +14,7 @@
 <h3>Download <a href="https://liquabit.com/get/cav2vm">Virtual Machine</h3></a>
 <p>This VM is build with Oracle Virtual Box 5.2.</p>
 
-If you prefer to install everythging fron scratch
-
+<h3>If you prefer to install everythging fron scratch</h3>
 <h3>Installation:</h3>
 1. git clone https://github.com/lopeaa/certificate-authority.<br />
 2. Replace/create .env file with yours.<br />
