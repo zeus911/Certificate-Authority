@@ -5,7 +5,7 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.1.22",
+        "php": ">=7.1.23",
         "laravel/framework": "5.5.*",
         "laravelcollective/html": "^5.5.0",
         "arcanedev/log-viewer": "~4.3", 
