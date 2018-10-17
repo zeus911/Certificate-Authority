@@ -12,7 +12,7 @@
     <title>{{ config('app.name', '') }}</title>
 
     <!-- .ico -->
-    <link rel="icon" href="{{URL::asset('tragsa.ico') }}"/>
+    <link rel="icon" href="{{URL::asset('favicon.ico') }}"/>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
@@ -64,7 +64,7 @@
             <div class="container">
                 <div class="navbar-header">
 					<a href="{{ url('certs/mgmt/') }}">
-						<img src="{{URL::asset('/img/tragsa_logo.gif')}}" alt="TRAGSA CA - Home">
+						<img src="{{URL::asset('/img/logo.png')}}" alt="CA - Home">
 					</a>
 
                     <!-- Collapsed Hamburger -->
@@ -245,7 +245,7 @@
     </div>
     <br />
     <!-- footer -->
-    <div class="text-info"><center><strong><img src="{{URL::asset('/img/tragsa_icon_xs.png')}}">TRAGSA, 2016 - {{ date('F Y') }}.</strong></center></div>
+    <div class="text-info"><center><strong><img src="{{URL::asset('/img/logo_icon_xs.png')}}">LIQUABIT | Prototypes, 2016 - {{ date('F Y') }}.</strong></center></div>
     <div class="text-nuted"><center><strong><i class="fa fa-quote-left" aria-hidden="true"></i> Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning...<i class="fa fa-quote-right" aria-hidden="true"></i></strong></center></div>
     <br />
 

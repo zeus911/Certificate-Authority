@@ -56,7 +56,7 @@
             <div class="container">
                 <div class="navbar-header">
 					<a href="{{ url('certs/mgmt/') }}">
-						<img src="{{URL::asset('/img/tragsa_logo.gif')}}" alt="TRAGSA CA - Home">
+						<img src="{{URL::asset('/img/logo.png')}}" alt="CA - Home">
 					</a>
 
                     <!-- Collapsed Hamburger -->
@@ -239,7 +239,7 @@
     <!-- footer -->
     <!-- <div class="footer navbar-fixed-bottom"> -->
     <footer>
-    	<div class="text-info"><center><strong><img src="{{URL::asset('/img/tragsa_icon_xs.png')}}">2016 - {{ date('F Y') }}.</strong></center></div>
+    	<div class="text-info"><center><strong><img src="{{URL::asset('/img/logo_icon_xs.png')}}">LIQUABIT | Prototypes, 2016 - {{ date('F Y') }}.</strong></center></div>
     	<div class="text-muted"><center><strong><i class="fa fa-quote-left" aria-hidden="true"></i> Learn from yesterday, live for today, hope for tomorrow. The important thing is not to stop questioning...<i class="fa fa-quote-right" aria-hidden="true"></i></strong></center></div>
     <br />
 	</footer>
